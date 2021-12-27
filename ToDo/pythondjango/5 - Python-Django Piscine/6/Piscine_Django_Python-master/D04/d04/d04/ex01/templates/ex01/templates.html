@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% block title %}
+Templates
+{% endblock %}
+
+
+{% load static %}
+
+  {% block style %}
+  <link rel="stylesheet" type="text/css" href="{% static "style2.css" %}">
+  {% endblock %}
+
+
+
+{% block content %} 
+{% include 'nav.html' %}
+<h1>Templates</h1>
+<p>Ca n'est pas compliqué :
+    <ul>
+    <li>tu fais un fichier html template de base (par ex base.html) que tu mets dans le répertoire templates de ton app ou dans un repertoire global definit dans le parametre DIRS de TEMPLATES</li>
+    <li>tu y inclus des  blocs du style <p>&#123;% block mon_bloc %&#125;</p> <p>du html...</p> <p>&#123;% endblock %&#125;</p> </li>
+    <li>tu inclus dans tes templates un &#123;% extends 'base.html' %&#125;</li>
+    <li>tu configures une route dans le fichier urls.py de ton app qui pointe sur une vue</li>
+    <li>dans cette vue, tu fais appel à la fonction render() en lui passant un template en parametre...</li>
+    </ul>
+ 	En plus de cela, tu peux utiliser des balises pour faire :
+     <ul>
+    <li>l'inclusion de variables avec &#123;&#123; ma_variable &#125;&#125;</li>
+    <li>des boucles avec &#123;% for xx in yy %&#125;</li>
+    <li>des conditions avec &#123;% if mon_parametre == 2 %&#125;</li>
+    <li>de l'inclusion d'un autre template avec &#123;% include 'autre/template.html' %&#125;</li>
+    </ul>
+</p> 
+<h2>Django c'est drôlement chouettte ! </h2>
+
+{% endblock %} 

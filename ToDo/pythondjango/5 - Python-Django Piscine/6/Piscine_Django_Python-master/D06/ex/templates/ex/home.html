@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block headlines %}
+Home sweet home
+{% endblock %}
+{% block content %} 
+{% include 'nav.html' %}
+
+<h1> Bienvenue sur mon site de trucs et astuces </h1>
+
+
+{% if user.is_authenticated %}
+<h2> Saisissez un nouveau truc ou une nouvelle astuce </h2>
+<div>
+    <form method="POST" class='form'>
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' name='tipform' value='Valider'>
+    </form>
+</div>
+<div>
+{% endif %}
+
+<div>
+    <h2>Tous les trucs et astuces du site</h2>
+    <div class='tricklist'>
+    <ul class='list-group'>
+    {% for tip in tips %}
+        <li class='list-group-item'>
+            {{ tip }}
+            {% if user.is_authenticated %}
+            <form method='POST' class='form'>
+            {% csrf_token %}
+            <input type='hidden' name='tipid' value='{{ tip.id }}'>
+            <input type='submit' name='deletetip' value='Supprimer'>
+            <input type='submit' name='upvote' value='Upvote'>
+            <input type='submit' name='downvote' value='Downvote'>
+            </form>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+    </div>
+</div>
+
+{% endblock %} 

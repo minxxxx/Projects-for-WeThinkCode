@@ -1,0 +1,23 @@
+{% extends "Rush00/layout.html" %}
+
+{% block content %}
+<div class="poster" style="background-image:url('{{detail.Poster}}');">
+</div>
+<div class="miniaturedetail">
+
+
+
+<div class="detail2">
+	{{detail.Title}}<br/>
+	{{detail.Director}}<br/>
+	{{detail.imdbRating}}<br/>
+	{{detail.Year}}<br/>
+	{{detail.Actors}}<br/>
+	<span>
+	{{detail.Plot}}
+	</span>
+</div>
+
+
+</div>
+{% endblock %}

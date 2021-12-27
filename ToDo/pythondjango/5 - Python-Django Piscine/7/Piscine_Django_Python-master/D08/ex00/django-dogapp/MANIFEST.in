@@ -1,0 +1,6 @@
+include LICENSE
+include README.rst
+recursive-include dogapp/static *
+recursive-include dogapp/templates *
+recursive-include dogapp/media *
+recursive-include docs *

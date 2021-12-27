@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+Formulaire
+{% endblock %}
+
+{% block content %} 
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' value='Submit'>
+    </form>
+</div>
+<div>
+    <h2>Historique de la page</h2>
+    <div class='historique'>
+    <ul>
+    {% for msg in msgs %}
+    <li>
+        {{ msg }}
+    </li>
+    {% endfor %}
+    </ul>
+    </div>
+</div>
+
+{% endblock %} 

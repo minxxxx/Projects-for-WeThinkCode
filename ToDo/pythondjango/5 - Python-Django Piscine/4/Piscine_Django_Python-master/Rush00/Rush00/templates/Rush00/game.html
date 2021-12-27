@@ -1,0 +1,12 @@
+{% extends "Rush00/layout.html" %}
+
+{% block content %}
+	<img src="
+	https://maps.googleapis.com/maps/api/staticmap?center={{LATI}},{{LONG}}&zoom=15&tile=0&size=300x300&maptype=roadmap&key=AIzaSyAaI6GsGp-nmqzU67hLXNlqpqE94i7UvTQ
+	" class="vuemap noisy ">
+	<div class="player"></div>
+	{% if etat == "attack" %}<div class="message">Attaque de {{movietitle}}</div>{% endif %}
+	<div class="moviballs"> MovieBalls: {{movieball}} {% if etat == "ball" %} -> +1 MovieBall {% endif %}
+		<div class="coord">[{{mapx}} : {{mapy}}]</div>
+	</div>
+{% endblock %}

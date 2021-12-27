@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+Affichage
+{% endblock %}
+{% block content %} 
+{% include 'nav.html' %}
+
+    <h1>
+    Les templates en mode statique
+    </h1>
+    <p>C'est pourtant simple :</p>
+    <ul>
+    <li>tu fais un fichier html template que tu mets dans le répertoire templates de ton app</li>
+    <li>tu configures une route dans le fichier urls.py de ton app qui pointe sur une vue</li>
+    <li>dans cette vue, tu fais appel à la fonction render()</li>
+    </ul>
+    <h2>That's all folks!</h2>
+
+{% endblock %} 

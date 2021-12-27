@@ -1,0 +1,6 @@
+title = "Un super CV"
+firstname = "Antoine"
+name = "Jouannais"
+age = "53"
+profession = "génie"
+score = "42"

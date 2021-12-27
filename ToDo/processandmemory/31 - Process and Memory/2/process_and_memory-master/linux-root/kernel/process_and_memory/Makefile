@@ -1,0 +1,1 @@
+obj-$(CONFIG_SYSCALL_PROCESS_AND_MEMORY) := p_and_m.o

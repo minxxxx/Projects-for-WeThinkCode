@@ -1,0 +1,11 @@
+CSRC += $(addprefix files/,	ft_get_list.c\
+							ft_print_stack.c\
+							functions.c\
+							options.c\
+							options_file.c)
+
+PSRC += $(addprefix files/,	ft_get_list.c\
+							ft_print_stack.c\
+							functions.c\
+							options.c\
+							options_file.c)

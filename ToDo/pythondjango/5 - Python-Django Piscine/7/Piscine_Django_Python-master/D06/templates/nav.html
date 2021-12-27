@@ -1,0 +1,18 @@
+{% if user.is_authenticated %}
+Hello {{ user }}
+{% elif usador %}
+Hello {{ usador }}!
+{% endif %}
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+ 		<a class="navbar-brand" href="/">Home</a> 
+ 		</div>
+{% if user.is_authenticated %}
+ 		<a href="/logout/">logout</a> 
+{% elif usador %}
+		<a href="/inscription/">Inscription</a> |
+		<a href="/connexion/">Connexion</a> 
+{% endif %}
+ 	</div>
+</nav>

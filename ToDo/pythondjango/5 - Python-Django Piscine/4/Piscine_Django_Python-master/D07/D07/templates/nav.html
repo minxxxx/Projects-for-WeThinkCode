@@ -1,0 +1,21 @@
+{% if user.is_authenticated %}
+Hello {{ user }}
+{% endif %}
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+ 		<a class="navbar-brand" href="/">Home</a> 
+ 		</div>
+		<ul class="nav navbar-nav">
+{% if user.is_authenticated %}
+		<li><a class="navbar-nav" href="{% url 'articles' %}">Articles</a></li>
+		<li><a class="navbar-nav" href="{% url 'publications' %}">Publications</a></li>
+		<li><a class="navbar-nav" href="{% url 'favorites' %}">Favorites</a></li>
+ 		<li><a class="navbar-nav" href="{% url 'logout' %}">Logout</a></li>
+{% else %}
+		<li><a class="navbar-nav" href="{% url 'register' %}">Register</a></li>
+		<li><a class="navbar-nav" href="{% url 'login' %}">Login</a></li>
+{% endif %}
+		</ul>
+ 	</div>
+</nav>

@@ -1,0 +1,46 @@
+<form>
+    <div>
+        <label for="firstname">Firstname:</label>
+        <input type="text" id="firstname" name="user_firstname">
+    </div>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="user_name">
+    </div>
+    <div>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="user_phone">
+    </div>
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="user_age" min="0"></textarea>
+    </div>
+    
+    <div>
+        <label for="mail">Email:</label>
+        <input type="email" id="email" name="user_mail">
+    </div>
+    <div>
+        <input type="checkbox" id="student" value="student">Student at 42?<br>
+        
+    </div>
+         <legend>Gender:</legend>
+
+    <div>
+    <input type="radio" id="gender_male"
+     name="contact" value="email">
+    <label for="contactChoice1">Male</label>
+
+    <input type="radio" id="gender_female"
+     name="contact" value="telephone">
+    <label for="contactChoice2">Female</label>
+
+    <input type="radio" id="gender_other"
+     name="contact" value="courrier">
+    <label for="contactChoice3">Other</label>
+  </div>
+
+    <script src="popup.js"></script>
+
+    <input type="submit" value="Submit" onclick="displayFormContents();">
+</form>

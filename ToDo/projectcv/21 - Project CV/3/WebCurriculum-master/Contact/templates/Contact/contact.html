@@ -1,0 +1,49 @@
+<section class="w3-container w3-card-4">
+    <header>
+        <h2>Contact Me</h2>
+    </header>
+    <main  class="w3-row">
+        <section class="w3-col m5">
+            <header>
+                <h3>Address</h3>
+            </header>
+            <main>
+                <p><i class="fa fa-map-marker w3-xlarge"></i>&nbsp;&nbsp;&nbsp;{{ profiles.0.town }}</p>
+                <p><i class="fa fa-phone w3-xlarge"></i>&nbsp;&nbsp;{{ profiles.0.phone_nbr }}</p>
+                <p><i class="fa fa-envelope-o w3-xlarge"></i>&nbsp;&nbsp;{{ profiles.0.email }}</p>
+            </main>
+        </section>
+        <section class="w3-col m7">
+            {% if form.valid %}Message sent !{% endif %}
+            <form class="w3-container" action="{% url 'Core.views.index' %}" method="post">
+                {% csrf_token %}
+                <div class="w3-group">
+                    <input name="name" class="w3-input" type="text" style="width:95%" required>
+                    <label class="w3-label">Name</label>
+                </div>
+                <div class="w3-group">
+                    <input name="sender" class="w3-input" type="email" style="width:95%" required>
+                    <label class="w3-label">Email</label>
+                </div>
+                <div class="w3-group">
+                    <textarea name="message" class="w3-input" style="width:95%" required></textarea>
+                    <label class="w3-label">Message</label>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-quarter">
+                        <label class="w3-checkbox">
+                            <input type="checkbox" name="copy" checked="checked">
+                            <div class="w3-checkmark"></div>
+                            CC
+                        </label><br>
+                    </div>
+                    <div class="w3-half"></div>
+                </div>
+                <div class="w3-container w3-right">
+                    <input class="w3-btn" type="submit" value="Submit"/>
+                </div>
+            </form>
+	    </br>
+        </section>
+    </main>
+</section>

@@ -1,0 +1,44 @@
+{% load static %}
+<section class="w3-container w3-red">
+    <header>
+        <h1>Portfolio</h1>
+    </header>
+    <main class="w3-row">
+        {% for project in projects %}
+        <div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 600px; height: 300px;">
+        <!-- Slides Container -->
+            <div u="slides" style="cursor: move; position: absolute; overflow: hidden; left: 0px; top: 0px; width: 600px; height: 300px;">
+                    <div class="w3-quarter">
+                        <h4>{{ project.name }}</h4>
+                        <p>{{ project.description }}</p>
+                        <img style="width:50%;" src="{{ project.image.url }}"/>
+                    </div>
+
+            </div>
+        </div>
+        {% empty %}
+            <div>No projects yet.</div>
+        {% endfor %}
+    </main>
+    <script src="{% static "Portfolio/js/jquery-1.9.1.min.js" %}"></script>
+    <script src="{% static "Portfolio/js/jssor.slider.mini.js" %}"></script>
+    <script>
+        jQuery(document).ready(function ($){
+            var options = { $AutoPlay: true };
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizes
+            function ScaleSlider() {
+               var bodyWidth = document.body.clientWidth;
+               if (bodyWidth)
+                   jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1920));
+               else
+                   window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+        });
+   </script>
+</section>

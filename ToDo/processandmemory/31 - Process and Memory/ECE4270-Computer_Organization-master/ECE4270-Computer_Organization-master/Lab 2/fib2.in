@@ -1,0 +1,18 @@
+addi $t0, $zero, 34
+addi $t1, $zero, 1
+addi $t2, $zero, 0
+addi $t3, $zero, 0
+addi $t4, $zero, 0
+beq $t3, $t0, 44
+addi $t5, $zero, 1
+sub $t6, $t3, $t5
+bltz $t6, 20
+add $t4, $t1, $t2
+add $t2, $zero, $t1
+add $t1, $zero, $t4
+j 4194360
+add $t4, $zero, $t3
+addi $t3, $t3, 1
+j 4194324
+addi $v0, $zero, 10
+syscall

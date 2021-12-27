@@ -1,0 +1,15 @@
+{% extends "Rush00/layout.html" %}
+
+{% block content %}
+<center>Savegame
+<br /><br /><br />
+{% for key, value in slotsMy %}
+	<p class= "{% if name == key %} test {% endif %}">
+			{{ key }}.pickle | {{value}} /
+			{% for kay, valay in slotsmon %}
+				{% if key == kay %} {{valay}} {% endif %}
+			{% endfor %}
+	</p>
+{% endfor %}
+</center>
+{% endblock %}

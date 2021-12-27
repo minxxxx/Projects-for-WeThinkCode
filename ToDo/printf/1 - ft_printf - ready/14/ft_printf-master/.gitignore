@@ -1,0 +1,10 @@
+
+
+/build
+*.DS_Store
+/test
+/libftprintf.a
+/libft/build
+/libft/libft.a
+/test.dSYM
+__.SYMDEF\ SORTED

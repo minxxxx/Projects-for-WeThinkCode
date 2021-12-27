@@ -1,0 +1,5 @@
+Collecting git+https://github.com/jaraco/path.py.git
+  Cloning https://github.com/jaraco/path.py.git to /var/folders/zz/zyxvpxvq6csfxvn_n0002kz4000mqs/T/pip-hqnbli3o-build
+Installing collected packages: path.py
+  Running setup.py install for path.py
+Successfully installed path.py

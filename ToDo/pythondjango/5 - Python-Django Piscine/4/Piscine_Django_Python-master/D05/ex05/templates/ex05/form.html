@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+
+{% block headlines %}
+ex05 remove
+{% endblock %}
+
+{% block content %} 
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        <SELECT name='selectedTitle'>
+        {% for val in listTitles %}
+        	<option value='{{ val }}'>{{ val }}</option>
+        {% endfor %}
+        </SELECT>
+        <input type='submit' value='Submit'>
+    </form>
+</div>
+
+{% endblock %} 

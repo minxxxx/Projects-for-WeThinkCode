@@ -1,0 +1,36 @@
+{% extends 'dogapp/dogbase.html' %} 
+
+{% block headlines %}
+Dog Images
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static "css/format.css" %}" />
+{% endblock %}
+
+
+{% block content %} 
+<h1>A site for dog images</h1>
+    <p>Choose files :</p >
+    <form   method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    <ul>
+    {% for file in files %}
+        <li>
+            <img src={{ file.file.url }} alt="Go to W3Schools!" width="50">
+            <a href={{ file.file.url }} >
+                {{ file.name }}
+                </a>
+        </li>
+        {% empty %}
+        No file yet.
+        {% endfor %}
+    </ul>
+
+{% endblock %} 
+
+

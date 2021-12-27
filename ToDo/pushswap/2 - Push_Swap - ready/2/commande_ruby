@@ -1,0 +1,2 @@
+./push_swap `ruby -e "puts (-1000..1000).to_a.shuffle.join(' ')"`
+./push_swap `ruby -e "puts (-5000..5000).to_a.reverse.insert(rand(800) + 1000, 10001).join(' ')"`

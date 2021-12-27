@@ -1,0 +1,3 @@
+**Push_swap/** is an implementation of sorting algorithms (merge sort, quick sort, select sort, bubble sort…) for sort an list with two stacks (A and B) wich an minimum instructions like "Push an number of stack A to B, rotate stack B" (If you need to Understand : http://badfuretgame.livehost.fr/42/push_swap42V1.01/ )
+
+Difficulty 2

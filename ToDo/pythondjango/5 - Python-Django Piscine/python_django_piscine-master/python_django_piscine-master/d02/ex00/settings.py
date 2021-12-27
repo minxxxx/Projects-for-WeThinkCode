@@ -1,0 +1,5 @@
+title='NewCV'
+name='Artem'
+surname='Li'
+age='29'
+profession='developer'

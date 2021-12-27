@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>myCV</title>
+	</head>
+	<body>
+		<h1>{title}</h1>
+		<p>"-What is your name?
+		-My name is {name}."</p>
+		<p>"-What is your surname?
+		-My surname is {surname}."</p>
+		<p>"-How old are you?
+		-I am {age} years old."</p>
+		<p>"-What is your profession?
+		-I am a {profession}."</p>
+	</body>
+</html>

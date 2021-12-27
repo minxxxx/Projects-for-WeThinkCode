@@ -1,0 +1,7 @@
+menu "Process and Memory"
+
+config SYSCALL_PROCESS_AND_MEMORY
+	bool "Enables the syscall for the Process and Memory project"
+	default y
+
+endmenu

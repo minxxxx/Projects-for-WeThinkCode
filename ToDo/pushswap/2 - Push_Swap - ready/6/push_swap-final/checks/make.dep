@@ -1,0 +1,4 @@
+CSRC += $(addprefix checks/,ft_checker.c\
+							main_checker.c)
+
+PSRC += $(addprefix checks/, ft_checker.c)

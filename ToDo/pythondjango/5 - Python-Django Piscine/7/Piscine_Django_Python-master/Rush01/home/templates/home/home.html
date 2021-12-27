@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block real_content %}
+
+    <p>Home page</p>
+
+    <p>On doit afficher les fonctionnalites du site ici si on est loggeé?</p>
+
+    {% if request.user.is_authenticated %}
+        <p>{{ request.user.username }}</p>
+    {% endif %}
+
+    <br><br>
+
+    <form method="POST">
+        {% csrf_token %}
+        {% if request.user.is_authenticated %}
+            <input type="submit" value="Submit">
+        {% endif %}
+        <input type="hidden" value="submit" name="val">
+    </form>
+
+{% endblock %}

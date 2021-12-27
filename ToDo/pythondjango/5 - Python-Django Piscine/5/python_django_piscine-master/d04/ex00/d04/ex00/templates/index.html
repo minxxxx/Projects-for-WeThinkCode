@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ex00: Markdown Cheatsheet.</title>
+</head>
+<body>
+	{{Infobox file format
+| name = Markdown
+| logo = Markdown-mark.svg
+| screenshot = 
+| caption = 
+| _noextcode = on
+| extension = 
+| extensions = <code>.md</code>, <code>.markdown</code><ref>Daring Fireball [http://daringfireball.net/linked/2014/01/08/markdown-extension statement] by creator John Gruber</ref><ref name="rfc7763"/>
+| _nomimecode = on
+| mime = <code>text/markdown</code><ref name="rfc7763">[https://tools.ietf.org/html/rfc7763 RFC 7763] - The text/markdown Media Type</ref>
+| type code = 
+| uniform type = <code>net.daringfireball.markdown</code>
+| conforms to = 
+| magic = 
+| owner = John Gruber
+| released = </ref>
+| latest release version = 1.0.1
+| latest release date = <ref name="md" />
+| genre = Markup language
+| container for = 
+| contained by = 
+| extended from = 
+| extended to = MultiMarkdown, Markdown Extra, CommonMark<ref name="rfc7764">[https://tools.ietf.org/html/rfc7764 RFC7764] – Guidance on Markdown:  Design Philosophies, Stability Strategies, and Select Registrations</ref>
+| standard = 
+| free = yes<ref name="license"></ref>
+| url = 
+}}
+
+Markdown is a lightweight markup language with plain text formatting syntax. It is designed so that it can be converted to HTML and many other formats using a tool by the same name.<ref></ref> Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor. As the initial description of Markdown contained ambiguities and unanswered questions, many implementations and extensions of Markdown appeared over the years to answer these issues.
+
+History
+John Gruber created the Markdown language in 2004 in collaboration with Aaron Swartz on the syntax,<ref name="markdown-swartz"/><ref name="gruber-2004-release"/> with the goal of enabling people "to write using an easy-to-read, easy-to-write plain text format, and optionally convert it to structurally valid XHTML (or HTML)".<ref name="md">Markdown 1.0.1 readme source code </ref>
+
+The key design goal is readability – that the language be readable as-is, without looking like it has been marked up with tags or formatting instructions,<ref name="philosophy">Markdown Syntax 
+
+Gruber wrote a Perl script, ' with their corresponding character entity references. It can be used as a standalone script, as a plugin for Blosxom or Movable Type, or as a text filter for BBEdit.<ref name="md" />
+
+Markdown has since been re-implemented by others as a Perl module available on CPAN (</ref>
+
+Sites such as GitHub, Bitbucket, Reddit, Diaspora, Stack Exchange, OpenStreetMap, and SourceForge use variants of Markdown to facilitate discussion between users.<ref name="gfm_on_github"></ref>
+  
+ Standardization 
+Markdown has been characterised by an informal specification<ref>https://daringfireball.net/projects/markdown/syntax</ref> and a reference implementation for conversion to HTML. Over time, many Markdown implementations have appeared. People developed these mostly driven by the need for additional features on top of the base syntax—such as tables, footnotes, definition lists, and Markdown inside HTML blocks. The behavior of some of these diverges from the reference implementation. At the same time, a number of ambiguities in the informal specification have attracted attention<ref>See, for example, https://github.github.com/gfm/#why-is-a-spec-needed-</ref>.  These issues spurred an effort by some developers of Markdown parsers for standardisation.
+
+Babelmark<ref>
+</ref>
+
+In March 2016 <nowiki>RFC 7763</nowiki> and <nowiki>RFC 7764</nowiki> were published. <nowiki>RFC 7763</nowiki> introduced MIME type <small></ref>
+
+ CommonMark 
+{{Infobox file format
+| name                   = CommonMark
+| logo                   = Markdown-mark.svg
+| screenshot             = 
+| caption                = 
+|_noextcode              = on
+| extensions             = <code>.md</code>, <code>.markdown</code><ref name="rfc7763"/>
+|_nomimecode             = on
+| mime                   = <code>text/markdown; variant=CommonMark</code><ref name="rfc7764"/>
+| type code              = 
+| uniform type           = uncertain<ref name="cm-uti"></ref>
+| conforms to            = public.plain-text
+| magic                  = 
+| owner                  = John MacFarlane, open source
+| released               = 
+| latest release version = 0.28
+| latest release date    = </ref>
+| genre                  = Markup language
+| container for          = 
+| contained by           = 
+| extended from          = Markdown
+| extended to            = GitHub Flavored Markdown
+| standard               = 
+| free                   = yes
+| url                    = 
+}}
+
+From 2012, a group of people including Jeff Atwood and  John MacFarlane launched what Atwood characterized as a standardization effort.<ref name="FutureOfMarkdown"></ref>
+
+ GFM 
+In 2017, GitHub released a formal specification of their GitHub Flavored Markdown (GFM) that is based on CommonMark.<ref></ref>. 
+GitHub also changed the parser used on their sites accordingly, which required that some documents be changed—e.g., it now requires a space after the hash signs of a heading.
+
+ Markdown Extra 
+Markdown Extra is a lightweight markup language based on Markdown implemented in PHP (originally), Python and Ruby. It adds features not available with plain Markdown syntax. Markdown Extra is supported in content management systems, for example Drupal,<ref>[https://drupal.org/project/markdowneditor Markdown editor for BUEditor]</ref> TYPO3<ref>[http://typo3.org/extensions/repository/view/markdown_content Markdown for TYPO3]</ref> and MediaWiki.<ref>[http://www.mediawiki.org/wiki/Extension:MarkdownExtraParser MarkdownExtraParser for MediaWiki]</ref>
+
+It adds the following features to Markdown:
+* Markdown inside HTML blocks
+* Elements with id/class attribute
+* Fenced code blocks
+* Tables<ref>[http://michelf.com/projects/php-markdown/extra/#table PHP Markdown Extra - Tables]</ref>
+* Definition lists
+* Footnotes
+* Abbreviations
+
+ Example 
+
+{|class="wikitable"
+! width="33%" Text using Markdown syntax 
+! width="34%" Corresponding HTML produced by a Markdown processor 
+! width="33%" Text viewed in a browser
+|-valign="top"
+|
+<source lang="md">
+# Heading
+
+## Sub-heading
+
+Paragraphs are separated
+by a blank line.
+
+Two spaces at the end of a line  
+produces a line break.
+
+Text attributes _italic_, 
+ *bold**, `monospace`.
+
+Horizontal rule:
+
+---
+
+Bullet list:
+
+  * apples
+  * oranges
+  * pears
+
+Numbered list:
+
+  1. wash
+  2. rinse
+  3. repeat
+
+A [link](http://example.com).
+
+![Image](Image_icon.png)
+
+> Markdown uses email-style > characters for blockquoting.
+
+Inline <abbr title="Hypertext Markup Language">HTML</abbr> is supported.
+</source>
+|
+<syntaxhighlight lang="html">
+<h1>Heading</h1>
+
+<h2>Sub-heading</h2>
+
+<p>Paragraphs are separated
+by a blank line.</p>
+
+<p>Two spaces at the end of a line<br />
+produces a line break.</p>
+
+<p>Text attributes <em>italic</em>, 
+<strong>bold</strong>, <code>monospace</code>.</p>
+
+<p>Horizontal rule:</p>
+
+<hr />
+
+<p>Bullet list:</p>
+
+<ul>
+<li>apples</li>
+<li>oranges</li>
+<li>pears</li>
+</ul>
+
+<p>Numbered list:</p>
+
+<ol>
+<li>wash</li>
+<li>rinse</li>
+<li>repeat</li>
+</ol>
+
+<p>A <a href="http://example.com">link</a>.</p>
+
+<p><img alt="Image" src="Image_icon.png" /></p>
+
+<blockquote>
+<p>Markdown uses email-style &gt; characters for blockquoting.</p>
+</blockquote>
+
+<p>Inline <abbr title="Hypertext Markup Language">HTML</abbr> is supported.</p>
+</syntaxhighlight>
+|
+
+Heading
+
+Sub-heading
+
+Paragraphs are separated
+by a blank line.
+
+Two spaces at the end of a line<br />
+produces a line break.
+
+Text attributes italic, 
+bold, <code>monospace</code>.
+
+Horizontal rule:
+
+<hr />
+
+Bullet list:
+
+* apples
+* oranges
+* pears
+
+Numbered list:
+
+# wash
+# rinse
+# repeat
+
+A [http://example.com link].
+
+
+
+<blockquote>
+Markdown uses email-style &gt; characters for blockquoting.
+</blockquote>
+
+Inline <abbr title="Hypertext Markup Language">HTML</abbr> is supported.
+|}
+
+Implementations
+
+Implementations of Markdown are available for over a dozen programming languages; in addition, many platforms and frameworks support Markdown.<ref></ref>
+
+While Markdown is a minimal markup language and is read and edited with a normal text editor, there are specially designed editors that preview the files with styles, which are available for all major platforms. Many general purpose text and code editors have syntax highlighting plugins for Markdown built into them or available as optional download. Editors may feature a side-by-side preview window or render the code directly in a WYSIWYG fashion.
+
+* The sourcecode documentation generator Doxygen supports Markdown with extra features.<ref></ref>
+* RStudio, an IDE for R provides a C++ wrapper function for a markdown variant called sundown.<ref></ref>
+* GitHub Flavored Markdown (GFM) ignores underscores in words, and adds syntax highlighting, task lists,<ref></ref>
+* Discount - a C implementation.<ref></ref>
+* MarkAPL is a converter written in Dyalog APL. It supports fenced blocks, smart typography, link references, and special attributes, and can generate a table of contents.<ref></ref>
+* PHP Markdown - a library package that includes the PHP Markdown parser and its sibling PHP Markdown Extra with additional features.<ref></ref>
+* Markdig - A .NET library that follows the CommonMark specifications, and includes a collection of extensions and the ability for the user to create their own.
+
+See also
+* Comparison of document markup languages
+* Comparison of documentation generators
+* Wiki markup
+
+References
+
+
+External links
+* 
+
+
+
+
+
+
+
+
+</body>
+</html>

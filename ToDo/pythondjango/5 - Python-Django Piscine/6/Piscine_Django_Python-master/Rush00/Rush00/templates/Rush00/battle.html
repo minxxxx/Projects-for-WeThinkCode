@@ -1,0 +1,13 @@
+{% extends "Rush00/layout.html" %}
+
+{% block content %}
+
+<br />
+
+<img src="{{DicoMovie.Poster}}" width="60"/>Rating : {{DicoMovie.imdbRating}}    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;    Luck : {{Luck}} %  
+<br />
+<b><u>{{DicoMovie.Title}}</b></u><br />
+{{DicoMovie.Plot}}
+{% if remarque|length > 0 %}<div class="message"> {{remarque}}</div>{% endif %}
+<div class="moviballs"> Movieballs: {{movieballs}}</div>
+{% endblock %}

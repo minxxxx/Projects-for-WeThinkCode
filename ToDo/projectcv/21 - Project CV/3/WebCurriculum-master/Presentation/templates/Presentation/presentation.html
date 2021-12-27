@@ -1,0 +1,19 @@
+<section class="w3-container w3-padding-24" style="text-align:justify; text-justify: inter-word;">
+    <main class="w3-row">
+        <aside class="w3-margin-top w3-image w3-center w3-col m3 l2">
+            <img src="{{ profiles.0.picture.url }}">
+        </aside>
+        <article class="w3-padding-24  w3-col m9 l10">
+            <h1 style="font-family:Montserrat;">{{ profiles.0.first_name }} {{ profiles.0.last_name }}</h1>
+            <h3 style="font-family:Montserrat;">About me</h3>
+            <p>{{ profiles.0.intro }}</p>
+        </article>
+    </main>
+    <br>
+    <footer class="w3-right w3-container">
+
+        <a class="w3-btn" style="font-weight:900;" href="">
+            DOWNLOAD CV
+        </a>
+    </footer>
+</section>

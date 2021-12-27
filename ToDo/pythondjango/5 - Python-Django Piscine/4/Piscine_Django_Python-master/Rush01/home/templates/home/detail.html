@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load filters %}
+
+{% load bootstrap3 %}
+
+{% block real_content %}
+
+<h1>{{ post.title }}</h1>
+<p style="font-weight:bold">by {{ post.author }}, on {{ post.created }}</p>
+<p>{{ post.content }}</p>
+<br />
+
+{% for com, lev in comments %}
+<div class="panel panel-default   com-lev-{{ lev }}" style="margin-left:{{ lev|mul:40 }}px;">
+	<div class="panel heading" style="margin-bottom:0px">
+		<span class="text-muted">from </span><strong>{{ com.author }}</strong><span class="text-muted">, on {{ com.created|date:"D d N Y, H:i" }}</span>
+		<button class="add-com-form btn btn-default btn-xs pull-right" >
+            <div class="btn-group">
+                <a href={% url 'NewCommentComment' slug=com.id %} class="btn btn-primary">
+                    Reply
+                </a>
+            </div>
+        </button>
+	</div>
+	<div class="panel-body">{{ com.content }}</div>
+</div>
+{% endfor %}
+
+<div class="btn-group">
+                <a href={% url 'NewCommentPost' slug=post.id %} class="btn btn-success">
+                    Reply
+                </a>
+            </div>
+{% endblock %}
+

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+     <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="{% static 'Core/css/webcv.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'Core/css/w3.css' %}"/>
+    <title>webcv</title>
+    <style>
+        /* code for fixed topnav */
+        .w3-topnav {width:100%;position:fixed;z-index:1;}
+        .w3-topnav a:first-child:hover{color: #000000;border-bottom: 3px solid transparent;}
+        /* static topnav for screens below 601px width */
+        @media only screen and (max-width: 601px) {.w3-topnav {position:static;}}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="w3-topnav w3-padding w3-red w3-center">
+            <a class="w3-padding-4" href=''>
+                <i class="material-icons">home</i>
+            </a>
+            <a class="w3-padding-4" href=''>Skill</a>
+            <a class="w3-padding-4" href=''>Project</a>
+            <a class="w3-padding-4" href=''>Contact Me</a>
+        </nav>
+        </br>
+    </header>
+    <main>
+	    {% include 'Presentation/presentation.html' %}
+        </br>
+        {% include 'Fortytwo/skill.html' %}
+        </br>
+        {% include 'Portfolio/portfolio.html' %}
+        </br>
+        {% include 'Contact/contact.html' %}
+        </br>
+    </main>
+</body>
+</html>

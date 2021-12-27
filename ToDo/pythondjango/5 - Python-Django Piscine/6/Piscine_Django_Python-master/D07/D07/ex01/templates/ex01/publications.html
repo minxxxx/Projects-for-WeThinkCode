@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block headlines %}
+Publication list
+{% endblock %}
+
+{% block content %} 
+{% include 'nav.html' %}
+<h1>Your publications</h1>
+{% if user.is_authenticated %}
+<table class='table table-bordered'>
+	<th>Creation date</th>
+	<th>Title</th>
+	<th>Synopsis</th>
+	{% for article in object_list %}
+		{% if article.author == user %} 
+		<tr>
+	    	<td>{{ article.created|date }}</td>
+	    	<!-- par defaut, le parametre passe dans l'url ci-dessous doit s'appeler pk ou slug -->
+	    	<td><a href="{% url 'detail' pk=article.id %}">{{ article.title }}</a></td>
+	    	<td>{{ article.synopsis }}</td>
+	    </tr>
+	    {% endif %}
+	{% endfor %}
+</table>
+{% else %}
+Restricted area, please login
+{% endif %}
+
+{% endblock %} 

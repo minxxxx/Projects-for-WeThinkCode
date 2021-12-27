@@ -1,0 +1,4 @@
+**ft_printf/** is an implementation of printf and vprintf.
+You can see https://github.com/Dededede4/ecole42/blob/master/ft_printf/main.c for list of feature.
+
+Difficulty 3

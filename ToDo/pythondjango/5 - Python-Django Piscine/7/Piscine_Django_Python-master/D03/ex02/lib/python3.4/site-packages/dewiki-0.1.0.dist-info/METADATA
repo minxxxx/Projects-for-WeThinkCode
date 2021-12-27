@@ -1,0 +1,23 @@
+Metadata-Version: 2.0
+Name: dewiki
+Version: 0.1.0
+Summary: Python module to remove wiki markup
+Home-page: https://github.com/daddyd/dewiki
+Author: Dirk Dierickx
+Author-email: dirk.dierickx@gmail.com
+License: GPL
+Keywords: wiki
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+dewiki
+======
+
+Python module to remove wiki markup text.
+
+Whenever you have data that contains wiki markup and want to convert it into
+human readable plain text, you can use dewiki to do so.
+
+
+

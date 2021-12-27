@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+
+{% block headlines %}
+ex04 remove
+{% endblock %}
+
+{% block content %} 
+<div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' value='Submit'>
+    </form>
+</div>
+
+{% endblock %} 

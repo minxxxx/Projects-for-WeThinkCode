@@ -1,0 +1,8 @@
+CSRC += $(addprefix push/,	algorithm.c\
+							push_swap.c\
+							small_algorithm.c)
+
+PSRC += $(addprefix push/,	algorithm.c\
+							main_push_swap.c\
+							push_swap.c\
+							small_algorithm.c)

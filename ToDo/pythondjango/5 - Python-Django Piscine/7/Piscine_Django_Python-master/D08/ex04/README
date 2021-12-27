@@ -1,0 +1,3 @@
+Pour ex04, lancer set_nginxconf.sh pour modifier la conf de nginx
+Puis faire nginx -s reload
+

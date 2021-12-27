@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block headlines %}
+Article details
+{% endblock %}
+
+{% block content %} 
+{% include 'nav.html' %}
+<h1>Article details</h1>
+{% if user.is_authenticated %}
+	<h2>{{ object.title }}</h1>
+	<h3>{{ object.synopsis }}</h3>
+	<p>{{ object.content }}</p>
+	<p>Author: {{ object.author }}</p>
+	<p>Created: {{ object.created|date }}</p>
+
+{% else %}
+Restricted area, please login
+{% endif %}
+
+{% endblock %} 

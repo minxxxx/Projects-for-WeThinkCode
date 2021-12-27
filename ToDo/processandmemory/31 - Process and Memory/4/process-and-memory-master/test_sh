@@ -1,0 +1,1 @@
+for i in `ps aux | awk '{print $2 }'`; do ./test $i ; done

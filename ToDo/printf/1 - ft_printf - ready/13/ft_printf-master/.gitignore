@@ -1,0 +1,7 @@
+obj/*
+*.out
+*.o
+include/*.gch
+src/tools
+t.c
+test.c

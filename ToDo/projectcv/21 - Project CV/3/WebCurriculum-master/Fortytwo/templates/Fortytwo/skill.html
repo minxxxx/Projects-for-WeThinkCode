@@ -1,0 +1,54 @@
+{% load static %}
+<section class="w3-container w3-red w3-padding-24">
+    <header>
+        <h2>Skill 42</h2>
+    </header>
+    <main class="w3-row">
+        <article class="w3-col  l8 m7 w3-container">
+            <div class="w3-card w3-right-align w3-white w3-padding-12">
+                <progress value="16" max="100"></progress>
+            level 7 - 16%
+            </div>
+            <br>
+            <div class="w3-card w3-white w3-padding-12">
+                <h4>Current Project</h4>
+                <ul>
+                     <li><strong>Piscine PHP</strong> Waiting for correction</li>
+                     <li><strong>Push Swap</strong>   In progress</li>
+                </ul>
+                </br>
+            </div>
+        </article>
+        <aside class="w3-col w3-white w3-card m5 l4">
+            <canvas  id="myChart" width="300" height="300"></canvas>
+        </aside>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script>
+        // Get the context of the canvas element we want to select
+
+        var radarChartData = {
+            labels: ["Imperative programming", "Algorithms & AI", "Rigor", "Unix", "Graphics", "Parallel computing", "Adaptation & creativity", "Technology integration"],
+            datasets: [
+                {
+                    label: "My First dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [6.53,5.32,4.85,2.73,2.13,1.42,0.63,0.15]
+                }
+            ]
+        };
+
+        window.onload = function() {
+            window.myRadar = new Chart(document.getElementById("myChart").getContext("2d")).Radar(radarChartData, {
+                responsive: true
+            });
+        }
+
+    </script>
+
+</section>

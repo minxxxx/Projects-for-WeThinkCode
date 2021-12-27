@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+
+{% block headlines %}
+Connexion
+{% endblock %}
+{% block content %} 
+{% include 'nav.html' %}
+
+<h1> Veuillez vous connecter </h1>
+<div>
+    <form method="POST" class='form'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Valider'>
+    </form>
+</div>
+<div>
+{% endblock %} 

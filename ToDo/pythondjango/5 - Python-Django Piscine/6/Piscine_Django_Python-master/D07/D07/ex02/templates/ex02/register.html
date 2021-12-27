@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block headlines %}
+Login
+{% endblock %}
+{% block content %}
+
+{% if form.errors %}
+<p>Error. Please try again.</p>
+{% endif %}
+
+{% if user.is_authenticated %}
+Please logout to access this page
+{% else %}
+
+<form action="" method="post">
+{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save" />
+</form>
+
+{% endif %}
+
+{% endblock %}
+
+
+

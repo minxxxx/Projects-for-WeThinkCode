@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load bootstrap3 %}
+
+{% block title %}Login{% endblock %}
+
+{% block real_content %}
+
+    {% if request.user.is_superuser and impersonate and request.user.username != impersonate %}
+
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3">
+
+                <div class="alert alert-warning">
+                    <strong>Warning!</strong> You are on {{ impersonate }} profile.
+                </div>
+
+                <p>
+                    <img src="{{ request.user.profile.avatar_url }}"/>
+                </p>
+
+                <hr/>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form user_form %}
+                    {% bootstrap_form profile_form %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    {% else %}
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>Hi {{ user_form.first_name.value }} !</h1>
+
+                <hr/>
+
+                {% if request.user.profile.avatar != '' %}
+
+                    <p>
+                        <img src="{{ request.user.profile.avatar_url | safe }}"/>
+                    </p>
+
+                    <hr/>
+
+                {% endif %}
+
+                <h3>You can modify your profile here.</h3>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form user_form %}
+                    {% bootstrap_form profile_form %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    {% endif %}
+
+
+
+{% endblock %}
+
