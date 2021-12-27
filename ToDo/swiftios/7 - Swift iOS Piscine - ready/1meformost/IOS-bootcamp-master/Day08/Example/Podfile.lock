@@ -1,0 +1,16 @@
+PODS:
+  - mafernan2018 (0.1.0)
+
+DEPENDENCIES:
+  - mafernan2018 (from `../`)
+
+EXTERNAL SOURCES:
+  mafernan2018:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  mafernan2018: 6cae829df71300d204b53ab902e998603542c4fc
+
+PODFILE CHECKSUM: 32798ef2a798a6d1084aa79de769f91b5cbbbedf
+
+COCOAPODS: 1.5.3

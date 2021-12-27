@@ -1,0 +1,7 @@
+Thor the Mighty (50HP) VS Terminus (36HP)
+Terminus hits Thor the Mighty with a Impaler Arrow Attack, Causing 3 damage.
+Thor the Mighty: 47HP - Terminus: 36HP
+Terminus hits Thor the Mighty with a Massacre Axe Attack, Causing 3 damage.
+Thor the Mighty: 44HP - Terminus: 36HP
+Terminus hits Thor the Mighty with a Dragon Punch Attack, Causing 3 damage.
+Thor the Mighty: 41HP - Terminus: 36HP

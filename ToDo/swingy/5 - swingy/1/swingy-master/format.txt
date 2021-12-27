@@ -1,0 +1,2 @@
+6
+Name of hero,type,level,XP,weapon,armor

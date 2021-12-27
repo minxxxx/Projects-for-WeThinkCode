@@ -1,0 +1,30 @@
+/* Instructions */
+", please click on atom for description" = ", veuillez cliquer sur un atome pour sa description";
+
+/* Atom */
+"Atom: " = "Atome : ";
+
+/* Message when click is not on an atom */
+"Click on an atom to display its name" = "Cliquez sur un atome pour afficher son nom";
+
+/* Message for picture */
+"Hello! This is a beautifull 3D view of ligand " = "Bonjour ! Voici une belle image 3D du ligand ";
+
+/* login successful message */
+"Login successful! ✅" = "Connexion réussi !";
+
+/* An error message */
+"Network error" = "Erreur réseau !";
+
+/* search bar placeholder */
+"Search here..." = "Cherchez ici...";
+
+/* Message for unexpected error */
+"Unexpected error! 😱" = "Erreur inattendue !";
+
+/* Reason for authenticating */
+"You need to authenticate, baby" = "Veuillez vous authentifier";
+
+/* Name of link */
+"link" = "Lien";
+

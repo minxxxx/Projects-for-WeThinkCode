@@ -1,0 +1,16 @@
+PODS:
+  - mnaidoo2018 (0.1.0)
+
+DEPENDENCIES:
+  - mnaidoo2018 (from `../`)
+
+EXTERNAL SOURCES:
+  mnaidoo2018:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  mnaidoo2018: 5bca2d6ea1a536adca7733c5cdbec16353ef3bf3
+
+PODFILE CHECKSUM: d0c4afb38d8025568f5afede81259baa4474b8df
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.7.3)
+  - ForecastIO (5.1.0)
+  - MessageKit (0.13.0)
+  - ObjectMapper (3.3.0)
+  - RecastAI (3.5.0):
+    - Alamofire
+    - ObjectMapper
+
+DEPENDENCIES:
+  - ForecastIO
+  - MessageKit (= 0.13.0)
+  - RecastAI
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ForecastIO
+    - MessageKit
+    - ObjectMapper
+    - RecastAI
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  ForecastIO: cefaecb3a1bd764a03067a82ff546e84d3b97456
+  MessageKit: 41c7e6dcb8f528413d00a0abebea7811cfa194c0
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  RecastAI: d9abaf97f914a07cc10ee0cb8be89bfe2b942280
+
+PODFILE CHECKSUM: 1329575152d99604133a6892a3918408cb0350dc
+
+COCOAPODS: 1.5.3

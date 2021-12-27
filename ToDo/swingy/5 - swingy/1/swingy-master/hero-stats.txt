@@ -1,0 +1,7 @@
+John the Teenager,knight,8,30050,24,13,50,sword,jacket,great,src/main/java/packages/images/default-image.png
+Alex the Great,elf,10,46450,20,17,55,knife,curass,pot,src/main/java/packages/images/default-image.png
+Thor the Mighty,knight,9,37800,18,15,50,sword,leather,nasal,src/main/java/packages/images/default-image.png
+elfie,elf,7,23200,17,17,0,knife,armet,pot,src/main/java/packages/images/default-image.png
+wanda,knight,2,2450,15,15,50,spear,jacket,morion,/goinfre/mnaidoo/Desktop/avaj-launcher.en.pdf
+willy,elf,0,0,15,15,52,spear,jacket,nasal,/goinfre/mnaidoo/Desktop/funny or scary.jpg
+tyrion,hunter,3,4800,19,15,50,spear,jacket,great,src/main/java/packages/images/default-image.png

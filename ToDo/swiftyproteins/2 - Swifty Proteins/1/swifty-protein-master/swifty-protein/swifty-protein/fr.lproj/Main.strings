@@ -1,0 +1,18 @@
+/* Class = "UILabel"; text = "Title"; ObjectID = "0ER-t6-yIi"; */
+"0ER-t6-yIi.text" = "Titre";
+
+/* Class = "UINavigationItem"; title = "Ligands"; ObjectID = "E2a-Jb-utD"; */
+"E2a-Jb-utD.title" = "Ligands";
+
+/* Class = "UIButton"; normalTitle = "Click here to login"; ObjectID = "HKY-ZY-ocb"; */
+"HKY-ZY-ocb.normalTitle" = "Cliquez ici pour vous logguer";
+
+/* Class = "UILabel"; text = "Ligand"; ObjectID = "SVJ-kg-FrO"; */
+"SVJ-kg-FrO.text" = "Ligand";
+
+/* Class = "UITableViewController"; title = "Ligands"; ObjectID = "aiD-Qc-lUG"; */
+"aiD-Qc-lUG.title" = "Ligands";
+
+/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "z1X-HW-HcJ"; */
+"z1X-HW-HcJ.title" = "Partager";
+

@@ -1,0 +1,22 @@
+{
+  "name": "mafernan2018",
+  "version": "0.1.0",
+  "summary": "A short description of mafernan2018.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Moondog360/mafernan2018",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Moondog360": "mafernan@42.fr"
+  },
+  "source": {
+    "git": "https://github.com/Moondog360/mafernan2018.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "mafernan2018/Classes/**/*"
+}

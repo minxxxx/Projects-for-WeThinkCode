@@ -1,0 +1,6 @@
+framework module Pods_mafernan2018_Tests {
+  umbrella header "Pods-mafernan2018_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

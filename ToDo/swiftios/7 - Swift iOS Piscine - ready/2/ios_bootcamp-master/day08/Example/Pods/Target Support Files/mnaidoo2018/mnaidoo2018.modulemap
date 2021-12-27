@@ -1,0 +1,6 @@
+framework module mnaidoo2018 {
+  umbrella header "mnaidoo2018-umbrella.h"
+
+  export *
+  module * { export * }
+}

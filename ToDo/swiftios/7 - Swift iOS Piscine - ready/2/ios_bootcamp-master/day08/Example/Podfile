@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'mnaidoo2018_Example' do
+  pod 'mnaidoo2018', :path => '../'
+
+  target 'mnaidoo2018_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

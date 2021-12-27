@@ -1,0 +1,36 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< default-package:swingy >-----------------------
+[INFO] Building swingy 1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ swingy ---
+[INFO] Deleting /goinfre/mnaidoo/Desktop/swingy/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ swingy ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /goinfre/mnaidoo/Desktop/swingy/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ swingy ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 36 source files to /goinfre/mnaidoo/Desktop/swingy/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ swingy ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /goinfre/mnaidoo/Desktop/swingy/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ swingy ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ swingy ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ swingy ---
+[INFO] Building jar: /goinfre/mnaidoo/Desktop/swingy/target/swingy-1.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.192 s
+[INFO] Finished at: 2018-07-11T14:01:21+02:00
+[INFO] ------------------------------------------------------------------------

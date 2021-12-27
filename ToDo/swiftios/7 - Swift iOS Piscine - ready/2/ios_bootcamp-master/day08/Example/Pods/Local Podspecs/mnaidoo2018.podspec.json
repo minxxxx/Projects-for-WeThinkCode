@@ -1,0 +1,22 @@
+{
+  "name": "mnaidoo2018",
+  "version": "0.1.0",
+  "summary": "A short description of mnaidoo2018.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/miinnie19/mnaidoo2018",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "miinnie19": "mnaidoo@student.wethinkcode.co.za"
+  },
+  "source": {
+    "git": "https://github.com/miinnie19/mnaidoo2018.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "mnaidoo2018/Classes/**/*"
+}
