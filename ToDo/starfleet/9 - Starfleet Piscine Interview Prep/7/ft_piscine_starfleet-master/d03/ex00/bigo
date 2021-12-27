@@ -1,0 +1,3 @@
+All operations: 
+O(n) time and O(h) space, where n is total nodes and h is the height of the tree.
+Recursive DFS

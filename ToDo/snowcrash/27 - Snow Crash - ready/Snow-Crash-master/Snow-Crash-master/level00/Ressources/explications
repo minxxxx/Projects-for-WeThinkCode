@@ -1,0 +1,12 @@
+ls -lRa / 2> /dev/null | grep "flag00"
+
+On trouve de mysterieux fichiers 'john'
+
+find / -name john 2>&-
+ils sont dans /usr/sbin et /rofs/usr/sbin
+
+Code etrange (cdiiddwpgswtgt)
+On trouve dans la video qu'il faut utiliser dcode.fr
+
+On veut tester plusieurs codes, on commence avec Cesar :
+On teste tous les decalages et on trouve nottoohardhere avec comme decalage +15. Ca semble etre un mot de passe, et ca marche.

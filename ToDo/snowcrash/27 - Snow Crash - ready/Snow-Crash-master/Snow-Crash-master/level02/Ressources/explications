@@ -1,0 +1,10 @@
+on voit un pcap
+on le telecharge avec scp:
+scp -P 4242 level02@10.11.200.229:/home/user/level02/level02.pcap ~/pouet ; chmod +r ~/pouet
+
+On cree un compte sur cloudshark (cf video), et on upload notre pcap.
+Analysis Tools -> Follow TCP Stream -> Hexdump
+
+On voit ce qu'a tape le detenteur du mot de passe.
+Avec la table ascii on le reconstruit, en prenant soin d'imiter les del (0x7f) de l'utilisateur.
+Mot de passe : ft_waNDReL0L

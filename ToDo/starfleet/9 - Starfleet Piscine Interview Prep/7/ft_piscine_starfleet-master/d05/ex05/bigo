@@ -1,0 +1,2 @@
+O(n * n!/(m1! * ... * mk!)) time where n is the length, k is the number of unique letters, and m1, ..., mk are the frequencies of those letters.
+O(n) space.

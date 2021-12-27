@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    bigo                                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amontano <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/09 03:07:31 by amontano          #+#    #+#              #
+#    Updated: 2019/01/09 03:08:45 by amontano         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Time complexity   : Traversing a linked list
+#   worst-case      : O(n)
+#   best/avg-case   : O(n)
+
+# Space complexity  : Linked list traversal
+#   worst-case      : O(1)
+

@@ -1,0 +1,2 @@
+O(n^2) time although it is optimized with memoization. n is pizzaSize.
+O(n) space for the cache as well as recursive calls.

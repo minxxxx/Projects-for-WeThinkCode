@@ -1,0 +1,2 @@
+O(logn) where n is the number of bits.
+O(1) space.

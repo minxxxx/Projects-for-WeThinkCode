@@ -1,0 +1,2 @@
+Space complexity: O(1), all work done in place, constant space.
+Time complexity: O(n), one operation for each element n, linear time.

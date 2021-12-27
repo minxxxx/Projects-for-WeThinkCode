@@ -1,0 +1,2 @@
+O(k^2) where k is the number of distinct sizes (not counting iterating through list). If there are no duplicates, degrades to O(n^2).
+O(1) space.

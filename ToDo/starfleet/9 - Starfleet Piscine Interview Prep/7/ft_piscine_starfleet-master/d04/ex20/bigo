@@ -1,0 +1,2 @@
+O(n) time where n is the number of cans.
+O(1) space.

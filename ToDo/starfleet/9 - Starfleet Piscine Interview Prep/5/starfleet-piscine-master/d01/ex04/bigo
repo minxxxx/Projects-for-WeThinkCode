@@ -1,0 +1,2 @@
+big o time: search => n, insertion and deletion => 1
+big o space: n

@@ -1,0 +1,44 @@
+# Run ls -la to see what we have to work with
+
+level02@SnowCrash:~$ ls -la
+total 24
+dr-x------ 1 level02 level02  120 Mar  5  2016 .
+d--x--x--x 1 root    users    340 Aug 30  2015 ..
+-r-x------ 1 level02 level02  220 Apr  3  2012 .bash_logout
+-r-x------ 1 level02 level02 3518 Aug 30  2015 .bashrc
+-r-x------ 1 level02 level02  675 Apr  3  2012 .profile
+----r--r-- 1 flag02  level02 8302 Aug 30  2015 level02.pcap
+
+# We see the file level02.pcap and from the knowledge we have and video we know this is a packet file.
+
+lets copy it to our system using the command below
+`scp -P 4242 level02@192.168.56.102:level02.pcap .`
+passowrd is `f2av5il02puano7naaf6adaaf`
+
+time to use wireshark. you will need to install this if you do not have it installed
+open wireshark and open the file level02.pcap in it and right click and select follow TCP Stream
+
+the following below is the output
+````
+..%..%..&..... ..#..'..$..&..... ..#..'..$.. .....#.....'........... .38400,38400....#.SodaCan:0....'..DISPLAY.SodaCan:0......xterm.........."........!........"..".....b........b....    B.
+..............................1.......!.."......"......!..........."........"..".............    ..
+.....................
+Linux 2.6.38-8-generic-pae (::ffff:10.1.1.2) (pts/10)
+
+..wwwbugs login: l.le.ev.ve.el.lX.X
+..
+Password: ft_wandr...NDRel.L0L
+.
+..
+Login incorrect
+wwwbugs login:
+
+````
+# Password: `ft_wandrNDRelL0L`
+Note that ft_wandr...NDRel.L0L is actually ft_wandrNDRelL0L
+
+su flag02
+passwd `ft_wandrNDRelL0L`
+
+flag02@SnowCrash:~$ getflag
+Check flag.Here is your token : kooda2puivaav1idi4f57q8iq

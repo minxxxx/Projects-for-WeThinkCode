@@ -1,0 +1,6 @@
+# TIME COMPLEXITY   : Linear Search
+#   Best-case       : O(1)
+#    Worst case     : O(n) time is spent in the comparitor function
+
+# SPACE COMPLEXITY	: Linear Search
+#   worst-case      : O(1) constant

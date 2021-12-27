@@ -1,0 +1,2 @@
+Time: O(nlogn), one logn pass for each insertion of n elements.
+Space O(1) for inplace operation, recursive stack space is O(logn);

@@ -1,0 +1,2 @@
+Time: O(n)
+Space: O(1), considering all allocated space is returned and used without extra, but also maybe O(n) for n allocations for n elements.

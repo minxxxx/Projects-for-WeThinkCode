@@ -1,0 +1,118 @@
+# Okay lets see what we have by doing a ls -la
+
+level09@SnowCrash:~$ ls -la
+total 24
+dr-x------ 1 level09 level09  140 Mar  5  2016 .
+d--x--x--x 1 root    users    340 Aug 30  2015 ..
+-r-x------ 1 level09 level09  220 Apr  3  2012 .bash_logout
+-r-x------ 1 level09 level09 3518 Aug 30  2015 .bashrc
+-r-x------ 1 level09 level09  675 Apr  3  2012 .profile
+-rwsr-sr-x 1 flag09  level09 7640 Mar  5  2016 level09
+----r--r-- 1 flag09  level09   26 Mar  5  2016 token
+
+# Lets see what happens when running the file
+
+level09@SnowCrash:~$ ./level09
+You need to provied only one arg.
+
+# Lets see whats happens when giving it token
+level09@SnowCrash:~$ ./level09 token
+tpmhr
+
+# Lets see what in token
+
+level09@SnowCrash:~$ cat token
+f4kmm6p|=�p�n��DB�Du{��
+
+# We see there is unprintable characters so lets see what it is with using vim
+level09@SnowCrash:~$ vim token
+f4kmm6p|=~B^?p~Bn~C~BDB~CDu{^?~L~I
+
+# Lets see what we get with giving level09 our own argument and see the out put
+level09@SnowCrash:~$ ./level09 Gabe
+Gbdh
+level09@SnowCrash:~$ ./level09 test
+tfuw
+level09@SnowCrash:~$ ./level09 abcd
+aceg
+level09@SnowCrash:~$ ./level09 aaaa
+abcd
+level09@SnowCrash:~$ ./level09 1234
+1357
+level09@SnowCrash:~$ ./level09 1111
+1234
+
+# Bingo! now we see a pattern emerged and we can see that the program is incrementing the ascii value of the inputs by the column number it is in
+							   0123		it increases by 1 as the coloumb number of the character
+level09@SnowCrash:~$ ./level09 aaaa
+abcd
+#		Thus it will increase that current character in the coloumb by the coloumb number, starting from 0 
+
+# So all we need to do is make a script that will reverse this on the token file, making a tmp of that token file with the reversed effect
+
+# YOU CAN DO IT IN C
+
+# Below code will get token from vm
+`scp -P 4242 level09@192.168.56.101:token .`
+Password: 25749xKZ8L7DkSCwJkT9dyv6f
+
+# make a c file to decrypt 
+vim reverse.c
+
+#include <stdio.h>
+
+int main(int ac, char ** av)
+{
+    int k = 0;
+
+
+    if (ac > 1)
+    {
+        while (av[1][k])
+        {
+            printf("%c", av[1][k] - k);
+            k++;
+        }
+        printf("\n");
+    }
+}
+
+# complie the c file and give token rights to read and right to it.
+gcc reverse.c
+chmod 755 token
+
+# to make sure that token is same as the vm token
+e4r16p1% cat token
+f4kmm6p|=�p�n��DB�Du{��
+vim token
+f4kmm6p|=<82>^?p<82>n<83><82>DB<83>Du{^?<8c><89>
+
+# As our code only reads in arguments
+e4r16p1% ./a.out `cat token`
+f3iji1ju5yuevaus41q1afiuq
+
+# OR YOU CAN DO IT IN PYTHON
+
+level09@SnowCrash:~$ vim /tmp/reverse.py
+
+import sys
+
+for i, val in enumerate(sys.argv[1]):
+     sys.stdout.write(chr(ord(val)-i))
+     sys.stdout.flush()
+print
+
+# Now we will run this script on the token file and cat it
+level09@SnowCrash:~$ python /tmp/reverse.py `cat token`
+f3iji1ju5yuevaus41q1afiuq
+
+# Remember to su the flag as this only gave us the Password for the flag.
+
+level09@SnowCrash:~$ su flag09
+Password:
+Don't forget to launch getflag !
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z
+
+# What we learnt
+#	This was just a simple encryption of the ascii values using the index of the positions the charactersare loocated on.

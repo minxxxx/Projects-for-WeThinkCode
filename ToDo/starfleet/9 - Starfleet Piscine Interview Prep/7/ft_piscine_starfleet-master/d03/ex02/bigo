@@ -1,0 +1,3 @@
+O(n) time for each search, O(h) for finding LCA, O(n + h) total where n is size of tree and h is the height of the tree.
+O(h) space where h is the height of the tree.
+Recursive DFS.

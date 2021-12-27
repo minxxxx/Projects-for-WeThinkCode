@@ -1,0 +1,5 @@
+Time Complexity  : O(2^n)
+Space Complexity : O(n)
+
+---
+n -> size of the pizza

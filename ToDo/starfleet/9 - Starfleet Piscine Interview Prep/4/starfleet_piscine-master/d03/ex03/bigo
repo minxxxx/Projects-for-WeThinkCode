@@ -1,0 +1,5 @@
+O(n) time for converting to array.
+O(n) time for converting min heap to max heap.
+O(n) time to rearrange the pointers for each node.
+O(n) space.
+Iterative BFS.

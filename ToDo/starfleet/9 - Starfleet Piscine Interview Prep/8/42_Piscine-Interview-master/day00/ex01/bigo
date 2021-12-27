@@ -1,0 +1,5 @@
+Time Complexity:  O(n^2)
+Space Complexity: O(log(n)
+
+---
+n -> number of elements in the array

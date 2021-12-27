@@ -1,0 +1,6 @@
+Time Complexity:  O(n * m)
+Space Complexity: O(m)
+
+---
+n -> length of the text
+m -> length of the pattern

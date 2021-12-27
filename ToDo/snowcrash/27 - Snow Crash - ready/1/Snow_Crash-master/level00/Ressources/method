@@ -1,0 +1,43 @@
+# First run ls -la
+
+level00@SnowCrash:~$ ls -la
+total 12
+dr-xr-x---+ 1 level00 level00  100 Mar  5  2016 .
+d--x--x--x  1 root    users    340 Aug 30  2015 ..
+-r-xr-x---+ 1 level00 level00  220 Apr  3  2012 .bash_logout
+-r-xr-x---+ 1 level00 level00 3518 Aug 30  2015 .bashrc
+-r-xr-x---+ 1 level00 level00  675 Apr  3  2012 .profile
+
+# Run pwd to see where you are
+
+level00@SnowCrash:~$ pwd
+/home/user/level00
+
+# man group and understand the options -user and -group it is important to understand the rights
+# use 2>/dev/null for redirecting the standard error output to null, so I don’t see all the “Permission Denied” errors. 
+# run the below command
+find / -user flag00 -group flag00 2>/dev/null
+
+# it will show the following
+/usr/sbin/john
+/rofs/usr/sbin/john
+
+# you will see that /usr/sbin/john is what we are looking for 
+cat /usr/sbin/john
+cdiiddwpgswtgt
+
+# https://www.xarg.org/tools/caesar-cipher/
+# cdiiddwpgswtgt enter this but note to change the key to guess as we do not know what engryption was used on it. 
+	The key will change to 11 Once you run it.
+cdiiddwpgswtgt => nottoohardhere
+# nottoohardhere is our flag
+
+# now to try the flag that we got 
+su flag00
+password => nottoohardhere
+
+# remember to use get flag command
+getflag
+Check flag.Here is your token : x24ti5gi3x0ol2eh4esiuxias
+flag00@SnowCrash:~$ su level01
+# enter x24ti5gi3x0ol2eh4esiuxias as the password to level01

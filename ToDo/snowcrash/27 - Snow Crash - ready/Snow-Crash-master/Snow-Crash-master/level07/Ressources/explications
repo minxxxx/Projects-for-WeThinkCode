@@ -1,0 +1,4 @@
+On desassemble le binaire et on se rend compte que le code va executer getenv et chercher la valeur de la variable d'environnement LOGNAME.
+
+Il va ensuite construire une chaine avec asprintf, qui contiendra /bin/echo <LOGNAME>
+On met donc simplement dans logname '; getflag', et le binaire lancera donc /bin/echo ; getflag, ce qui nous donne le flag.

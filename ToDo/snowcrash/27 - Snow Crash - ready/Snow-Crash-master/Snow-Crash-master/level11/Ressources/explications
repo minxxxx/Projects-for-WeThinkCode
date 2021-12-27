@@ -1,0 +1,7 @@
+ on remarque la ligne suivante dans le code lua donné :
+
+  prog = io.popen("echo "..pass.." | sha1sum", "r")
+
+	On voit qu'en choissant bien la valeur de pass, on pourra executer du code arbitraire.
+	Par exemple, pour pass = `getflag > /tmp/caca`, la valeur du flag sera ecrite par flag11 dans /tmp/caca
+	On le fait, apres s'etre connecte avec nc localhost 5151, et on recupere notre flag.

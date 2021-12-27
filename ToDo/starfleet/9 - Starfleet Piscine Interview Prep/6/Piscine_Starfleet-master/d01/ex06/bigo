@@ -1,0 +1,2 @@
+Time: O(n), one call for each link.
+Space: O(1), or O(n) stack frames without tail call optimization bc recursion

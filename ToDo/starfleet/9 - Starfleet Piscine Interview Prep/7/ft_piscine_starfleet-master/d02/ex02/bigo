@@ -1,0 +1,2 @@
+O(n^2) time but average closer to O(nlogn).
+O(logn) space for recurseive calls.

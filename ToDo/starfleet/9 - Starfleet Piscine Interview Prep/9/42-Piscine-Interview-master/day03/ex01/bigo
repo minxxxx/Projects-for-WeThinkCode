@@ -1,0 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    bigo                                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amontano <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/12 02:11:45 by amontano          #+#    #+#              #
+#    Updated: 2019/01/12 02:11:46 by amontano         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Time complexity   : Balanced binary search tree
+#   O(log n)
+#   Note: it would be O(n) if the tree was not balanced.
+
+# Space complexity  : Balanced binary search tree
+#   O(n)

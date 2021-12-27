@@ -1,0 +1,7 @@
+Ce script semble indiquer qu'il se lance sur le serveur web. On voit d'ailleurs le meme script dans /var/www/level04
+On remarque qu'il va utiliser des backquote pour executer la commande echo avec comme argument l'argument x.
+On donne comme argument `getflag`, donc la commande qui va s'executer sera :
+
+echo `getflag` 2>&1
+
+Ceci va donc afficher le flag.

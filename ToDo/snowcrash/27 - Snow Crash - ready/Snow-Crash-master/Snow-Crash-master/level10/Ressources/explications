@@ -1,0 +1,10 @@
+On decompile sur un outil en ligne, et on se rend compte qu'il y a une race condition : Si entre l'appel à access et l'appel à open, le fichier nommé par argv[1] change,
+on pourra lire un fichier arbitraire.
+
+On ouvre donc un shell sur lequel on ecoutera en boucle avec la commande suivante :
+while [ 42 ] ; do nc -l 6969; done
+
+On cree un script shell qui essaiera de bruteforce cette race condition : Elle elle appelera le binaire entre deux appels à ln pour tenter de change le lien symbolique
+en cours d'execution. On voit passer le mot de passe suivant dans notre deuxieme shell :
+
+ woupa2yuojeeaaed06riuj63c

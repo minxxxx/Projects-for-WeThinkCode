@@ -1,0 +1,15 @@
+*._DS_Store
+*.DS_Store
+a.out
+*.o
+*.swp
+.*.c.*
+._*
+._*.txt
+*.json
+*.gch
+*.a
+.VC.*
+*.nfs.*
+*.plist
+SnowCrash.iso

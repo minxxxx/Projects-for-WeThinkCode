@@ -1,0 +1,10 @@
+#!/bin/sh
+
+compile hotspots.c
+./hotspots tests/hotspots1.txt
+./hotspots tests/hotspots2.txt
+./hotspots tests/fuku.txt
+./hotspots tests/fuku2.txt
+./hotspots tests/fuku3.txt
+./hotspots tests/fuku4.txt
+./hotspots tests/fuku5.txt

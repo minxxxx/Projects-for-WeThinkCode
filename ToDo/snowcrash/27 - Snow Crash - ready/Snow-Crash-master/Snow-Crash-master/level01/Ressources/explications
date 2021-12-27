@@ -1,0 +1,9 @@
+On voit que dans /etc/passwd, le mot de passe de flag01 est present sous forme de hash.
+
+On cope /etc/passwd sur notre machine locale : 
+scp -P 4242 level00@10.11.200.229:/etc/passwd ~/pouet
+
+Et on resout le hash avec john the ripper : 
+./john ~/pouet
+
+John nous annonce que le mot de passe est abcdefg

@@ -1,0 +1,3 @@
+O(n) time to transfer into array, O(logn) to put new monkey into right place.
+O(n) space for array.
+Iterative BFS.

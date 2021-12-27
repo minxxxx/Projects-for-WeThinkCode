@@ -1,0 +1,2 @@
+O(n + k) time, with n the number of elements in the array and k is the maximum number in the array.
+O(n) space.

@@ -1,0 +1,15 @@
+On voit un script php et un binaire. On se rend compte que le binaire ne fait que qu'executer le script php en tant que flag06.
+
+on se rend compte que le script php utilise le flag e dans une regex. Ce flag sert a interpreter la chaine substituée comme du code php.
+En mettant ce code ci : [x {${shell_exec(getflag)}}], on va executer {${shell_exec(getflag)}}, qui va executer shell_exec(getflag), qui va nous donner le flag.
+
+(1) : (En realite, ca va chercher la variable avec comme nom le resultat de shell_exec(getflag));)
+(2) : Il s'agit simplement de la fonctionnalité du parseur php qui permet simplement d'executer du code dans des chaines de charactères pour afficher aisement du texte avec echo.
+
+Il s'agit d'un melange des deux fonctionnalites ci dessous.
+
+On va appeler 
+y("{${shell_exec(getflag)}}")
+
+Ce qui va executer ${shell_exec(getflag)}, (fonctionnalité (1)), et traiter son retour comme une variable a afficher
+${shell_exec(getflag)} Ceci va tenter de remplacer par une variable ayant pour nom le resultat de la commande shell_exec(getflag), mais ne va pas la  definir et la remplir. (2)

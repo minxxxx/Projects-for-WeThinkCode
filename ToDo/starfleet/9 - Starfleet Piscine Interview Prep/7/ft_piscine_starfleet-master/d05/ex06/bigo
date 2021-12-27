@@ -1,0 +1,2 @@
+O(n^m) time where n is the number of people and m is the number of tables.
+O(n + m) space. O(n) for the recursive stack, O(m) for the array of leftover time.

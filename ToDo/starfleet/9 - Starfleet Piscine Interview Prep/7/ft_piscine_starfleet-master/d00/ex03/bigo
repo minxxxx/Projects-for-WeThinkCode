@@ -1,0 +1,2 @@
+O(k) time, where k is the length of the key. As the capacity of dict is proportional to the length of the arts array, resolving collisions takes O(1) time.
+O(1) space.

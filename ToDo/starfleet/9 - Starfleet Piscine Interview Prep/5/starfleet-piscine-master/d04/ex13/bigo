@@ -1,0 +1,3 @@
+O(logn) time: when shifting to the right once you are kind of dividing by 2
+O(logn) space: I could've done it with a while loop instead to save space but 
+I wanted to do it in one line 

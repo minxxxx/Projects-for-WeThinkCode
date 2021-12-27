@@ -1,0 +1,2 @@
+Time: O(n), simplified from O(2n) for the O(n) ll->stack transfer anda again for the print.
+Space: O(n), one new stack element created per element of ll.

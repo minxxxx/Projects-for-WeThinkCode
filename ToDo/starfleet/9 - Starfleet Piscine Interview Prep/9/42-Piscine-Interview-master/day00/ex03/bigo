@@ -1,0 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    bigo                                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amontano <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/07 01:43:36 by amontano          #+#    #+#              #
+#    Updated: 2019/01/07 01:43:37 by amontano         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Time complexity   :   Hash Table
+#   best :  O(1)
+#   worst:  O(n)
+#
+
+# Space complexity  :   Hash Table
+#   O(n)
+#   scales with the number of elements

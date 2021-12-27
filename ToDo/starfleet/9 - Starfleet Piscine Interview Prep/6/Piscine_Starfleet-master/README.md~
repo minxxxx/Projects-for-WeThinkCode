@@ -1,0 +1,6 @@
+# Piscine_Starfleet
+2 weeks of hell, algorithms, and big(O) notation for your viewing pleasure.
+
+Piscine Starfleet is a two week course with 42 Silicon Valley where students learn the ins and outs of big O notation and algorithm implementation, as well as taking on the role of interviewer for 8 piscine-mates, as well as completeing 8 whiteboarding interviews on questions not before offered in our curriculum to ensure that we learn how to face new challenges and novel problems with communicative and creative mindsets. Presented in this repository is my work for the individul days. Each day's folder contains the exercises we were to complete that day, with the main.c files being provided along with any data files by the school, as the focus of this piscine is the core of implementing and optimizing algorithms, as well as learning proper use cases and how to identify structures of data and discern which data structures and algorithms will work best given format and contraints. For certain exercises a file named bigo had to be provided describing the Time and Space complexity of each exercise.
+
+* gcc -Wall -Werror -Wextra *.c && ./a.out to see programs, see main.c for any arguments necessary for testing.

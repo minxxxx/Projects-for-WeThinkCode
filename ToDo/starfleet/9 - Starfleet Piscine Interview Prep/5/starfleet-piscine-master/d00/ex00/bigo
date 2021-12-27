@@ -1,0 +1,2 @@
+O(n) time: since no sorting is done and we can't use other data structures you have to traverse the array until match is found
+No space allocated

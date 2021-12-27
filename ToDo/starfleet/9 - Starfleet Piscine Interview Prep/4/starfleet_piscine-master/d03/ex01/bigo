@@ -1,0 +1,3 @@
+O(n) time where n is length of array.
+O(n) space since in balanced tree height will be logn.
+Recursive DFS.

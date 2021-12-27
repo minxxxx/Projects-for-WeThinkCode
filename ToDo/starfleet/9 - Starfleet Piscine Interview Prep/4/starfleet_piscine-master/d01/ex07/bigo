@@ -1,0 +1,2 @@
+O(n^2) time, where n is the number of nodes in the list 
+O(n) space

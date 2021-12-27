@@ -1,0 +1,2 @@
+O(n) time, for adding and popping elements in the stacks where n is the number of stacks in the tank 
+O(1) space, for adding and popping elements in the stacks

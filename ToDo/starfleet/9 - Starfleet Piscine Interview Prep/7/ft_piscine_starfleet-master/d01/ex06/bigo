@@ -1,0 +1,2 @@
+O(n) time, where n is length of the list.
+O(1) space.

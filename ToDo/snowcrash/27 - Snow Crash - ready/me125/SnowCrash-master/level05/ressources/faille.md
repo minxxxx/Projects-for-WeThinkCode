@@ -1,0 +1,2 @@
+Once you're connected you get an email with a cronjob inside, it indicates a specific path with a script inside.
+the scripts execute as flag05 users all he finds inside the /opt/openarenaserver, so we create a new script that getflag inside a temporary file

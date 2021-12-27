@@ -1,0 +1,3 @@
+O(log n) average case.
+O(n) worst case.
+O(1) space.

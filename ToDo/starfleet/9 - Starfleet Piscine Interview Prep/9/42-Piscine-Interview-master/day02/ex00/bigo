@@ -1,0 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    bigo                                               :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amontano <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/01/09 23:15:04 by amontano          #+#    #+#              #
+#    Updated: 2019/01/09 23:15:06 by amontano         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Time Complexity   : Comb Sort
+#   best-case   : O(n log n)
+#   avg-case    : O(n^2 / 2^p)
+#   worst-case  : O(n^2)
+
+# Space Complexity  : Comb Sort a linked list
+#   O(n)   allocate an array of pointers to elements

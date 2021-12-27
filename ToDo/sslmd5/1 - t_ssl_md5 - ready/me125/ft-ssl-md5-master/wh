@@ -1,0 +1,13 @@
+#!/usr/bin/php
+<?php
+	if ($argc > 1)
+	{
+		$skip = $argc;
+		foreach ($argv as $line)
+		{
+			if ($skip != $argc)
+				echo hash('whirlpool', $line) . PHP_EOL;
+			$argc--;
+		}
+	}
+?>

@@ -1,0 +1,3 @@
+O(n^2) time where n is the size of the pizza.
+O(n^2) space. For each recursive call it makes n copies.
+

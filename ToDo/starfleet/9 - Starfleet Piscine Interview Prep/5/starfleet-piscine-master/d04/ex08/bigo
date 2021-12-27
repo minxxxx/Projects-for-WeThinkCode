@@ -1,0 +1,5 @@
+O(1) time
+O(1) space
+
+The only way parkingRow + 1 & parkingRow can return 0 is if the bits are
+consecutively set

@@ -1,0 +1,2 @@
+O(n) time where n is the length of the list.
+O(1) space in addition to the space needed for the copy.

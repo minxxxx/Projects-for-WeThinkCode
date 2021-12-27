@@ -1,0 +1,2 @@
+O(n) time.
+O(k) space in addition to the O(n - k + 1) for the new array.

@@ -1,0 +1,2 @@
+O(n*n!) time where n is the length of the string. there are n! permutations, and it takes O(n) to print the stirng.
+O(n) space because it takes n recursive calls per permutation.

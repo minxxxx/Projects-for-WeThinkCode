@@ -1,0 +1,3 @@
+time is O(nlogn) for n items in list. for each item, need to percolate it worst case height spaces up, which is logn in a heap.
+space is O(n) for the array to store the heap.
+Iterative BFS.

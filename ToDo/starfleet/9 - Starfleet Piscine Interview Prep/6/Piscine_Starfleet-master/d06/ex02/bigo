@@ -1,0 +1,2 @@
+Time O(2^n), for n is nbGame
+Space O(2^n), for n is nbGame

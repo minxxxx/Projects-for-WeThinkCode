@@ -1,0 +1,6 @@
+On voit que token contient des donnees, dont certaines depassant la table ascii.
+En testant, on se rend compte que ls programme level09 va executer un chiffrement de cesar a decalage de +1 par caractere sur argv[1].
+On se dit que le contenu de token est peut etre le mdp crypte par le binaire level09.
+On fait main.c pour decrypter ceci, on obtient :
+
+f3iji1ju5yuevaus41q1afiuq

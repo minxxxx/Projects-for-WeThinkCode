@@ -1,0 +1,2 @@
+Time: O(n), one recursive call per element.
+Space: O(1), no additional space used, unless counting stack frames, in which it is O(n) without tail call optimization and O(1) with.

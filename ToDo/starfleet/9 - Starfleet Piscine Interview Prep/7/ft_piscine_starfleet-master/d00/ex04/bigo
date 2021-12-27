@@ -1,0 +1,2 @@
+O(n + m) time, with n the length of bible and m the length of jesus.
+O(1) space.

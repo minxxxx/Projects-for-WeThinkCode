@@ -1,0 +1,2 @@
+O(logn) time, with n the number of elements in the array.
+O(1) space.

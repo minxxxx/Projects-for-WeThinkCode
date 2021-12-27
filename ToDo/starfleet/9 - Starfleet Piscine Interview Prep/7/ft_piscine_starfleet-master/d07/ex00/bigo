@@ -1,0 +1,2 @@
+O(nlogn) time.
+O(logn) space for recursive calls to percolate min down during heapify.

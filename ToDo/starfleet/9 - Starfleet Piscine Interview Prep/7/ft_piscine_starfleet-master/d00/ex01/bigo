@@ -1,0 +1,3 @@
+O(n^2) time, with n the number of elements in the array. Average time closer to O(nlogn).
+O(logn) space. Additional space comes from recurive function calls. Limiting recursive calls to the smaller partition improves from O(n) to O(logn).
+

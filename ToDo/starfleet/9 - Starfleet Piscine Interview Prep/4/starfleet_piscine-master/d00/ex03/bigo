@@ -1,0 +1,2 @@
+O(1) time, with n the number of elements in the dictionary.
+O(n) space.
