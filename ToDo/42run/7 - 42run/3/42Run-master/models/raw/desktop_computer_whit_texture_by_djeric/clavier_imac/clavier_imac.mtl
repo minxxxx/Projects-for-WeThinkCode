@@ -1,0 +1,21 @@
+#  ==========================================================================
+#  Wavefront Material file
+#  Exported by Red-i Productions' "Riptide"
+#  (a free plugin for Cinema 4D PC & Mac, R7.3 or later)
+#  
+#  Red-i Productions
+#  http://skinprops.com
+#  
+#  ==========================================================================
+
+newmtl touche
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd toucheSurface_Color.jpg
+
+newmtl base_clavier
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd base_clavierSurface_Color.jpg

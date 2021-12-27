@@ -1,0 +1,27 @@
+#  ==========================================================================
+#  Wavefront Material file
+#  Exported by Red-i Productions' "Riptide"
+#  (a free plugin for Cinema 4D PC & Mac, R7.3 or later)
+#  
+#  Red-i Productions
+#  http://skinprops.com
+#  
+#  ==========================================================================
+
+newmtl botton
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd bottonSurface_Color.jpg
+
+newmtl mouse
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd mouseSurface_Color.jpg
+
+newmtl dessous
+d 1.000000
+illum 2
+Kd 0.800000 0.800000 0.800000
+map_Kd dessousSurface_Color.jpg

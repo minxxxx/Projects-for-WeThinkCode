@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name="apple-touch-fullscreen" content="yes">
+        <META HTTP-EQUIV="42run" CONTENT="no-cache">
+        <link rel="apple-touch-icon-precomposed" href="icon.jpg" />
+        <title>42run</title>
+        <link href="css/onepage-scroll.css" rel="stylesheet">
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/jquery.onepage-scroll.min.js"></script>
+    </head>
+    <body ng-app="starter">
+        <script>
+            window.onload=function () {
+                $(".main").onepage_scroll();
+            }
+        </script>
+        <div class="main">
+            <section>
+                <div><h1>page1</h1></div>
+            </section>
+            <section>
+                <div><h1>page2</h1></div>
+            </section>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,10 @@
+pop
+dump
+assert int8(1)
+add
+div
+mod
+mul
+sub
+print
+exit

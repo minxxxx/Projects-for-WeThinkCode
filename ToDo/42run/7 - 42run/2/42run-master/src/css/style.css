@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'Helvetica';
+	src: url("../font/HelveticaNeue.ttf");
+}
+
+.back-color {
+	/*background: -webkit-linear-gradient(top right, rgba(48, 35, 174, 0.60), rgba(195, 107, 214, 0.60));*/
+	/*background: -webkit-linear-gradient(top right, rgba(0,153,0, 0.60), rgba(0,153,0, 0.60));*/
+	background: rgba(29,106,173, 0.8);
+	background: rgba(146,146,146,0.8);
+
+}
+.theme-color {
+	/*color: rgba(48, 35, 174, 0.60);*/
+	color: rgba(29,106,173, 0.8);
+}
+.back-none {
+	/* opacity: 0;
+	*/
+	/* background-color: rgba(255, 255, 255, 0);
+	*/
+}
+.userImg{
+	border-radius: 60px;
+}
+.userInfo{
+	line-height: 40px;
+	color: #eee;
+}
+.timeBox {
+	display: inline-block;
+	text-align: center;
+	margin-left: 30px;
+	margin-top: 140px;
+	width: 180px;
+	height: 180px;
+	line-height: 180px;
+	background: rgba(0,0,0,0.6);
+	border-radius: 200px;
+	font-size: 60px;
+	color: #eee;
+}
+.timeBox span {
+	margin: 0;
+}
+.setting-item{
+	background: rgba(255,255,255,0.8);
+	color: #111;
+}
+.setting-item li,div{
+	color: #111;
+}
+.controllerBox button {
+	opacity: 0.85;
+	border: 0;
+	border-radius: 60px;
+	margin: 40px 25px 0 25px;
+	height: 100px;
+	width: 100px;
+	font-size: 20px;
+}
+.progress {
+	height: 50px;
+}
+.progress span {
+	padding: 0 10px;
+	border-radius: 20px;
+	text-align: right;
+	height: 18px;
+	line-height: 18px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.timer-page1{
+	display: inline-block;
+	height: 500px;
+}
+.timer-page2{
+	display: inline-block;
+	height: 500px;
+}
+.mainScoll{
+	height: 250px;
+}
+
+
+
+
+
+
+
+
+

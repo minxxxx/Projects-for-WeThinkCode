@@ -1,0 +1,5 @@
+push int8(32)
+push int8(0)
+div
+mod
+exit

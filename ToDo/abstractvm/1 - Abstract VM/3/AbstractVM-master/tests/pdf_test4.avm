@@ -1,0 +1,44 @@
+push int8(1)
+push int8(11)
+push int8(111)
+push int8(1111)
+push int8(1111.1)
+push int8(1111.11111)
+
+print
+
+push int16(1)
+push int16(11)
+push int16(111)
+push int16(1111)
+push int16(1111.1)
+push int16(1111.11111)
+
+print
+
+push int32(1)
+push int32(11)
+push int32(111)
+push int32(1111)
+push int32(1111.1)
+push int32(1111.11111)
+
+print
+
+push float(1)
+push float(11)
+push float(111)
+push float(1111)
+push float(1111.1)
+push float(1111.11111)
+
+print
+
+push double(1)
+push double(11)
+push double(111)
+push double(1111)
+push double(1111.1)
+push double(1111.11111)
+
+exit

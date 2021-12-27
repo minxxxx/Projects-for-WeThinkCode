@@ -1,0 +1,7 @@
+push int32(6)
+push int16(3)
+add
+assert int32(9)
+push float(-7)
+dump
+exit

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<widget 
+		xmlns   = "http://www.w3.org/ns/widgets"
+		xmlns:gap   = "http://phonegap.com/ns/1.0"
+		id          = "com.42run.42run"
+		versionCode = "10" 
+		version     = "1.0.0" 
+	>
+	<name>42run</name>
+	<description>
+		一个好玩好用的运动跑步软件。 
+	</description>
+	<author href="http://www.yituorenmai.com" email="q.hn@163.com">
+		42run
+	</author>
+	<preference name="orientation" value="portrait" />
+  <preference name="DisallowOverscroll" value="true" />
+	<icon src="ionic.png" />
+</widget>

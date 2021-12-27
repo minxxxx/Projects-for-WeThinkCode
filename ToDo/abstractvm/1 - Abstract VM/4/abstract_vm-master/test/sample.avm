@@ -1,0 +1,11 @@
+;dfdsfdsf dsfdsf dsfdsfs
+push int32(42)
+push int32(33) ;dfdsfdsfdsfdsfdsf
+add
+push float(44.55)
+mul ;dsfds dsfdsf dsfdsf dsfdsf 
+push double(42.42) ;dfsfdsfdsfdsfdsf
+push int32(42)
+dump pop ;sdfdsfdsfdsfdsf
+assert double(42.42)
+exit

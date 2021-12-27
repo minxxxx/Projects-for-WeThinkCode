@@ -1,0 +1,15 @@
+*.o
+/42sh
+*.dSYM
+a.out
+*.a
+/lib
+/obj
+/.idea
+/21sh
+*.pyc
+._*
+.DS_Store
+/big_data
+in.my
+in.ref

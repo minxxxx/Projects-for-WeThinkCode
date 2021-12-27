@@ -1,0 +1,75 @@
+<ion-view title="{{_t['Setting']}}" class="back-color">
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header">
+		<ul class="list setting-item">
+			<li style="border:1px solid #ccc;" class="item item-toggle">
+				{{_t['Autostart']}}
+				<label class="toggle toggle-balanced">
+					<input type="checkbox" checked>
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</li>
+			<li style="border:1px solid #ccc;" class="item item-toggle">
+				{{_t['Syncdata']}}
+				<label class="toggle toggle-balanced">
+					<input type="checkbox" checked>
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</li>
+			<li style="border:1px solid #ccc;" class="item item-toggle">
+				{{_t['Animation']}}
+				<label class="toggle toggle-balanced">
+					<input type="checkbox">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</li>
+			<li>
+				<label style="border:1px solid #ccc;" class="item item-input item-select">
+				  <div class="input-label">
+				    {{_t['Theme']}}
+				  </div>
+				  <select>
+				    <option>{{_t['Blue']}}</option>
+				    <option>{{_t['Orange']}}</option>
+				    <option selected>{{_t['Purple']}}</option>
+				    <option>{{_t['Red']}}</option>
+				    <option>{{_t['Yellow']}}</option>
+
+				  </select>
+				</label>
+			</li>
+			<li>
+				<label style="border:1px solid #ccc;" class="item item-input item-select">
+				  <div class="input-label">
+				    {{_t['Language']}}
+				  </div>
+				  <select>
+				    <option>简体中文</option>
+				    <option>繁体中文</option>
+				    <option>ภาษาไทย</option>
+				    <option>Español</option>
+				    <option selected>English</option>
+				    <option>Français</option>
+				    <option>한국어</option>
+				    <option>日本語</option>
+				  </select>
+				</label>
+			</li>
+		</ul>
+		<div style="text-align:center;color:white;">
+			<h4>{{_t['Powered by']}}</h4>
+			<p>{{_t['Jia.Y']}} & {{_t['Chiming Yau']}}</p>
+			<p>email@email.com</p>
+			<br/>
+			<p><a href="#" target="_blank">{{_t['PRIVACY POLICY']}}</a></p>
+		</div>
+	</ion-content>
+</ion-view>

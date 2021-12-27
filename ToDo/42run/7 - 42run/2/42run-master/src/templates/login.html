@@ -1,0 +1,26 @@
+<div class="modal">
+	<ion-header-bar>
+		<h1 class="title">{{_t['Login']}}</h1>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="closeLogin()">{{_t['Close']}}</button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<form ng-submit="doLogin()">
+			<div class="list">
+				<center><p><h1>42run</h1></p></center>
+				<label class="item item-input">
+					<span class="input-label">{{_t['Username']}}</span>
+					<input type="text" ng-model="loginData.username">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">{{_t['Password']}}</span>
+					<input type="password" ng-model="loginData.password">
+				</label>
+				<label class="item item-clear">
+					<button class="button button-block button-positive" type="submit">{{_t['Login']}}</button>
+				</label>
+			</div>
+		</form>
+	</ion-content>
+</div>

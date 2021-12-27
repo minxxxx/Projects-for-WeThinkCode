@@ -1,0 +1,2 @@
+/*! 42run 2014-09-09 */
+lang_zh_cn={test:"测试"},angular.module("starter.services",[]).factory("_AE39EC9ABA6BD9CA",function(){return alert(1),lang=lang_zh_cn,function(word){return lang(word)?lang(word):""}});

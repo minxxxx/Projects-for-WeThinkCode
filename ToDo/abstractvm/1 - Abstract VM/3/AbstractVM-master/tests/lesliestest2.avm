@@ -1,0 +1,9 @@
+push int16(1)
+print
+push int32(1)
+print
+push float(1)
+print
+push double(1)
+print
+exit

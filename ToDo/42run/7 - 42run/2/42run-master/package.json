@@ -1,0 +1,14 @@
+{
+	"name": "42run",
+	"version": "0.1.0",
+	"devDependencies": {
+		"grunt": "~0.4.5",
+		"grunt-contrib-jshint": "~0.10.0",
+		"grunt-contrib-nodeunit": "~0.4.1",
+		"grunt-contrib-uglify": "~0.5.0",
+		"grunt-contrib-watch": "~0.6.1"
+	},
+	"host": "112.124.68.222",
+	"username": "root",
+	"password": "AB027698aDb25617"
+}

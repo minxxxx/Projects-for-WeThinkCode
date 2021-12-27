@@ -1,0 +1,26 @@
+os:
+  - osx
+  - linux
+
+language: C
+
+sudo: required
+
+before_install:
+  - sudo brew update || sudo apt-get update -qq
+  - sudo brew install valgrind || sudo apt-get install -y valgrind
+
+install:
+  - make
+
+script:
+  - make check
+  - VALGRIND=TRUE make check
+
+after_script:
+  - make fclean
+  - make
+  - make re
+  - make clean
+  - make fclean
+  - make check

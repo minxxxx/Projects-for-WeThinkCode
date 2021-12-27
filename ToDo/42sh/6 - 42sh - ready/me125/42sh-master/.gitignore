@@ -1,0 +1,12 @@
+.idea/
+cmake-build-debug/
+out/
+obj/
+42sh
+42sh.exe
+*.dev
+*.san
+*.a
+*.o
+*.d
+*.out
