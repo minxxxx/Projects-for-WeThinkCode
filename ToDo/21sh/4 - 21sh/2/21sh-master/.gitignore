@@ -1,0 +1,13 @@
+# binary files
+21sh
+
+# swp
+includes/*.h.swp
+srcs/*.c.swp
+srcs/*/*.c.swp
+
+# objects
+objs
+
+# buffer
+buf
