@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap/theme';
+
+body{
+	background-color: #F5DA81;
+}
+.login_Form{
+	text-align: center;
+	margin:auto;
+	margin-top:220px;	
+	width:500px;
+	background-color: #2EFEF7;
+	padding-bottom:50px;
+	padding-top:50px;
+	border-radius: 18px;
+	box-shadow: 5px 5px 5px #888888;
+
+}
+
+.Sign_Form{
+	text-align: center;
+	margin:auto;
+	margin-top:220px;	
+	width:1500px;
+	background-color: #2EFEF7;
+	padding-bottom:50px;
+	padding-top:50px;
+	border-radius: 18px;
+	box-shadow: 5px 5px 5px #888888;
+
+}
+
+.Signup_Errors{
+	list-style-type: none;
+	text-align:left;
+	margin-left:66px;
+	color:red;
+}
+
+.Main_Header{
+	background-image: url('header_bg.png');
+	height:60px;
+	padding:0 20px;
+	border-radius: 18px;
+	box-shadow: 5px 5px 5px #888888;
+
+}
+
+.Main_Header h1{
+	float:left;
+	margin-top:8px;
+	color:#C4C1BD;
+	background-image: url('ruby-source-logo.png');
+	height:43px;
+	width:215px;
+	text-indent:-9999px;
+}
+
+.nav{
+	list-style-type: none;
+	float: right;
+	color:#C4C1BD;
+
+}
+.nav li{
+	display: inline;
+	margin-right:5px;
+
+}
+.nav_links{
+	color: #C4C1BD;
+	text-decoration: none;
+} 
+
+.notice, .valid_notice, .invalid_notice{
+	height:35px;
+	width: 400px;
+	margin:auto;
+	margin-top:20px;
+}
+.notice, .invalid_notice p, .valid_notice p{
+	text-align:center;
+	margin-top:6px;
+}
+
+.notice{
+	background-color: transparent;
+}
+
+.invalid_notice{
+	background-color: #FFCCCC;
+	border:1px solid red;
+}
+.valid_notice{
+	background-color: #CCFFCC;
+	border:1px solid green;
+}
+
+.User_Header{
+
+	background-color: rgba(0, 0, 0, .2);
+	border-radius: 18px;
+	margin:auto;
+	width:220px;
+	text-align:center;
+}

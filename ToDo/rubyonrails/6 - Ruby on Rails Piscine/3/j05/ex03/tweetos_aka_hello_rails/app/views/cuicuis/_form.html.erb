@@ -1,0 +1,25 @@
+<%= form_for(@cuicui) do |f| %>
+  <% if @cuicui.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cuicui.errors.count, "error") %> prohibited this cuicui from being saved:</h2>
+
+      <ul>
+      <% @cuicui.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<div id="gameboy-wrap">
+	<div class="gameboy">
+		<%= image_tag("home-logo.png", class: 'gameboy-window', type: 'menu') %>
+		<div class="gameboy-window" type="menu">
+			<h7>Start - New Game</h7>
+			</br>
+			<h7>Select - Load</h7>
+		</div>
+		<div class="gameboy-window" type="menu-cursor">
+			<% (0..1).each do |id| %>
+			<h7><%= $game[:cursor][:pos] == id ? '>' : '' %></h7>
+			<br>
+			<% end %>
+		</div>
+		<%= image_tag("gameboy.png", class: 'gameboy-image', usemap: '#gamekeys') %>
+	</div>
+</div>

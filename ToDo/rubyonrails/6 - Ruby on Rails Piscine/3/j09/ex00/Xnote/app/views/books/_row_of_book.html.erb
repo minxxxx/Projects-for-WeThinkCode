@@ -1,0 +1,8 @@
+<tr id= <%= @book.id %>>
+  <td><%= book.name %></td>
+  <td><%= link_to 'Show', book %></td>
+  <td><%= link_to 'Edit', edit_book_path(book),
+          :remote => true, :class => 'edit_book'  %></td>
+  <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' },
+          :remote => true, :class => 'delete_book' %></td>
+</tr>

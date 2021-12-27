@@ -1,0 +1,7 @@
+Sources:
+	tutorials:
+	http://www.lighthouse3d.com/tutorials/glut-tutorial/
+	cflags:
+	http://web.eecs.umich.edu/~sugih/courses/eecs487/glut-howto/
+	matrix multiplication:
+	http://www.programmingsimplified.com/c-program-multiply-matrices

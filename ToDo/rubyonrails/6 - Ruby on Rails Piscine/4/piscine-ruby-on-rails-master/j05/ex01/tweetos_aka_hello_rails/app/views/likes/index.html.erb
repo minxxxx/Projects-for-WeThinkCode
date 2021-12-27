@@ -1,0 +1,33 @@
+<!-- comment -->
+<%if false%>
+<p id="notice"><%= notice %></p>
+
+<% title "Listing Most liked Cuicuis"%>
+
+
+<%if Cuicui.all.respond_to? :top%>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Cuicui</th>
+      <th> Like count </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Cuicui.all.top.each do |top| %>
+      <tr>
+        <td><%= User.find(top.user_id).name %></td>
+        <td><%= link_to "#{top.content}" ,cuicui_path(top)%></td>
+        <td><%= top.fame%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%end%>
+<br>
+
+<%= link_to 'New Like', new_like_path %>
+
+
+<%end%>

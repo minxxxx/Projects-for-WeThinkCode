@@ -1,0 +1,23 @@
+Rails:
+  Enabled: true
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Gem*'
+    -  'views_com.rb'
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 99
+Style/GlobalVars:
+  AllowedVariables: ["$db", "$time_stamps", "$all", "$runner_1", "$runner_2", "$runner_3", "$runner_4", "$race_id"]
+MethodLength:
+  Max: 25
+ClassLength:
+  Max: 200
+Metrics/AbcSize:
+  Max: 50

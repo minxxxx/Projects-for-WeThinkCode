@@ -1,0 +1,22 @@
+<%= @notice %>
+<%= form_for(@user, url: create_user_path) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :Nom %>
+  <%= f.text_field :name %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :mot2pass %>
+  <%= f.password_field :mot2pass %>
+  <%= f.label :mot2pass_confirmation %>
+  <%= f.password_field :mot2pass_confirmation %>
+  <%= f.submit :Register %>
+<% end %>

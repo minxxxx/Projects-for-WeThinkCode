@@ -1,0 +1,44 @@
+<!-- DO NO CHANGE THE ORDER OF DISPLAY TO MATCH YOUR RESULTS  -->
+<!-- ALL THE TESTS ARE ACCORDING THIS ARRAY 'S DESIGN -->
+<table>
+  <thead>
+    <tr>
+      <td>id</td>
+      <td>day</td>
+      <td>month</td>
+      <td>year</td>
+      <td>hour</td>
+      <td>min</td>
+      <td>sec</td>
+      <td>race</td>
+      <td>name</td>
+      <td>lap</td>
+    </tr>
+  </thead>
+  <tbody>
+      <!-- this is for print message when $timestamp is empty of db records -->
+      <%if $time_stamps.count == 1 && $time_stamps[0].is_a?(String) %>
+        <tr>
+          <td colspan="10">
+            <%=$time_stamps[0]%>
+          </td>
+        </tr>
+      <%else%>
+      <!-- this is for regular table display  -->
+      <%$time_stamps.reverse_each do |t_s |%>
+        <tr>
+          <td><%=t_s[0]%></td>
+          <td><%=t_s[1]%></td>
+          <td><%=t_s[2]%></td>
+          <td><%=t_s[3]%></td>
+          <td><%=t_s[4]%></td>
+          <td><%=t_s[5]%></td>
+          <td><%=t_s[6]%></td>
+          <td><%=t_s[7]%></td>
+          <td><%=t_s[8]%></td>
+          <td><%=t_s[9]%></td>
+        </tr>
+      <%end%>
+    <%end%>
+  </tbody>
+</table>

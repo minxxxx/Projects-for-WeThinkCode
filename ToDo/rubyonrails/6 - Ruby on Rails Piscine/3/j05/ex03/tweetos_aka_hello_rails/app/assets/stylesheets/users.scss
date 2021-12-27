@@ -1,0 +1,24 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.split_table{
+  width:48%;
+  display:inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 40px;
+}
+  .split_table_right{
+    width:48%;
+    display:inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 40px;
+    float:right;
+  }
+.tag{
+  display: inline-block;
+}
+tr.resp{
+   outline: thin solid;
+}

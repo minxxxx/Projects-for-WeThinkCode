@@ -1,0 +1,73 @@
+<section class="split" >
+
+<div  class="row">
+  <div class="query_btns" >
+    <%=button_to "db_creation",create_db_path,class: "db_query" %>
+    <%=button_to "table_creation",create_table_path,class: "db_query" %>
+    <%=button_to "drop_table",drop_table_path ,class: "db_query" %>
+    <br/>
+    <%= form_tag(start_race_path , method: "post")  do  %>
+    <%= submit_tag "Subscribe / Start race" ,class: "db_query"%>
+    <%= text_field_tag :name_1 , $runner_1%>
+    <%= text_field_tag :name_2, $runner_2%>
+    <%= text_field_tag :name_3 , $runner_3%>
+    <%= text_field_tag :name_4 , $runner_4%>
+    <%end%>
+    <br/>
+    <%= form_tag(insert_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "time" ,class: "db_query"%>
+    <%= text_field_tag :name_1 , $runner_1 %>
+    <%end%>
+    <%= form_tag(insert_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "time" ,class: "db_query"%>
+    <%= text_field_tag :name_2 , $runner_2 %>
+    <%end%>
+    <%= form_tag(insert_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "time" ,class: "db_query"%>
+    <%= text_field_tag :name_3 , $runner_3 %>
+    <%end%>
+    <%= form_tag(insert_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "time", class: "db_query"%>
+    <%= text_field_tag :name_4 , $runner_4 %>
+    <%end%>
+    <br/>
+    <%= form_tag(update_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "update name" ,class: "db_query"%>
+    <%= text_field_tag :name_1 , $runner_1 %>
+    <%end%>
+    <%= form_tag(update_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "update name" ,class: "db_query"%>
+    <%= text_field_tag :name_2 , $runner_2 %>
+    <%end%>
+    <%= form_tag(update_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "update name" ,class: "db_query"%>
+    <%= text_field_tag :name_3 , $runner_3 %>
+    <%end%>
+    <%= form_tag(update_time_stamp_path , method: "post")  do  %>
+    <%= submit_tag "update name", class: "db_query"%>
+    <%= text_field_tag :name_4 , $runner_4 %>
+    <%end%>
+    <br/>
+    <%=button_to "Show all by name",all_by_name_path,class: "db_query" %>
+    <%=button_to "Show all by race",all_by_race_path,class: "db_query" %>
+    <%=button_to "delete_last",delete_last_path,class: "db_query" %>
+    <%=button_to "delete_all",destroy_all_path,class: "db_query" %>
+  </div>
+</div>
+</section>
+</br>
+
+<%if false%> <!-- uncomment at ex02 -->
+<div class="split"style="width:100%">
+  <div class="row" style="width:100%">
+    <p class="cell">
+<!-- to avoid poluting page his part is in a patial named _timestamp.html.erb -->
+    <%= render "timestamp"%>
+    </p>
+    <p class="cell">
+<!-- to avoid poluting page his part is in a patial named _all.html.erb -->
+    <%= render "all"%>
+    </p>
+  </div>
+</div>
+<%end%> <!-- uncomment at ex02 -->

@@ -1,0 +1,14 @@
+<table>
+	<th>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Editer</td>
+  </th>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to :Editer, user_edit_path(user) %></td>
+    </tr>
+  <% end %>
+</table>

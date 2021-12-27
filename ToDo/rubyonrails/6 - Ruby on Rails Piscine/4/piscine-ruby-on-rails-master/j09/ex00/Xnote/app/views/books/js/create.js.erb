@@ -1,0 +1,5 @@
+var content = document.getElementById("books_to_update");
+var form_new_book = document.getElementById("form_new_book");
+
+content.innerHTML = content.innerHTML + "<%= escape_javascript(render partial: 'row_of_book', locals: { book: @book }) %>"
+form_new_book.innerHTML = ""

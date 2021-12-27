@@ -1,0 +1,133 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ggroener <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/06/22 11:13:51 by ggroener          #+#    #+#              #
+#    Updated: 2016/08/24 09:59:06 by oexall           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = scop
+
+CFLAGS = -Wno-deprecated-declarations -Wall -Wextra -Werror -g -Ofast 
+
+
+CFLAGS2 =	-lGL -lGLU -lglut -lXmu -lXext -lX11 -lm -Wno-deprecated-declarations \
+			-g -Ofast
+
+CC = gcc
+
+INCLUDES_PATH = includes/
+
+SRCS_PATH = srcs/
+
+SRC_NAME = change_size.c 				\
+			count_elements.c			\
+			error_quit.c				\
+			exit_prog.c					\
+			ft_atof.c					\
+			ft_print_memory.c			\
+			matrix_add.c				\
+			matrix_create.c				\
+			matrix_destroy.c			\
+			matrix_identity.c			\
+			matrix_multiply.c			\
+			matrix_sub.c				\
+			matrix_transpose.c			\
+			print_list.c				\
+			process_normal_keys.c 		\
+			process_special_keys.c 		\
+			free_lst.c					\
+			read_obj.c					\
+			render_scene.c 				\
+			set_arrays.c				\
+			set_colour.c				\
+			scop.c 						\
+			store_face.c				\
+			store_obj.c					\
+			trim.c						\
+			vertex_create.c				\
+			snowman.c					\
+
+SRCS1 = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
+
+SRCS = $(SRCS1)
+
+OBJS_PATH = objs/
+
+OBJS_NAME = $(SRCS_NAME:.c=.o)
+
+OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
+
+#LIBRARY = -lmlx -L libft/ -lft -framework OpenGL -framework AppKit
+LIBRARY = -L libft/ -lft
+
+INCLUDES = -I includes/ -I libft/includes
+
+HEADER = 	$(INCLUDES_PATH)scop.h	\
+
+all: qme odir $(NAME)
+
+#define colourecho
+#	@tput setaf 14
+#	@echo $1
+#	@tput sgr0
+#endef
+
+#define colourecho2
+#	@tput setaf 2
+#	@echo $1
+#	@tput sgr0
+#endef
+
+$(NAME): $(OBJS)
+	@make -C libft
+	@$(call colourecho, " - Making $(NAME)")
+	@clear
+	@$(CC) $(CFLAGS2) $^ $(LIBRARY) $(INCLUDES) -I$(INCLUDES_PATH)
+	@mv ./a.out ./$(NAME)
+	@clear
+	@$(call colourecho, "Make Done!")
+
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+	@$(call colourecho, " - Compiling $<")
+	@$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $< -I$(INCLUDES_PATH)
+	@$(call colourecho, "Compiling Done!")
+
+odir:
+	@mkdir -p $(OBJS_PATH)
+
+clean:
+	#@make clean -C libft
+	#@$(call colourecho, " - Clearing object files")
+	@rm -f $(OBJS)
+	#@$(call colourecho, "clean done!")
+
+fclean: clean
+	#@Make fclean -C libft
+	#@$(call colourecho, "Clearing executable files")
+	@rm -f $(NAME)
+	#@$(call colourecho, "fclean done")
+
+re: fclean all
+	#@$(call colourecho, "re Done!")
+
+format: norme me
+
+norm:
+	@clear
+	@$(call colourecho2, "Norminette:")
+	@norminette $(SRCS1)
+	@norminette $(HEADER)
+
+qme:
+	@rm -Rf author
+	@whoami > author
+	
+me: qme
+	cat -e author
+
+.PHONY: clean fclean re odir

@@ -1,0 +1,19 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1271
+
+Commands:     
+
+- u, d, l, r, f, b to turn up, down, left, right, front and back faces clockwise (whatever cube orientation) 
+- c, m, v to turn the three belts clockwise
+- shift + letter for turning counterclockwise - ctrl + letter for half turn 
+- the whole cube can turn with the four arrows and Pgup/Pgdown keys
+- sramble cube with s key, reset it with S
+
+TODO:
+- more configurable display
+- add some edit technique with a solver algorithm - in order to solve a real cube :-) 
+- chrono + high score stuff 
+- support for 4x4 and 5x5 cubes 
+- write moves in letters when done
+- some optimization (seems to be slow on old or "slow networked display" machines) 
+- etc.
+

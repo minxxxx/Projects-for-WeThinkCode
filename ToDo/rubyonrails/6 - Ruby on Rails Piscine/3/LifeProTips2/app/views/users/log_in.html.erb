@@ -1,0 +1,9 @@
+<div class= "Sign_Form">
+<%= form_for(:user, url: connect_user_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :mot2pass %>
+  <%= f.password_field :mot2pass %>
+  <%= f.submit :Connexion %>
+<% end %>
+</div>

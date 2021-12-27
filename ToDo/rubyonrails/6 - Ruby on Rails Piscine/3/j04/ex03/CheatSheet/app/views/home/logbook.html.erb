@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="content-wrapper">
+  <div class="container ">
+    <section id="main-content">
+
+    <% title "Log Book" %>
+      <h1>Log Book</h1>
+
+<form method="post" action="new" class="button_to">
+ <table class="table table-striped" id="table-log" width="95%">
+  <thead>
+    <th></th>
+    <th ></th>
+    <th ></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">Log Book
+      </td>
+      <td>
+        <textarea name="logbook" cols="100" rows="1" placeholder="Entrez ici votre commentaire" id="logbook"> </textarea>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      </td>
+      <td align="left">
+        <input type="submit" value="Write" />
+        <input type="hidden" id="prov" name = "prov" value="1" />
+      </td>
+    </tr>
+   </tbody>
+  </table>
+   </form>
+   <% if params[:prov] == "1" %>
+   <% File.open("entry_log.txt", "r") do |f| %>
+   <% f.each_line.with_index do |line, nb_line| %>
+   <%= "#{line}" %><br>
+   <% end %>
+   <% end %>
+   <% end %>
+  </section>
+  </div>
+</div>
+
+</body>
+</html> 

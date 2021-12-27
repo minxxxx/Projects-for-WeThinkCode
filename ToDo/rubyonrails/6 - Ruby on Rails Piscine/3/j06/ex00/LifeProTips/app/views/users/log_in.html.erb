@@ -1,0 +1,11 @@
+<% title "Log In" %>
+<div class= "Sign_Form">
+<h2> <%= @notice %> </h2>
+<%= form_for(:user, url: connect_user_path) do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :mot2pass %>
+  <%= f.password_field :password %>
+  <%= f.submit :Connexion %>
+<% end %>
+</div>

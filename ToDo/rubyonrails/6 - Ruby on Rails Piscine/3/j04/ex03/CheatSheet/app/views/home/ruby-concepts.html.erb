@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="content-wrapper">
+  <div class="container ">
+    <section id="main-content">
+
+    <% title "Ruby Concepts" %>
+      <h2 id="ruby-concepts">General concepts</h2>
+<table class="table table-striped">
+<tr>
+  <th class="concept">Concept</th>
+  <th class="usage">Usage</th>
+  <th class="example">Examples</th>
+  <th class="description">Description</th>
+</tr>
+<tr>
+  <td>Comment</td>
+  <td>
+    <code><strong>#</strong> <em>Comment text</em></code>
+  </td>
+  <td>
+    <p>
+      <code><strong>#</strong> <em>This text is a comment</em></code>
+    </p>
+
+    <p>
+      <code>some.ruby_code <strong>#</strong> A comment</code>
+    </p>
+
+    <p>
+      <code><strong>#</strong> some.ignored_ruby_code</code>
+    </p>
+  </td>
+  <td>
+    Ruby ignores everything that is marked as a comment. It does not try
+    to execute it. Comments are just there for you as information.
+    Comments are also commonly used to <em>comment out code</em>. That
+    is when you don't want some part of your code to execute
+    but you don't want to delete it just yet, because you are trying
+    different things out.
+  </td>
+</tr>
+<tr>
+  <td>Variables</td>
+  <td>
+    <code><strong>variable =</strong> <em>some_value</em></code>
+  </td>
+  <td>
+<pre><code><strong>name =</strong> <em>"Tobi"</em>
+<strong>name</strong> # => "Tobi"</code></pre>
+<pre><code><strong>sum =</strong> <em>18 + 5</em>
+<strong>sum</strong> # => 23</code></pre>
+  </td>
+  <td>
+    With a variable you tell Ruby that from now on you want to refer to
+    that value by the name you gave it. So for the first example, from
+    now on when you use <em>name</em> Ruby will know that you meant
+    <em>"Tobi"</em>.
+  </td>
+</tr>
+<tr>
+  <td>Console output</td>
+  <td>
+    <code><strong>puts</strong> <em>something</em></code>
+  </td>
+  <td>
+    <p><code><strong>puts</strong> <em>"Hello World"</em></code></p>
+
+    <p><code><strong>puts</strong> <em>[1, 5, "mooo"]</em></code></p>
+  </td>
+  <td>
+    Prints its argument to the console. Can be used in Rails apps
+    to print something in the console where the server is running.
+  </td>
+</tr>
+<tr>
+  <td>Call a method</td>
+  <td>
+    <code>object<strong>.method</strong><em>(arguments)</em></code>
+  </td>
+  <td>
+    <p><code>string<strong>.length</strong></code></p>
+
+    <p><code>
+      array<strong>.delete_at</strong><em>(2)</em>
+    </code></p>
+
+    <p><code>string<strong>.gsub</strong><em>("ae", "ä")</em></code></p>
+  </td>
+  <td>
+    <p>Calling a method is also often referred to as
+      <em>sending a message</em> in Ruby. Basically we are sending an
+      object some kind of message and are waiting for its response.
+      This message may have no arguments or multiple arguments, depending
+      on the message.
+      So we kindly ask the object to do something or give us some
+      information.
+      When you "call a method" or "send a message" something happens. In the
+      first example we ask a String how long it is (how many
+      characters it consists of). In the last example we substitute all
+      occurrences of "ae" in the string with the German "ä".</p>
+
+    <p>
+      Different kinds of objects (Strings, Numbers, Arrays...)
+      understand different messages.
+    </p>
+  </td>
+</tr>
+<tr>
+  <td>Define a method</td>
+  <td>
+<pre><code><strong>def</strong> <em>name(parameter)</em>
+  <em># method body</em>
+<strong>end</strong></code></pre>
+  </td>
+  <td>
+<pre><code><strong>def</strong> <em>greet(name)</em>
+  <em>puts "Hi there " + name</em>
+<strong>end</strong></code></pre>
+  </td>
+  <td>
+    <p>Methods are basically reusable units of behaviour. And you can
+      define them yourself just like this. Methods are small and focused
+      on implementing a specific behaviour.</p>
+
+    <p>
+      Our example method is focused on greeting people.
+      You could call it like this: <code>greet("Tobi")</code>
+    </p>
+  </td>
+</tr>
+<tr>
+  <td>Equality</td>
+  <td><code>object <strong>==</strong> other</code></td>
+  <td>
+    <p><code>true <strong>==</strong> true # => true</code></p>
+
+    <p><code>3 <strong>==</strong> 4 # => false</code></p>
+
+    <p><code>"Hello" <strong>==</strong> "Hello" # => true</code></p>
+
+    <p><code>"Helo" <strong>==</strong> "Hello" # => false</code></p>
+  </td>
+  <td>
+    With two equal signs you can check if two things are the
+    same. If so, <code>true</code> will be returned; otherwise, the result
+    will be <code>false</code>.
+  </td>
+</tr>
+<tr>
+  <td>Inequality</td>
+  <td><code>object <strong>!=</strong> other</code></td>
+  <td>
+    <p><code>true <strong>!=</strong> true # => false</code></p>
+
+    <p><code>3 <strong>!=</strong> 4 # => true</code></p>
+  </td>
+  <td>
+    Inequality is the inverse to equality, e.g. it results in
+    <code>true</code> when two values are not the same and it results
+    in <code>false</code> when they are the same.
+  </td>
+</tr>
+<tr>
+  <td>Decisions with if</td>
+  <td>
+<pre><code><strong>if</strong> <em>condition</em>
+  # happens when true
+<strong>else</strong>
+  # happens when false
+<strong>end</strong>
+</code></pre>
+  </td>
+  <td>
+<pre><code><strong>if</strong> <em>input == password</em>
+  grant_access
+<strong>else</strong>
+  deny_access
+<strong>end</strong>
+</code></pre>
+  </td>
+  <td>
+    <p>With if-clauses you can decide based upon a <em>condition</em>
+      what to do. When the condition is considered true, then the code
+      after it is executed. If it is considered false, the code after
+      the "else" is executed.</p>
+
+    <p>
+      In the example, access is granted based upon the decision if a
+      given input matches the password.
+    </p>
+  </td>
+</tr>
+<tr>
+  <td>Constants</td>
+  <td><code><strong>CONSTANT =</strong> <em>some_value</em></code></td>
+  <td>
+<pre><code><strong>PI = 3.1415926535</strong>
+<strong>PI</strong> # => 3.1415926535</code></pre>
+<pre><code><strong>ADULT_AGE</strong> = 18
+<strong>ADULT_AGE</strong> # => 18</code></pre>
+  </td>
+  <td>
+    Constants look like variables, just in UPCASE. Both hold
+    values and give you a name to refer to those values. However while
+    the value a variable holds may change or might be of an unknown
+    value (if you save user input in a variable) constants are
+    different. They have a known value that should never change. Think
+    of it a bit like mathematical or physical constants. These don't
+    change, they always refer to the same value.
+  </td>
+</tr>
+</table>
+  </section>
+  </div>
+</div>
+
+</body>
+</html> 

@@ -1,0 +1,34 @@
+// Place all the styles related to the ft_query controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.db_query {
+  width: 274px;
+}
+.query_btns{
+display:table-cell;
+}
+.cell{
+display:table-cell;
+overflow-x: auto;
+}
+.split{
+display:table;
+}
+.row{
+display:table-row;
+}
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+   width: 100%;
+   border: 1px solid #ddd;
+}
+
+th, td {
+   border: none;
+   text-align: left;
+   padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}

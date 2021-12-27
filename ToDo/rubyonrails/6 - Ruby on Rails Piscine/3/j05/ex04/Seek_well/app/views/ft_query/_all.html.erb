@@ -1,0 +1,38 @@
+<!-- DO NO CHANGE THE ORDER OF DISPLAY TO MATCH YOUR RESULTS  -->
+<!-- ALL THE TESTS ARE ACCORDING THIS ARRAY 'S DESIGN -->
+<table>
+  <thead>
+    <tr>
+      <td>Runner name</td>
+      <td>Lap hour</td>
+      <td>Lap min</td>
+      <td>Lap sec</td>
+      <td>Race start_time</td>
+      <td>Race ID</td>
+    </tr>
+  </thead>
+  <tbody>
+
+        <!-- this is for message printing instead of empty records  -->
+        <%$all = "" if $all.nil?%>
+        <%if $all.count == 1 && $all[0].is_a?(String) %>
+        <tr>
+          <td colspan="6">
+            <%=$all[0]%>
+          </td>
+        </tr>
+        <%else%>
+        <!-- this is for regular table display  -->
+          <%$all.each do |t_s |%>
+          <tr>
+            <td><%=t_s[0]%></td>
+            <td><%=t_s[1]%></td>
+            <td><%=t_s[2]%></td>
+            <td><%=t_s[3]%></td>
+            <td><%=t_s[4]%></td>
+            <td><%=t_s[5]%></td>
+          </tr>
+          <%end%>
+      <%end%>
+  </tbody>
+</table>

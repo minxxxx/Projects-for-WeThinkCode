@@ -1,0 +1,22 @@
+<%= form_for(@book, remote: true) do |form| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :book_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create a book', class: "button" %>
+  </div>
+<% end %>

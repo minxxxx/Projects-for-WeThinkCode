@@ -1,0 +1,72 @@
+<div id="gameboy-wrap">
+	<div class="gameboy">
+		<!-- MOB -->
+		<% if $game[:player][:battle_with]["loose"] == false %>
+			<div class="gameboy-window" type="fight-menu-movie">
+					<%= image_tag($game[:player][:battle_with]["src"].to_s, class: 'fight-launcher-img') %>
+			</div>
+			<div class="gameboy-window" position="top" >
+				<h7><%= $game[:player][:battle_with]["title"].to_s[0, 15] %>
+					<% if $game[:player][:battle_with]["title"].to_s.length > 15 %>
+						...
+					<% end %>
+				</h7>
+				</br>
+				<h6>Energy : <%= $game[:player][:battle_with]["energy"] %> </h6>
+			</div>
+		<% else %>
+			<div class="gameboy-window" position="top" >
+				<h7><%= $game[:player][:battle_with]["title"].to_s[0, 15] %>
+					<% if $game[:player][:battle_with]["title"].to_s.length > 15 %>
+						...
+					<% end %>
+				&nbsp;[LOOSE FIGHT]
+				</h7>
+				</br>
+				<h6>Energy : <%= $game[:player][:battle_with]["energy"] %> </h6>
+				</br>
+				MovieMoneyer You caught it
+			</div>
+		<% end %>
+
+		<!-- SACHA -->
+		<% if $game[:player][:loose] == false %>
+			<div class="gameboy-window" type="fight-menu-launcher">
+				<%= image_tag('sacha.png', class: 'fight-launcher-img') %>
+			</div>
+			<div class="gameboy-window" position="right" >
+				<h7>MovieMoneyer</h7>
+				</br>
+				<h6>Energy : <%= $game[:player][:energy] %> </h6>
+			</div>
+		<% else %>
+			<div class="gameboy-window" position="right" >
+				<h7>MovieMoneyer</h7>
+				</br>
+				<h6>You coward ! !</h6>
+			</div>
+		<% end %>
+
+		<!-- MENU -->
+		<% if $game[:player][:loose] == false && $game[:player][:battle_with]["loose"] == false %>
+			<div class="gameboy-window" type="fight-menu">
+				<h7>&nbsp;&nbsp;&nbsp;a - attack</h7>
+				</br>
+				<h7>&nbsp;&nbsp;&nbsp;a - skip</h7>
+			</div>
+			<div class="gameboy-window" type="fight-menu-cursor">
+				<h7><%= $game[:cursor][:pos] == 0 ? '>' : '' %></h7>
+				</br>
+				<h7><%= $game[:cursor][:pos] == 1 ? '>' : '' %></h7>
+			</div>
+		<% else %>
+			<div class="gameboy-window" type="fight-menu">
+				<h7>&nbsp;&nbsp;&nbsp;a - endbattle</h7>
+			</div>
+			<div class="gameboy-window" type="fight-menu-cursor">
+				<h7><%= $game[:cursor][:pos] == 0 ? '>' : '' %></h7>
+			</div>
+		<% end %>
+		<%= image_tag("gameboy.png", class: 'gameboy-image', usemap: '#gamekeys') %>
+	</div>
+</div>

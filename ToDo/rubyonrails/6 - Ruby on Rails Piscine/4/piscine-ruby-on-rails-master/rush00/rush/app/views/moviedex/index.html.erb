@@ -1,0 +1,22 @@
+<% if @current != nil %>
+	<div id="gameboy-wrap">
+		<div class="gameboy">
+			<div class="gameboy-window" type="menu">
+				<h7><%= @current["title"] %></h7>
+			</div>
+			<%= image_tag("gameboy.png", class: 'gameboy-image', usemap: '#gamekeys') %>
+		</div>
+	</div>
+<% else %>
+	<div id="gameboy-wrap">
+		<div class="gameboy">
+			<%= image_tag("home-logo.png", class: 'gameboy-window', type: 'menu') %>
+			<div class="gameboy-window" type="menu" style="top: 253px;left: 143px;">
+				<h7>Empty movidex</h7>
+				<br>
+				<h7>(press start for exit this)</h7>
+			</div>
+			<%= image_tag("gameboy.png", class: 'gameboy-image', usemap: '#gamekeys') %>
+		</div>
+	</div>
+<% end %>

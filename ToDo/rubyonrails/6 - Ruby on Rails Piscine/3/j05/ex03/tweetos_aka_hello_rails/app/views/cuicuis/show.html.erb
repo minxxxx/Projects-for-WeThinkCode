@@ -1,0 +1,40 @@
+<!-- comment -->
+<%if false%>
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <h2>
+    <%= @cuicui.content %>
+  </h2>
+ </h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @cuicui.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_cuicui_path(@cuicui) %> |
+<%= link_to 'Back', cuicuis_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Content</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cuicui.comments.each do |com| %>
+      <tr style="border:4px">
+        <td><%= User.find(com.user_id).name %></td>
+        <td><h3> <%= com.content  %></h3></td>
+        <td><%= com.created_at  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%end%>

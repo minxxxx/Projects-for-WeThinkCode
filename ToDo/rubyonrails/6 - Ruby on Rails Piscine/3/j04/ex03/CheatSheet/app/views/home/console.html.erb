@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="content-wrapper">
+  <div class="container ">
+    <section id="main-content">
+
+<% title "Console" %>
+
+<h1 id="console">Console Basics</h1>
+
+<p>
+  The console (also called <em>command line, command prompt or
+  terminal</em>) is just another way of interacting with your computer.
+  So you can basically do anything with it that you could also do with
+  your graphical desktop user interface. This sections contains a couple
+  of examples.
+</p>
+
+<p>
+  For the different operating systems <strong>starting the console</strong>
+  differs.
+</p>
+
+<ul>
+  <li><strong>Windows:</strong> Open the start menu and search for
+    command prompt. Alternatively choose <em>execute</em> and enter
+    <em>cmd</em>.</li>
+  <li><strong>Mac:</strong> Open Spotlight, type <em>terminal</em>, and
+    start that program.
+  </li>
+  <li><strong>Linux:</strong> The terminal should be one of the main
+    options once you open the main menu of your distribution. Otherwise
+    search for <em>terminal</em> if your distribution has such an option
+    or look under Accessories.
+  </li>
+</ul>
+
+<table class="table table-striped">
+  <tr>
+    <th class="concept">Concept</th>
+    <th class="usage">Usage</th>
+    <th class="example">Examples</th>
+    <th class="description">Description</th>
+  </tr>
+  <tr>
+    <td>Change directory</td>
+    <td>
+      <code><strong>cd</strong> <em>directory</em></code>
+    </td>
+    <td>
+      <p><code>cd my_app</code></p>
+
+      <p><code>cd my_app/app/controllers</code></p>
+    </td>
+    <td>Changes the directory to the specified directory on the
+      console.
+    </td>
+  </tr>
+  <tr>
+    <td>List contents directory</td>
+    <td>
+      <p><code><strong>ls</strong> <em>directory</em></code></p>
+
+      <p><code>Windows: <strong>dir</strong> <em>directory</em></code>
+      </p>
+    </td>
+    <td>
+      <p><code><strong>ls</strong></code></p>
+
+      <p><code><strong>ls</strong> <em>my_app</em></code></p>
+    </td>
+    <td>Shows all contents (files and folders) of the directory.
+      If no directory is specified shows the contents of the
+      current directory.
+    </td>
+  </tr>
+  <tr>
+    <td>Directory you are currently in</td>
+    <td><code><strong>pwd</strong></code></td>
+    <td><code><strong>pwd</strong></code></td>
+    <td>Shows the full path of the directory you are currently
+      in. E.g. /home/tobi/railsgirls
+      <br />
+      A note on filenames: if a file or directory name starts with a slash / as in the output of pwd above, it is an absolute filename specifying the complete filename starting at the root of the current file system (e.g. hard disk). If the slash (/) is omitted, the file name is relative to the current working directory.
+    </td>
+  </tr>
+  <tr>
+    <td>Create a new directory</td>
+    <td><code><strong>mkdir</strong> <em>name</em></code></td>
+    <td>
+      <p><code><strong>mkdir</strong> <em>rails</em></code></p>
+      <p><code><strong>mkdir</strong> <em>fun</em></code></p>
+    </td>
+    <td>
+      Creates a directory with the given name in the folder you are currently
+      in.
+    </td>
+  </tr>
+  <tr>
+    <td>Delete a file</td>
+    <td>
+      <p><code><strong>rm</strong> <em>file</em></code></p>
+
+      <p><code>Windows: <strong>del</strong> <em>file</em></code>
+    </td>
+    <td>
+      <p><code><strong>rm</strong> <em>foo</em></code></p>
+      <p><code><strong>rm</strong> <em>index.html</em></code></p>
+      <p><code><strong>rm</strong> <em>pictures/old_picture.jpg</em></code></p>
+    </td>
+    <td>
+      <p>Deletes the specified file. Be <strong>extra cautious</strong> with this
+      as it would be too bad to delete something you still need :-(</p>
+      <p>
+        You can simply specify the name of a file of the directory you are
+        currently in. However you can also specify a path, this is shown in the
+        third example. There we delete the <em>old_picture.jpg</em> file from
+        the <em>pictures</em> folder.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>Delete a directory</td>
+    <td>
+      <p><code><strong>rm -r</strong> <em>folder</em></code></p>
+
+      <p><code>Windows: <strong>rd</strong> <em>folder</em></code>
+    </td>
+    <td>
+      <p><code><strong>rm -r</strong> <em>stuff_i_dont_need</em></code></p>
+      <p><code><strong>rm -r</strong> <em>stuff_i_dont_need/</em></code></p>
+      <p><code><strong>rm -r</strong> <em>old_application</em></code></p>
+    </td>
+    <td>
+      <p>Deletes the specified folder <strong>and all of its contents</strong>.
+        So please be <strong>super cautious</strong> with this! Make sure that
+        you do not need any of the contents of this folder any more.
+      </p>
+      <p>
+        So why would you want to delete a whole folder? Well maybe it was an old
+        application that you do not need anymore :-)
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>Starting a program</td>
+    <td><code><strong>program</strong> <em>arguments</em></code></td>
+    <td>
+      <p><code><strong>firefox</strong></code></p>
+
+      <p><code>
+        <strong>firefox</strong> <em>railsgirlsberlin.de</em></code>
+      </p>
+
+      <p><code><strong>irb</strong></code></p>
+    </td>
+    <td>Starts the program with the given name and arbitrary arguments
+      if the program takes arguments. Firefox is just one example. Starting
+      Firefox without arguments just opens up Firefox. If you give it an
+      argument it opens the specified URL.
+      When you type in <code>irb</code> this starts <em>interactive ruby</em>.
+    </td>
+  </tr>
+  <tr>
+    <td>Abort the program</td>
+    <td>Press <strong>Ctrl + C</strong></td>
+    <td>-</td>
+    <td>This will abort the program currently running in the terminal.
+      For instance this is used to shut down the Rails server.
+      You can also abort many other related tasks with it, including:
+      bundle install, rake db:migrate, git pull and many more!
+    </td>
+  </tr>
+</table>
+
+  </section>
+  </div>
+</div>
+
+</body>
+</html> 

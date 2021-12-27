@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TAHR <%= yield :title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="buttons set black">
+
+    <%= link_to "cuicuis" ,cuicuis_path ,method: :get, class: "btn pri Blacklist"%>
+    <%= link_to "comments" ,comments_path ,method: :get, class: "btn pri Blacklist"%>
+    <%= link_to "likes" ,likes_path ,method: :get , class: "btn pri Blacklist"%>
+    <%= link_to "users" ,users_path ,method: :get, class: "btn pri Blacklist"%>
+  </div>
+  <h1><%= yield(:title) %></h1>
+<%= yield %>
+
+</body>
+</html>

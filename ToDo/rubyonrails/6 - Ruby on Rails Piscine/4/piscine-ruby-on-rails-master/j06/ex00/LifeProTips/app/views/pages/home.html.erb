@@ -1,0 +1,8 @@
+<% if session[:id] == nil %>
+Welcome <%= @RandomAnimalName %>_visitor !
+<%= link_to "Sign_in", controller: "pages", action: "register" %>
+<%= link_to "Log_in", controller: "pages", action: "login" %>
+<% else %>
+Welcome <%= session[:name] %> !
+<%= link_to "Log_out", controller: "pages", action: "logout" %>
+<% end %>

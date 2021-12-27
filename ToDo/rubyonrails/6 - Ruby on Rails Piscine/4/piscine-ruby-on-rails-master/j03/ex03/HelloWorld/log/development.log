@@ -1,0 +1,98 @@
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:28:10 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.7ms)
+Completed 200 OK in 306ms (Views: 11.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:29:15 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 284ms (Views: 12.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:41:04 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (5.0ms)
+Completed 200 OK in 332ms (Views: 13.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:43:56 +0100
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 377ms (Views: 11.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:47:29 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 509ms
+
+
+  
+ActionView::Template::Error (couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /private/tmp/hello/app/assets/images
+  /private/tmp/hello/app/assets/javascripts
+  /private/tmp/hello/app/assets/stylesheets
+  /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actioncable-5.1.4/lib/assets/compiled
+  /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionview-5.1.4/lib/assets/compiled
+  /Users/frmarinh/.rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/turbolinks-source-5.1.0/lib/assets/javascripts
+  /private/tmp/hello/node_modules):
+    2: <html>
+    3: <head>
+    4:   <title>Railstutors</title>
+    5:   <%= stylesheet_link_tag    "application", :media => "all" %>
+    6:   <%= javascript_include_tag "application" %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  
+app/assets/javascripts/application.js:13
+app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1117918142320030944_70321005499480'
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:49:03 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 80ms (Views: 68.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:49:04 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 7.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:49:06 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 10ms (Views: 8.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:49:08 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 8.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:51:21 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 520ms (Views: 226.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-01-12 18:54:01 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 651ms (Views: 238.6ms)
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Rush</title>
+      <%= csrf_meta_tags %>
+
+	  <!-- BOOTSTRAP-->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+   </head>
+   <body>
+      <div class="header">
+		<div class="nav nav-left">
+		 	<ul>
+				<li><font href="/" class="logoLink" >Rush 01</font></li>
+		   </ul>
+		</div>
+		 <div class="nav">
+            <ul>
+				<li><%= link_to t("home.lbl_home"), "/home", style: "padding: 12px;" %></li>
+				<li><%= link_to "Trouver des emplois", "/home", style: "padding: 12px;" %></li>
+				<li><%= link_to "Recherche de CV", "/home", style: "padding: 12px;" %></li>
+				<li><%= link_to "Entreprises", "/home", style: "padding: 12px;" %></li>
+		   </ul>
+         </div>
+		 <div class="nav nav-right" >
+            <ul>
+			   <% if session[:id] == nil %>
+               		<li><%= link_to t("home.lbl_log_in"), "/login" %></li>
+			   		<li><%= link_to t("home.lbl_sig_in"), "/register" %></li>
+			   <% else %>
+				   <% if session[:admin] == true %>
+					   <li><%= link_to t("home.lbl_admin"), "/administration" %></li>
+				   <% end %>
+			   		<li>Hello <%= h(session[:pseudo]) %></li>
+			   		<li><%= link_to t("home.lbl_account"), "/setting" %></li>
+			   		<li><%= link_to t("home.lbl_log_out"), "/logout" %></li>
+			   <% end %>
+		   </ul>
+         </div>
+      </div>
+	  <%= yield %>
+	  <div class="footer">
+		 <p>
+			Rush-01 made by <a href="https://github.com/jguyet" target="_blank">jguyet</a>
+		 </p>
+	  </div>
+   </body>
+</html>

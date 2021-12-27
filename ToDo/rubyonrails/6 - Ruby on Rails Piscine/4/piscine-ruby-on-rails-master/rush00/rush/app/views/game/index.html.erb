@@ -1,0 +1,28 @@
+<div id="gameboy-wrap">
+	<div class="gameboy">
+		<div class="gameboy-window" position="top">
+			<% first = true %>
+			<% (0..9).each do |y| %>
+				<% if first == true %>
+					<div style="margin-bottom: -2.4px;margin-top: -3px;">
+					<% first = false %>
+				<% else %>
+					<div style="margin-bottom: -2.4px;">
+				<% end %>
+				<% (0..9).each do |x| %>
+					<% if $game[:player][:pos][:x] == x && $game[:player][:pos][:y] == y %>
+						<%= image_tag("player.jpg", width: '25.3', height: '23.3', style: 'margin-right: -5px;') %>
+					<% else %>
+					<% @ground = $game[:map][y][x].to_s + ".png" %>
+						<%= image_tag(@ground, width: '25.3', height: '23.3', style: 'margin-right: -5px;') %>
+					<% end %>
+				<% end %>
+					</div>
+			<% end %>
+		</div>
+		<%= image_tag("gameboy.png", class: 'gameboy-image', usemap: '#gamekeys') %>
+		<div class="gameboy-window" position="top">
+			<h6 style="color:red"><%= $game[:player][:message] %></h6>
+		</div>
+	</div>
+</div>

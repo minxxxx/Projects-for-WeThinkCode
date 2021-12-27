@@ -1,0 +1,13 @@
+<% title "LifeProTips" %>
+<div class= "login_Form">
+<% if @current_user %>
+  Welcome <%= @current_user.email %> !
+  <% if @current_user.admin %>
+    <%= link_to :Administrate_users, admin_users_path %>
+  <% end %>
+  <%= link_to :Edit, user_edit_path(@current_user) %>
+  <%= link_to :Log_out, log_out_path, method: :delete %>
+<% else %>
+  Welcome <%= cookies[:animal] %> ! <%= link_to :Sign_in, sign_in_path %> <%= link_to :Log_in, log_in_path %>
+<% end %>
+</div>

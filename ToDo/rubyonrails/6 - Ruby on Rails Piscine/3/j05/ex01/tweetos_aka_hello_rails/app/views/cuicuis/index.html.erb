@@ -1,0 +1,44 @@
+<!-- comment -->
+<%if false%>
+<p id="notice"><%= notice %></p>
+
+<% title "Listing Cuicuis"%>
+
+<table>
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cuicuis.each do |cuicui| %>
+      <tr>
+        <td><h4 style="display:inline-block"><%= cuicui.user.name %> said:</h4></td>
+        <td><%= cuicui.content %></td>
+        <td>
+          <%= link_to 'Show', cuicui %>
+          <%= link_to 'Edit', edit_cuicui_path(cuicui) %>
+          <%= link_to 'Destroy', cuicui, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan=100%>
+          <h5 style="display:inline-block">Those who liked :</h5>
+        <%cuicui.likes.each do |like |%>
+        <%=link_to "#{like.user.name}" ,user_path(like.user.id) %>
+        <%end%>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cuicui', new_cuicui_path %>
+
+
+<%end%>

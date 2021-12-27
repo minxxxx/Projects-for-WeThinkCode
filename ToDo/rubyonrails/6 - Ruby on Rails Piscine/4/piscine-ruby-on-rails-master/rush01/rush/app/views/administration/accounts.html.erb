@@ -1,0 +1,24 @@
+<div class="content">
+	<%= link_to '<button class="btn btn-primary">Return</button>'.html_safe, "/administration" %>
+	</br></br>
+	<table style="width: 100%;border-top:2px;border-top-style:solid;border-collapse: unset;">
+      <thead style="background-color:#ececec;">
+        <tr>
+          <th>Email</th>
+		  <th>Password</th>
+		  <th>Group</th>
+          <th>Destroy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.email, ("/administration/account/" + user.id.to_s) %></td>
+            <td><%= link_to user.password, ("/administration/account/" + user.id.to_s) %></td>
+            <td><%= link_to user.group, ("/administration/account/" + user.id.to_s) %></td>
+            <td><%= link_to "destroy", ("/administration/account/" + user.id.to_s + "/remove") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>

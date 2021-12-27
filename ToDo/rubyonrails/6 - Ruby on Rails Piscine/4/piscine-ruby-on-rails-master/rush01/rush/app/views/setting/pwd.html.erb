@@ -1,0 +1,38 @@
+<div class="content-center">
+	<form class="form-login" accept-charset="UTF-8" action="change_password" method="post" >
+		<div class="form-group">
+			<label>Last password</label>
+			<input type="password" name="last_password" class="form-control" placeholder="Last password">
+		</div>
+		<% if @error != nil && @error[:last_password][0] != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error[:last_password][0] %>
+			</div>
+		<% end %>
+		<div class="form-group">
+			<label>New password</label>
+			<input type="password" name="password" class="form-control" placeholder="Password">
+		</div>
+		<% if @error != nil && @error[:password][0] != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error[:password][0] %>
+			</div>
+		<% end %>
+		<div class="form-group">
+			<label>New password confirmation</label>
+			<input type="password" name="password_confirmation" class="form-control" placeholder="Password confirmation">
+		</div>
+		<% if @error != nil && @error[:password_confirmation][0] != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error[:password_confirmation][0] %>
+			</div>
+		<% end %>
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		<button type="submit" class="btn btn-primary">Edit</button>
+		<% if @valid_edit == true %>
+			<div id="login-error" class="form-group login-error" style="color:green;margin-top: 14px;">
+				Password successfully edited
+			</div>
+		<% end %>
+	</form>
+</div>

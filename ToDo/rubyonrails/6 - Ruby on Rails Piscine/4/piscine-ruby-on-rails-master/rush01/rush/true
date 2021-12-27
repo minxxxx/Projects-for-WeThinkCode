@@ -1,0 +1,2 @@
+Could not find generator 'add_column'. Maybe you meant 'model', 'scaffold' or 'controller'
+Run `rails generate --help` for more options.

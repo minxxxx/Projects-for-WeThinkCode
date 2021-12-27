@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moviemon</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  </head>
+
+  <map name="gamekeys">
+  	<area shape="circle" coords="404,503,28" href="<%= url_for(key: 'a') %>" alt="a" />
+  	<area shape="circle" coords="328,539,28" href="<%= url_for(key: 'b') %>" alt="a" />
+
+  	<area shape="rect" coords="75,470,116,510" href="<%= url_for(key: 'up') %>" alt="up" />
+  	<area shape="rect" coords="75,550,116,590" href="<%= url_for(key: 'down') %>" alt="down" />
+
+  	<area shape="rect" coords="35,510,76,550" href="<%= url_for(key: 'left') %>" alt="left" />
+  	<area shape="rect" coords="115,510,156,550" href="<%= url_for(key: 'right') %>" alt="right" />
+
+  	<area shape="rect" coords="145,625,196,665" href="<%= url_for(key: 'select') %>" alt="select" />
+  	<area shape="rect" coords="222,625,273,665" href="<%= url_for(key: 'start') %>" alt="start" />
+  </map>
+
+  <body class="content">
+    <%= yield %>
+  </body>
+</html>

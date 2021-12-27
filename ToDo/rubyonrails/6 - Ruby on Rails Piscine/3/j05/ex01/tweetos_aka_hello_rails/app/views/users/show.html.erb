@@ -1,0 +1,115 @@
+<!-- comment -->
+<%if false%>
+<h1 id="notice"><%= notice %></p>
+<h1><%="#{@user.name} details"%> <%= link_to 'Edit', edit_user_path(@user) ,class: "btn pri Blacklist" %> <%= link_to 'Back', users_path ,class: "btn pri Blacklist" %></h1>
+</br>
+<div class="">
+  <h1 class="tag">
+    <strong>Name:</strong>
+    <%= @user.name %>
+</h1>
+
+  <h1 class="tag">
+    <strong>Email:</strong>
+    <%= @user.email %>
+</h1>
+
+  <h1 class="tag">
+    <strong>Since:</strong>
+    <%= @user.since %>
+</h1>
+
+  <h1 class="tag">
+    <strong>Country:</strong>
+    <%= @user.country %>
+</h1>
+  <h1 class="tag">
+    <strong>Likes:</strong>
+    <%= @user.fame %>
+</h1>
+  <h1 class="tag">
+    <strong>Country:</strong>
+    <%= @user.country %>
+</h1>
+</div>
+</br>
+
+<%if false %> <!-- a decomenter dans l' ex07 -->
+    <table class="split_table">
+      <thead>
+        <tr>
+          <th>Likes</th>
+          <th>Content</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user.top_cuicui.each do |cui| %>
+          <tr>
+            <td><%= cui.likes.count %></td>
+            <td><%= link_to "#{cui.content }" , cuicui_path(cui.id) %></td>
+            <td><%= cui.created_at  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+
+<table class="split_table_right">
+  <thead>
+    <tr>
+      <th>Comment n°</th>
+      <th>Cuicui n°</th>
+      <th>Content</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.responses.each do |res| %>
+      <tr>
+        <td><%= res.id %></td>
+        <td><%= link_to "#{res.cuicui_id}" ,cuicui_path(res.cuicui_id) %></td>
+        <td><%= res.content  %></td>
+        <td><%= res.created_at  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Likes</th>
+          <th>Content</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @user.cuicuis.each do |cui| %>
+          <tr style="border:4px">
+            <td><%= cui.likes.count %></td>
+            <td><h3>Cuiui: <%= cui.content  %></h3></td>
+            <td><%= cui.created_at  %></td>
+          </tr>
+          <% cui.comments.each  do |com| %>
+          <tr class="resp">
+            <td>
+              <%= link_to "#{User.find(com.user_id).name}" , user_path(com.user_id)%>
+            </td>
+            <td colspan="2">
+              <%= com.content%>
+            </td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+
+  <%end%> <!-- a decomenter dans l' ex07 -->
+<%end%>

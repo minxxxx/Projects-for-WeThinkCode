@@ -1,0 +1,17 @@
+body {
+  background-color: #F5DA81
+}
+
+table {
+	border-collapse: collapse;
+	border-left: solid 5px;
+  border-right: solid 5px;
+  border-bottom : solid 5px;
+	border-spacing: 0px;
+	width: 100%;
+}
+
+H2 {
+  text-align: center;
+  font-size : 45px;
+}

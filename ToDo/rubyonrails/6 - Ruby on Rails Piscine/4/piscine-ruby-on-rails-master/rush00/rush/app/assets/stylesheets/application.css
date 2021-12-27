@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ #gameboy-wrap {
+     width: 500px;
+     margin: 20px auto;
+ }
+
+ .gameboy {
+     position: relative;
+     color: black;
+ }
+
+ .gameboy-image {
+	 width: 462px;
+	 height: 782px;
+ }
+
+ .gameboy-window[position=top] {
+	 position: absolute;
+	 top: 101px;
+     left: 106px;
+ }
+
+ .gameboy-window[position=left] {
+	 position: absolute;
+	 top: 286px;
+     left: 106px;
+ }
+
+ .gameboy-window[position=right] {
+	 position: absolute;
+	 top: 286px;
+     left: 106px;
+	 transform: translate(+88%, 0px);
+ }
+
+ img.gameboy-window[type=menu] {
+	position: absolute;
+	top: 149px;
+	left: 146px;
+	text-align: center;
+	width: 173px;
+ }
+
+ .gameboy-window[type=menu] {
+	position: absolute;
+	top: 240px;
+	left: 163px;
+	text-align: center;
+ }
+
+ .gameboy-window[type=fight-menu] {
+   position: absolute;
+   top: 277px;
+   left: 111px;
+ }
+
+ .gameboy-window[type=fight-menu-launcher] {
+   position: absolute;
+   top: 190px;
+   left: 111px;
+ }
+
+ .gameboy-window[type=fight-menu-movie] {
+   position: absolute;
+   top: 103px;
+   left: 267px;
+ }
+
+ .fight-launcher-img {
+	 width: 84px;
+ }
+
+ @keyframes Cligno{
+     0%{opacity: 1;}
+     50%{opacity: 0;}
+     100%{opacity: 1;}
+ }
+
+ .gameboy-window[type=menu-cursor] {
+   position: absolute;
+   top: 240px;
+   left: 149px;
+   animation: Cligno 1s infinite;
+ }
+
+ .gameboy-window[type=fight-menu-cursor] {
+   position: absolute;
+   top: 277px;
+   left: 109px;
+   animation: Cligno 1s infinite;
+ }
+
+ body {
+	 //background-image: url("https://www.welovesolo.com/wp-content/uploads/vector/46/Movie-time-design-elements-vector-backgrounds-03.jpg");
+	 background-repeat: no-repeat;
+	 background-size: 100%;
+	 margin: auto;
+ }
+
+ .window {
+
+ }

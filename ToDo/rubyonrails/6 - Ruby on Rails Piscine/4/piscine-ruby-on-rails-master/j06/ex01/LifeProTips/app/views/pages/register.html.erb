@@ -1,0 +1,41 @@
+<%= link_to "Home", "/pages/home" %> | <%= link_to "Log_in", "/pages/login" %>
+<form class="form-register" accept-charset="UTF-8" action="register" method="post">
+	<div class="form-group">
+		<label>Name</label>
+		<input class="form-control" type="text" name="name" value="<%= params[:name] %>" placeholder="Name">
+		<% if @error != nil %>
+			<div style="color:red;">
+				<%= @error[:name][0] %>
+			</div>
+		<% end %>
+	</div>
+	<div class="form-group">
+		<label>Email address</label>
+		<input type="email" name="email" class="form-control" value="<%= params[:email] %>" placeholder="Enter email">
+		<% if @error != nil %>
+			<div style="color:red;">
+				<%= @error[:email][0] %>
+			</div>
+		<% end %>
+	</div>
+	<div class="form-group">
+		<label>Password</label>
+		<input type="password" name="password" class="form-control" value="<%= params[:password] %>" placeholder="Password">
+		<% if @error != nil %>
+			<div style="color:red;">
+				<%= @error[:password][0] %>
+			</div>
+		<% end %>
+	</div>
+	<div class="form-group">
+		<label>Password confirmation</label>
+		<input type="password" name="password_confirmation" class="form-control" value="<%= params[:password_confirmation] %>" placeholder="Password">
+		<% if @error != nil %>
+			<div style="color:red;">
+				<%= @error[:password_confirmation][0] %>
+			</div>
+		<% end %>
+	</div>
+	<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>

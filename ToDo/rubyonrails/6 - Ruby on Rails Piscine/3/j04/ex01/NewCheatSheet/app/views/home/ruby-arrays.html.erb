@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="content-wrapper">
+  <div class="container ">
+    <section id="main-content">
+
+    <% title "Ruby Arrays" %>
+      <h2 id="ruby-arrays">Arrays</h2>
+
+<p>
+  An array is an ordered collection of items which is indexed by numbers.
+  So an array contains multiple objects that are mostly related to each
+  other. So what could you do? You could store a collection of the names
+  of your favorite fruits and name it <em>fruits</em>.
+</p>
+
+<p>
+  This is just a small selection of things an Array can do. For more
+  information have a look at the
+  <a href=http://ruby-doc.org/core-2.0/Array.html>ruby-doc for Array</a>.
+</p>
+
+<table class="table table-striped">
+  <tr>
+    <th class="concept">Concept</th>
+    <th class="usage">Usage</th>
+    <th class="example">Examples</th>
+    <th class="description">Description</th>
+  </tr>
+  <tr>
+    <td>Create</td>
+    <td>
+      <code><strong>[</strong><em>contents</em><strong>]</strong></code>
+    </td>
+    <td>
+      <p><code><strong>[]</strong></code></p>
+
+      <p><code>
+        <strong>[</strong><em>"Rails", "fun", 5</em><strong>]</strong>
+      </code></p>
+    </td>
+    <td>Creates an Array, empty or with the specified contents.</td>
+  </tr>
+  <tr>
+    <td>Number of elements</td>
+    <td>
+      <code>array<strong>.size</strong></code>
+    </td>
+    <td>
+      <p><code>[]<strong>.size</strong> # => 0</code></p>
+
+      <p><code>[1, 2, 3]<strong>.size</strong> # => 3</code></p>
+
+      <p><code>["foo", "bar"]<strong>.size</strong> # => 2</code></p>
+    </td>
+    <td>Returns the number of elements in an Array.</td>
+  </tr>
+  <tr>
+    <td>Access</td>
+    <td>
+      <code>
+        array<strong>[</strong><em>position</em><strong>]</strong>
+      </code>
+    </td>
+    <td>
+<pre><code>array = ["hi", "foo", "bar"]
+array<strong>[</strong><em>0</em><strong>]</strong> # => "hi"
+array<strong>[</strong><em>2</em><strong>]</strong> # => "bar"</code></pre>
+    </td>
+    <td>As an Array is a collection of different elements, you often want
+      to access a single element of the Array.
+      Arrays are indexed by numbers so you can use a number
+      to access an individual element. Be aware that the
+      numbering actually starts with "0" so the first element
+      actually is the 0th. And the last element of a three element
+      array is element number 2.
+    </td>
+  </tr>
+  <tr>
+    <td>Adding an element</td>
+    <td>
+      <code>array <strong>&lt;&lt;</strong> <em>element</em></code>
+    </td>
+    <td>
+<pre><code>array = [1, 2, 3]
+array <strong>&lt;&lt;</strong> <em>4</em>
+array # => [1, 2, 3, 4]
+</code></pre>
+    </td>
+    <td>
+      Adds the element to the end of the array,
+      increasing the size of the array by one.
+    </td>
+  </tr>
+  <tr>
+    <td>Assigning</td>
+    <td>
+      <code>array<strong>[</strong><em>number</em><strong>] =
+      </strong> <em>value</em></code>
+    </td>
+    <td>
+<pre><code>array = ["hi", "foo", "bar"]
+array<strong>[</strong><em>2</em><strong>] =</strong> <em>"new"</em>
+array # => ["hi", "foo", "new"]</code></pre>
+    </td>
+    <td>Assigning new Array Values works a lot like accessing
+      them; use an equals sign to set a new value. Voila!
+      You changed an element of the array! Weehuuuuu!
+    </td>
+  </tr>
+  <tr>
+    <td>Delete at index</td>
+    <td><code>
+      array<strong>.delete_at</strong><em>(i)</em>
+    </code></td>
+    <td>
+<pre><code>array = [0, 14, 55, 79]
+array<strong>.delete_at</strong><em>(2)</em>
+array # => [0, 14, 79]
+</code></pre>
+    </td>
+    <td>
+      Deletes the element of the array at the specified index. Remember
+      that indexing starts at 0. If you specify an index larger than the
+      number of elements in the array, nothing will happen.
+    </td>
+  </tr>
+  <tr>
+    <td>Iterating</td>
+    <td>
+      <code>array<strong>.each</strong> <em>do |e| .. end</em></code>
+    </td>
+    <td>
+      <p><code>
+        persons<strong>.each</strong> <em>do |p| puts p.name end</em>
+      </code></p>
+
+      <p><code>
+        numbers<strong>.each</strong> <em>do |n| n = n * 2 end</em>
+      </code></p>
+    </td>
+    <td>
+      <p>
+        "Iterating" means doing something for <em>each</em> element
+        of the array. Code placed between <em>do</em> and <em>end</em>
+        determines what is done to each element in the array.
+      </p>
+
+      <p>
+        The first example prints the name of every person in the array to
+        the console. The second example simply doubles every number of a
+        given array.
+      </p>
+    </td>
+  </tr>
+</table>
+  </section>
+  </div>
+</div>
+
+</body>
+</html> 

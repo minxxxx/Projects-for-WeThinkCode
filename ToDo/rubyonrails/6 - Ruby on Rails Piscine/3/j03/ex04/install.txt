@@ -1,0 +1,8 @@
+gem install rails
+rails -new helloworld
+rvm use 2.3.3
+rails generate controller home index
+rails s
+changer le fichier Helloworld/app/views/home/index.html.erb et mettre ce que l'on vet apparaitre (helloworld par example)
+ajouter "root 'home#index'" a /config/routes.rb
+

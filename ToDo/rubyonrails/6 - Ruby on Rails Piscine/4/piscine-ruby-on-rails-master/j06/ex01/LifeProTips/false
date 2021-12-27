@@ -1,0 +1,2 @@
+      invoke  active_record
+      remove    db/migrate/20180117064906_create_users.rb

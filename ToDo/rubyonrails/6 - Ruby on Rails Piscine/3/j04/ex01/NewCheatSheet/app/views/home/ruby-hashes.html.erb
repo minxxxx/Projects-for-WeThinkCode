@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+
+<div id="content-wrapper">
+  <div class="container ">
+    <section id="main-content">
+
+    <% title "Ruby Hashes" %>
+
+      <h2 id="ruby-hashes">Hashes</h2>
+
+<p>
+  Hashes associate a <em>key</em>  to some <em>value</em>. You may then retrieve the value based upon its key.
+  This construct is called a <em>dictionary</em> in other languages, which is appropriate
+  because you use the key to "look up" a value, as you would look up a definition for
+  a word in a dictionary. Each key must be unique for a given hash but values can be repeated.
+</p>
+
+<p>
+  Hashes can map from anything to anything! You can map from Strings to
+  Numbers, Strings to Strings, Numbers to Booleans... and you can mix
+  all of those! Although it is common that at least all the keys are of
+  the same class. <em>Symbols</em> are especially common as keys. Symbols
+  look like this: <code>:symbol</code>. A symbol is a colon followed by some
+  characters. You can think of them as special strings that stand for
+  (symbolize) something! We often use symbols because
+  Ruby runs faster when we use symbols instead of strings.
+</p>
+
+<p>Learn more about hashes at
+  <a href="http://www.ruby-doc.org/core-2.0/Hash.html">ruby-doc</a>.
+</p>
+
+<table class="table table-striped">
+  <tr>
+    <th class="concept">Concept</th>
+    <th class="usage">Usage</th>
+    <th class="hash-example">Examples</th>
+    <th class="description">Description</th>
+  </tr>
+  <tr>
+    <td>Creating</td>
+    <td><code>
+      <strong>{</strong>key <strong>=></strong> value<strong>}</strong>
+    </code></td>
+    <td>
+      <p><code>
+        <strong>{</strong>:hobby <strong>=></strong>
+        "programming"<strong>}</strong>
+      </code></p>
+<pre><code><strong>{</strong>42 <strong>=></strong> "answer", "score" <strong>=></strong> 100,
+ :name <strong>=></strong> "Tobi"<strong>}</strong>
+</code></pre>
+    </td>
+    <td>
+      You create a hash by surrounding the key-value pairs with curly
+      braces. The arrow always goes from the <em>key</em> to the
+      <em>value</em> depicting the meaning: <em>"This key points to this
+      value."</em>. Key-value pairs are then separated by commas.
+    </td>
+  </tr>
+  <tr>
+    <td>Accessing</td>
+    <td><code>hash<strong>[</strong>key<strong>]</strong></code></td>
+    <td>
+<pre><code>hash = {:key => "value"}
+hash<strong>[</strong>:key<strong>]</strong> # => "value"
+hash<strong>[</strong>foo<strong>]</strong> # => nil
+</code></pre>
+    </td>
+    <td>
+      Accessing an entry in a hash looks a lot like accessing it in
+      an <em>array</em>. However with a hash the key can be anything, not
+      just numbers. If you try to access a key that does not exist, the
+      value <code>nil</code> is returned, which is Ruby's way of saying
+      "nothing", because if it doesn't recognize the key it can't return
+      a value for it.
+    </td>
+  </tr>
+  <tr>
+    <td>Assigning</td>
+    <td>
+      <code>hash<strong>[</strong>key<strong>] =</strong> value</code>
+    </td>
+    <td>
+<pre><code>hash = {:a => "b"}
+hash<strong>[</strong>:key<strong>] =</strong> "value"
+hash # => {:a=>"b", :key=>"value"}
+</code></pre>
+    </td>
+    <td>
+      Assigning values to a hash is similar to assigning values to an
+      array. With a hash, the key can
+      be a number or it can be a symbol, string,
+      number... or anything, really!
+    </td>
+  </tr>
+  <tr>
+    <td>Deleting</td>
+    <td><code>hash<strong>.delete</strong><em>(key)</em></code></td>
+    <td>
+<pre><code>hash = {:a => "b", :b => 10}
+hash<strong>.delete</strong><em>(:a)</em>
+hash # => {:b=>10}
+</code></pre>
+    </td>
+    <td>
+      You can delete a specified key from the hash, so that the key and its
+      value can not be accessed.
+    </td>
+  </tr>
+</table>
+  </section>
+  </div>
+</div>
+
+</body>
+</html> 

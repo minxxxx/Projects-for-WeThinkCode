@@ -1,0 +1,17 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+# Use Debian Jessie 64-bit stable as our operating system
+config.vm.box = "debian/jessie64"
+# Configurate the virtual machine to use 1GB of RAM
+config.vm.provider :virtualbox do |vb|
+vb.customize ["modifyvm", :id, "--memory", "1024"]
+end
+## Un-comment this line in order to copy your script into the VM
+## with the "vagrant provision" command :
+ config.vm.provision "file", source: "create_server.sh", destination: "~/create_server.sh"
+# Forward the Rails server default port to the host
+config.vm.network :forwarded_port, guest: 3000, host: 3031
+config.vm.network :forwarded_port, guest: 80, host: 8090
+end

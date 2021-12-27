@@ -1,0 +1,19 @@
+<div class="content-center">
+	<form class="form-login" accept-charset="UTF-8" action="login" method="post" >
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" name="email" value="<%= params[:email] %>" class="form-control" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" name="password" class="form-control" placeholder="Password">
+		</div>
+		<% if @error != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error %>
+			</div>
+		<% end %>
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		<button type="submit" class="btn btn-primary">Login</button>
+	</form>
+</div>

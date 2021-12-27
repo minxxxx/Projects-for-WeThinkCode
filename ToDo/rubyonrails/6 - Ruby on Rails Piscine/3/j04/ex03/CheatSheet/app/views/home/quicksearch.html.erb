@@ -1,0 +1,241 @@
+<% title "Quick Search" %>
+<table class="table table-striped" id="table-search" width="95%">
+  <thead>
+    <th class="concept">Concept</th>
+    <th class="usage">Usage</th>
+    <th class="description">Description</th>
+  </thead>
+
+
+  <tbody>
+    <tr>
+      <td>Change directory</td>
+      <td>
+        <code><strong>cd</strong> <em>directory</em></code>
+      </td>
+      <td>Changes the directory to the specified directory on the
+        console.
+      </td>
+    </tr>
+    </a>
+    <tr>
+      <td>List contents directory</td>
+      <td>
+        <p><code><strong>ls</strong> <em>directory</em></code></p>
+
+        <p><code>Windows: <strong>dir</strong> <em>directory</em></code>
+        </p>
+      </td>
+      <td>Shows all contents (files and folders) of the directory.
+        If no directory is specified shows the contents of the
+        current directory.
+      </td>
+    </tr>
+    <tr>
+      <td>Directory you are currently in</td>
+      <td><code><strong>pwd</strong></code></td>
+      <td>Shows the full path of the directory you are currently
+        in. E.g. /home/tobi/railsgirls
+        <br />
+        A note on filenames: if a file or directory name starts with a slash / as in the output of pwd above, it is an absolute filename specifying the complete filename starting at the root of the current file system (e.g. hard disk). If the slash (/) is omitted, the file name is relative to the current working directory.
+      </td>
+    </tr>
+    <tr>
+      <td>Create a new directory</td>
+      <td><code><strong>mkdir</strong> <em>name</em></code></td>
+      <td>
+        Creates a directory with the given name in the folder you are currently
+        in.
+      </td>
+    </tr>
+    <tr>
+      <td>Delete a file</td>
+      <td>
+        <p><code><strong>rm</strong> <em>file</em></code></p>
+
+        <p><code>Windows: <strong>del</strong> <em>file</em></code>
+      </td>
+      <td>
+        <p>Deletes the specified file. Be <strong>extra cautious</strong> with this
+        as it would be too bad to delete something you still need :-(</p>
+        <p>
+          You can simply specify the name of a file of the directory you are
+          currently in. However you can also specify a path, this is shown in the
+          third example. There we delete the <em>old_picture.jpg</em> file from
+          the <em>pictures</em> folder.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Delete a directory</td>
+      <td>
+        <p><code><strong>rm -r</strong> <em>folder</em></code></p>
+
+        <p><code>Windows: <strong>rd</strong> <em>folder</em></code>
+      </td>
+      <td>
+        <p>Deletes the specified folder <strong>and all of its contents</strong>.
+          So please be <strong>super cautious</strong> with this! Make sure that
+          you do not need any of the contents of this folder any more.
+        </p>
+        <p>
+          So why would you want to delete a whole folder? Well maybe it was an old
+          application that you do not need anymore :-)
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Starting a program</td>
+      <td><code><strong>program</strong> <em>arguments</em></code></td>
+      <td>Starts the program with the given name and arbitrary arguments
+        if the program takes arguments. Firefox is just one example. Starting
+        Firefox without arguments just opens up Firefox. If you give it an
+        argument it opens the specified URL.
+        When you type in <code>irb</code> this starts <em>interactive ruby</em>.
+      </td>
+    </tr>
+    <tr>
+      <td>Abort the program</td>
+      <td>Press <strong>Ctrl + C</strong></td>
+      <td>This will abort the program currently running in the terminal.
+        For instance this is used to shut down the Rails server.
+        You can also abort many other related tasks with it, including:
+        bundle install, rake db:migrate, git pull and many more!
+      </td>
+    </tr>
+
+
+    <td>Comment</td>
+    <td>
+      <code><strong>#</strong> <em>Comment text</em></code>
+    </td>
+    <td>
+      Ruby ignores everything that is marked as a comment. It does not try
+      to execute it. Comments are just there for you as information.
+      Comments are also commonly used to <em>comment out code</em>. That
+      is when you don't want some part of your code to execute
+      but you don't want to delete it just yet, because you are trying
+      different things out.
+    </td>
+  </tr>
+  <tr>
+    <td>Variables</td>
+    <td>
+      <code><strong>variable =</strong> <em>some_value</em></code>
+    </td>
+    <td>
+      With a variable you tell Ruby that from now on you want to refer to
+      that value by the name you gave it. So for the first example, from
+      now on when you use <em>name</em> Ruby will know that you meant
+      <em>"Tobi"</em>.
+    </td>
+  </tr>
+  <tr>
+    <td>Console output</td>
+    <td>
+      <code><strong>puts</strong> <em>something</em></code>
+    </td>
+    <td>
+      Prints its argument to the console. Can be used in Rails apps
+      to print something in the console where the server is running.
+    </td>
+  </tr>
+  <tr>
+    <td>Call a method</td>
+    <td>
+      <code>object<strong>.method</strong><em>(arguments)</em></code>
+    </td>
+    <td>
+      <p>Calling a method is also often referred to as
+        <em>sending a message</em> in Ruby. Basically we are sending an
+        object some kind of message and are waiting for its response.
+        This message may have no arguments or multiple arguments, depending
+        on the message.
+        So we kindly ask the object to do something or give us some
+        information.
+        When you "call a method" or "send a message" something happens. In the
+        first example we ask a String how long it is (how many
+        characters it consists of). In the last example we substitute all
+        occurrences of "ae" in the string with the German "ä".</p>
+
+      <p>
+        Different kinds of objects (Strings, Numbers, Arrays...)
+        understand different messages.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>Define a method</td>
+    <td>
+  <pre><code><strong>def</strong> <em>name(parameter)</em>
+    <em># method body</em>
+  <strong>end</strong></code></pre>
+    </td>
+    <td>
+      <p>Methods are basically reusable units of behaviour. And you can
+        define them yourself just like this. Methods are small and focused
+        on implementing a specific behaviour.</p>
+
+      <p>
+        Our example method is focused on greeting people.
+        You could call it like this: <code>greet("Tobi")</code>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>Equality</td>
+    <td><code>object <strong>==</strong> other</code></td>
+    <td>
+      With two equal signs you can check if two things are the
+      same. If so, <code>true</code> will be returned; otherwise, the result
+      will be <code>false</code>.
+    </td>
+  </tr>
+  <tr>
+    <td>Inequality</td>
+    <td><code>object <strong>!=</strong> other</code></td>
+    <td>
+      Inequality is the inverse to equality, e.g. it results in
+      <code>true</code> when two values are not the same and it results
+      in <code>false</code> when they are the same.
+    </td>
+  </tr>
+  <tr>
+    <td>Decisions with if</td>
+    <td>
+  <pre><code><strong>if</strong> <em>condition</em>
+    # happens when true
+  <strong>else</strong>
+    # happens when false
+  <strong>end</strong>
+  </code></pre>
+    </td>
+    <td>
+      <p>With if-clauses you can decide based upon a <em>condition</em>
+        what to do. When the condition is considered true, then the code
+        after it is executed. If it is considered false, the code after
+        the "else" is executed.</p>
+
+      <p>
+        In the example, access is granted based upon the decision if a
+        given input matches the password.
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td>Constants</td>
+    <td><code><strong>CONSTANT =</strong> <em>some_value</em></code></td>
+    <td>
+      Constants look like variables, just in UPCASE. Both hold
+      values and give you a name to refer to those values. However while
+      the value a variable holds may change or might be of an unknown
+      value (if you save user input in a variable) constants are
+      different. They have a known value that should never change. Think
+      of it a bit like mathematical or physical constants. These don't
+      change, they always refer to the same value.
+    </td>
+  </tr>
+
+
+  </tbody>
+</table>

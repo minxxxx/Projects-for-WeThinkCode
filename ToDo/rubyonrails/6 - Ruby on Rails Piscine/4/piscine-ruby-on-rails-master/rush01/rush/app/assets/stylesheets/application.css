@@ -1,0 +1,217 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*
+ * multi-line comment
+ */
+p {
+	 line-height: 1em;
+}
+
+h1, h2, h3, h4 {
+    color: orange;
+ 	font-weight: normal;
+ 	line-height: 1.1em;
+ 	margin: 0 0 .5em 0;
+}
+
+h1 {
+	 font-size: 1.7em;
+}
+
+h2 {
+	 font-size: 1.5em;
+}
+
+a {
+ 	color: black;
+ 	text-decoration: none;
+}
+
+a:hover, a:active {
+	 text-decoration: underline;
+}
+
+th, td {
+	font-size: 1.1em;
+}
+
+ /* you can structure your code's white space so that it is as readable for when you come back in the future or for other people to read and edit quickly */
+
+body {
+	 font-family: Verdana,sans-serif;
+	 line-height: 1.2em;
+	 width: 100%;
+	 margin: 0;
+	 background: #fafafa;
+}
+ /* you can put your code all in one line like above */
+.header {
+	max-height: 45px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	background-color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+ /* or on different lines like below */
+.nav .logoLink {
+	font-family: Verdana,sans-serif;
+	padding: 11px;
+    background: none;
+    color: black;
+	box-shadow: none;
+	font-size: x-large;
+	text-transform: uppercase;
+ }
+ /* but try and be as concise as possible */
+.nav {
+ 	display: inline-block;
+	height: 35px;
+	margin-top: 10px;
+	margin-left: -35px;
+}
+
+.nav ul {
+	max-height: 45px;
+	margin-top: -10px;
+}
+
+.nav li {
+	margin-top: 9px;
+}
+
+.nav ul li {
+	display: inline-block;
+}
+
+.nav ul li a {
+	padding: 15px;
+	background: #007aff;
+	color: white;
+	text-decoration: none;
+}
+
+.nav ul li a:hover {
+	background-color: #0859b1;
+	box-shadow: 0px 1px 1px #666;
+}
+
+.nav ul li a:active {
+	background-color: #144579;
+}
+
+.nav-right {
+	float: right;
+}
+
+.nav-left {
+	margin-left: -35px;
+}
+
+.content {
+ 	margin: 30px 0;
+ 	background: white;
+ 	padding: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+ 	//clear: both;
+}
+
+.content-center[val="seperated"] {
+	margin-top: 0px;
+}
+
+.content-center {
+ 	margin: 30px 0;
+ 	background: white;
+ 	padding: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.slider {
+ 	margin: 30px 0;
+ 	background: white;
+ 	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+ 	//clear: both;
+}
+
+.footer {
+	margin: 30px 0;
+ 	background: white;
+ 	padding: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.footer p {
+	text-align: right;
+	text-transform: uppercase;
+	font-size: 80%;
+	color: grey;
+}
+
+.login-error {
+    color: red;
+ 	font-weight: normal;
+ 	line-height: 1.1em;
+ 	margin: -10px 0 .6em .1em;
+	font-size: 1.1em;
+}
+
+.post {
+	margin-top: 1rem;
+}
+
+.post .end-post {
+	margin-top: 3rem;
+	border-bottom: 5px solid #eee;
+}
+
+.post .post-title {
+	color: #00C;
+	font-size: 16px;
+	margin-bottom: 1rem;
+}
+
+@media (max-width: 1500px) {
+	.content-center {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.footer {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 500px) {
+	.nav-right {
+		display: none;
+	}
+}
+
+ /* multiple styles seperated by a , */
+ .content, ul li a {
+	 box-shadow: 0px 1px 1px #999;
+ }

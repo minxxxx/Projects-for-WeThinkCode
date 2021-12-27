@@ -1,0 +1,22 @@
+<!-- comment -->
+<%if false%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cuicui:</strong>
+  <%= @like.cuicui %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @like.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_like_path(@like) %> |
+<%= link_to 'Back', likes_path %>
+
+
+
+
+
+<%end%>

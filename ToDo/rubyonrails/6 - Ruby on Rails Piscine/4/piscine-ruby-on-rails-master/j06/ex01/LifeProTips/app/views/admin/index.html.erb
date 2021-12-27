@@ -1,0 +1,8 @@
+<%= link_to "Home", "/pages/home" %>
+ |
+<%= link_to "Log_out", "/pages/logout" %>
+</br>
+Welcome <%= session[:name] %> !
+<% if session[:admin] == true %>
+	<%= link_to "Administrate_users", "/admin/users" %>
+<% end %>

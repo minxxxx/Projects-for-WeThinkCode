@@ -1,0 +1,50 @@
+<div class="content">
+	<form class="form-login" accept-charset="UTF-8" method="post" >
+		<div class="form-group">
+			<label>Manage Account ID : <%= @user.id %></label>
+		</div>
+		<div class="form-group">
+			<label>Email</label>
+			<input type="email" name="email" value="<%= @user.email %>" class="form-control" placeholder="Email" readonly>
+		</div>
+		<div class="form-group">
+			<label>Pseudo</label>
+			<input type="text" name="pseudo" value="<%= @user.pseudo %>" class="form-control" placeholder="Pseudo">
+		</div>
+		<% if @error != nil && @error[:pseudo][0] != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error[:pseudo][0] %>
+			</div>
+		<% end %>
+		<div class="form-group">
+			<label>Password</label>
+			<input type="password" name="password" class="form-control" placeholder="Password">
+		</div>
+		<% if @error != nil && @error[:password][0] != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error[:password][0] %>
+			</div>
+		<% end %>
+		<div class="form-group">
+			<label>Password confirmation</label>
+			<input type="password" name="password_confirmation" class="form-control" placeholder="Password confirmation">
+		</div>
+		<% if @error != nil && @error[:password_confirmation][0] != nil %>
+			<div id="login-error" class="form-group login-error">
+				<%= @error[:password_confirmation][0] %>
+			</div>
+		<% end %>
+		<div class="input-group mb-3">
+		  <div class="input-group-prepend">
+		    <label class="input-group-text" for="inputGroupSelect01">Group</label>
+		  </div>
+		  <select class="custom-select" id="inputGroupSelect01">
+		    <option value="Admin" selected>Admin</option>
+		    <option value="true">hhh</option>
+		  </select>
+		</div>
+		<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+		<button type="submit" class="btn btn-primary">Edit</button>
+		<%= link_to '<button class="btn btn-primary">Destroy</button>'.html_safe, ("/administration/account/" + @user.id.to_s + "/remove") %>
+	</form>
+</div>

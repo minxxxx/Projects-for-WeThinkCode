@@ -1,0 +1,3 @@
+module RegisterHelper:ApplicationHelper
+	
+end

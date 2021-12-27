@@ -1,0 +1,16 @@
+
+AllCops:
+  RunRailsCops: true
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'test/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Gem*'
+    -  'views_com.rb'
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 99

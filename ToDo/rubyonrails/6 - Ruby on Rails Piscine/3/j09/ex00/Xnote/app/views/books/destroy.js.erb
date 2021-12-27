@@ -1,0 +1,8 @@
+<% _id = @book.id %>
+var row = document.getElementById(<%= _id %>);
+row.parentNode.removeChild(row );
+var nbbook = document.getElementById("nb").innerHTML;
+var nbbook = nbbook - 1;
+var nbbook = document.getElementById("nb").innerHTML = nbbook;
+//alert(<%= _id %>);
+//alert(nbbook);
