@@ -1,0 +1,6 @@
+*.cmo
+*.cmi
+*.cmx
+*.o
+a.out*
+.depend

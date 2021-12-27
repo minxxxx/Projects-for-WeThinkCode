@@ -1,0 +1,9 @@
+*.o
+a.out
+*.a
+/lib
+/obj
+._*
+.DS_Store
+*.so
+*.swp

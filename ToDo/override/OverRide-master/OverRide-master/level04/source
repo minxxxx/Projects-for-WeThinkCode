@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/prctl.h>
+#include <sys/types.h>
+#include <sys/ptrace.h>
+#include <sys/wait.h>
+#include <signal.h>
+
+int main()
+{
+	int status;
+	char buffer[128];
+	int status2;
+	int status3;
+	int i;
+	int pid;
+
+	pid = fork();
+	memset(buffer, '\0', 128);
+	i = 0;
+	status = 0;
+	if (pid == 0) {
+		prctl(PR_SET_PDEATHSIG, 1);
+		ptrace(PTRACE_TRACEME, 0, 0, 0);
+		puts("Give me some shellcode, k");
+	gets(buffer);
+	} else {
+		do {
+			wait(&status);
+			if (!WIFEXITED(status)) {
+				status3 = status;
+				if (WSTATUS(status3) + 1 >> 1 == 0) ///!\ bitshift preserve sign
+				{
+					i = ptrace(PTRACE_PEEKUSER, pid, 0x2c, 0);
+					if (i == 0xb) {
+						 puts("no exec() for you");
+						 kill(pid, 9);
+					}
+				}
+				else {
+					puts("child is exiting...");
+					break;
+				}
+			}
+			else {
+				puts("child is exiting...");
+				break;
+			}
+		} while (i != 0xb);
+	}
+}

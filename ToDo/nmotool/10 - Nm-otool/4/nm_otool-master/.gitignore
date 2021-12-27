@@ -1,0 +1,4 @@
+*.o
+cmake-build-debug/
+.idea/
+ft_nm

@@ -1,0 +1,2 @@
+class NPuzzleError(Exception):
+    pass

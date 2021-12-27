@@ -1,0 +1,5 @@
+cd /tmp
+mkdir backups
+mkdir -p home/users/level09/
+/home/users/level08/level08 ../home/users/level09/.pass
+cat home/users/level09/.pass

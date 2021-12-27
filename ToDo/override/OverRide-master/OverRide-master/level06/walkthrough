@@ -1,0 +1,14 @@
+On remarque que la fonction auth utilise le login pour generer un mot de passe qui sera comparé au mot de passe que l'on écrira. On regarde donc avec gdb (on jump le ptrace :
+b *0x080487b5
+r
+b *0x080487ba
+jump *0x80487ba
+b *0x08048866
+c
+x/xw $ebp-0x10
+) puis on regarde quelle mot de passe etait attendu avec le login rentrer. (par exemple : 
+0123456 - 6232626)
+
+
+cat <(python -c "print '0123456\n' + '6232626\n'") - | ./level06
+GbcPDRgsFK77LNnnuh7QyFYA2942Gp8yKj9KrWD8

@@ -1,0 +1,6 @@
+[submodule "instant-tama"]
+	path = instant-tama
+	url = https://github.com/Julow/instant-tama
+[submodule "tic-tac-tic-tac-toe"]
+	path = tic-tac-tic-tac-toe
+	url = git@github.com:Julow/tic-tac-tic-tac-toe.git

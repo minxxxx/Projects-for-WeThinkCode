@@ -1,0 +1,103 @@
+Norme: ./-
+Warning: Not a valid file
+Norme: ./Makefile
+Warning: Not a valid file
+Norme: ./auteur
+Warning: Not a valid file
+Norme: ./ft_nm.dSYM/Contents/Info.plist
+Warning: Not a valid file
+Norme: ./ft_nm.dSYM/Contents/Resources/DWARF/ft_nm
+Warning: Not a valid file
+Norme: ./libft/includes/libft.h.gch
+Warning: Not a valid file
+Norme: ./libft/Makefile
+Warning: Not a valid file
+Norme: ./test1
+Warning: Not a valid file
+Norme: ./test2
+Warning: Not a valid file
+Norme: ./test_nm.sh
+Warning: Not a valid file
+Norme: ./test_o.sh
+Warning: Not a valid file
+Norme: ./total
+Warning: Not a valid file
+Norme: ./includes/otool.h
+Norme: ./includes/nm.h
+Norme: ./libft/ft_isalnum.c
+Norme: ./libft/ft_atoi.c
+Norme: ./libft/ft_freestrtab.c
+Norme: ./libft/ft_isdigit.c
+Norme: ./libft/ft_isalpha.c
+Norme: ./libft/ft_isprint.c
+Norme: ./libft/ft_isspace.c
+Norme: ./libft/ft_bzero.c
+Norme: ./libft/ft_itoa.c
+Norme: ./libft/ft_isascii.c
+Norme: ./libft/ft_lstdel.c
+Norme: ./libft/ft_len_nospace.c
+Norme: ./libft/ft_lstadd.c
+Norme: ./libft/ft_lstnew.c
+Norme: ./libft/ft_lstdelone.c
+Norme: ./libft/ft_lstiter.c
+Norme: ./libft/ft_memccpy.c
+Norme: ./libft/ft_lstmap.c
+Norme: ./libft/ft_memalloc.c
+Norme: ./libft/ft_memchr.c
+Norme: ./libft/ft_memdel.c
+Norme: ./libft/ft_memcmp.c
+Norme: ./libft/ft_memcpy.c
+Norme: ./libft/ft_memmove.c
+Norme: ./libft/ft_putchar.c
+Norme: ./libft/ft_memset.c
+Norme: ./libft/ft_putchar_fd.c
+Norme: ./libft/ft_putendl.c
+Norme: ./libft/ft_putnbr_fd.c
+Norme: ./libft/ft_putstr_fd.c
+Norme: ./libft/ft_putendl_fd.c
+Norme: ./libft/ft_putnbr.c
+Norme: ./libft/ft_putstr.c
+Norme: ./libft/ft_strcat.c
+Norme: ./libft/ft_quotes.c
+Norme: ./libft/ft_strcmp.c
+Norme: ./libft/ft_strchr.c
+Norme: ./libft/ft_strcpy.c
+Norme: ./libft/ft_strdup.c
+Norme: ./libft/ft_strequ.c
+Norme: ./libft/ft_spacesplit.c
+Norme: ./libft/ft_strclr.c
+Norme: ./libft/ft_striteri.c
+Norme: ./libft/ft_strdel.c
+Norme: ./libft/ft_strjoin.c
+Norme: ./libft/ft_striter.c
+Norme: ./libft/ft_strlen.c
+Norme: ./libft/ft_strlcat.c
+Norme: ./libft/ft_strjoin_nf.c
+Norme: ./libft/ft_strncat.c
+Norme: ./libft/ft_strmapi.c
+Norme: ./libft/ft_strmap.c
+Norme: ./libft/ft_strnequ.c
+Norme: ./libft/ft_strncmp.c
+Norme: ./libft/ft_strncpy.c
+Norme: ./libft/ft_strnew.c
+Norme: ./libft/ft_strrchr.c
+Norme: ./libft/ft_strsub.c
+Norme: ./libft/ft_strnstr.c
+Norme: ./libft/ft_strstr.c
+Norme: ./libft/ft_strsplit.c
+Norme: ./libft/ft_tolower.c
+Norme: ./libft/ft_toupper.c
+Norme: ./libft/includes/get_next_line.h
+Norme: ./libft/ft_strtrim.c
+Norme: ./libft/get_next_line.c
+Norme: ./libft/includes/libft.h
+Norme: ./srcs/nm_fat.c
+Norme: ./srcs/nm.c
+Norme: ./srcs/nm_util.c
+Norme: ./srcs/nm_tab.c
+Norme: ./srcs/nm_list.c
+Norme: ./srcs/otool_fat.c
+Norme: ./srcs/otool_print.c
+Norme: ./srcs/otool.c
+Error (line 29, col 26): bad character after ,
+Norme: ./srcs/otool_util.c

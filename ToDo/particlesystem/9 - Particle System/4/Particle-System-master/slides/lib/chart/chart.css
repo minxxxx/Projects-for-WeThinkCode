@@ -1,0 +1,35 @@
+.d3.d3-bar {
+    overflow-x: auto;
+}
+
+.bar-item {
+    opacity: 0.8;
+}
+
+.axis {
+    font: 10px sans-serif;
+}
+
+.axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+#barChart {
+    width: 75%;
+    height: 60%;
+    bottom: 100px;
+    position: absolute;
+    background-color: #a4a4a4;
+}

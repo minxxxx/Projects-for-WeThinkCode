@@ -1,0 +1,14 @@
+On remarque que le programme fait decryptage par xor avec comme clé 0x1337d00d - atoi(password).
+
+La chaine cryptée est : "Q}|u`sfg~sf{}|a3".
+La chaine à trouver est : "Congratulations!"
+
+On remarque que 'Q' ^ 'C' = 0x12.
+
+La clé de décryptage est donc 0x12.
+
+On doit donc rentrer 0x1337d00d - 0x12 = 0x1337CFFB. (322424827 en decimal)
+
+On récupère ainsi un shell et on n'a plus qu'à :
+
+cat /home/users/level04/.pass

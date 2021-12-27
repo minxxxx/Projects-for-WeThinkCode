@@ -1,0 +1,11 @@
+type state = unknown
+		| X
+		| O
+
+
+{
+	owner = X/O/Fighting
+	state = state list
+}
+
+let truc = solved_ in

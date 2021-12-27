@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+void log_wrapper(FILE *file, char *str1, char *str2)
+{
+	// Ecrit dans file les chaine de caractere donnees
+}
+
+int main(int argc, char **argv)
+{
+	double d;
+	char **av;
+	int	ac;
+	FILE *log;
+	FILE *file;
+	int	i;
+	char	c;
+	char buffer[0x60];
+
+	if (ac != 2)
+	{
+		printf("Usage: %s filename\n", *av);
+	}
+	log = fopen("w", "./backups/.log");
+	if (!log)
+	{
+		printf("ERROR: Failed to open %s\n", "./backups/.log");
+		exit(1);
+	}
+	log_wrapper(log, "Starting backup : ", av[1]);
+	file = fopen("r", av[1]);
+	if (!file)
+	{
+		printf("ERROR: Failed to open %s\n", av[1]);
+		exit(1);
+	}
+	memcpy(buffer, "./backups/", 10);
+	strncat(buffer, av[1], 0x59);
+	i = open(buffer, 0xc1);
+	if (i < 0)
+	{
+		printf("ERROR: Failed to open %s%s\n", "./backups/", av[1]);
+		exit(1);
+	}
+	while ((c = fgetc(file)) != -1)
+		write(1, &c, 1);
+	log_wrapper(log, "Ending backp : ", av[1]);
+}
